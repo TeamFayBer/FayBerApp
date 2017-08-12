@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@android:color/background_light"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivSignIn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_launcherlogo"
+        tools:ignore="ContentDescription" />
+
+    <EditText
+        android:id="@+id/etNomComplet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Nom Complet"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNomComplet"
+        android:layout_gravity="left"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="Telephone"
+        android:inputType="phone"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/etIdentif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPhone"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Identifiant"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/etMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_below="@id/etIdentif"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="E-Mail"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/etPass"
+        android:layout_width="394dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etMail"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:gravity="left"
+        android:layout_marginTop="5dp"
+        android:hint="Creer Mot de Pass"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="Sign In"
+        android:textColor="@android:color/background_light"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/tvSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSignIn"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="65dp"
+        android:text="Infirmières Qualifiées,                                                        Services De Qualité"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+</LinearLayout>

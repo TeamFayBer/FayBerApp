@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvFicheDemande"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:text="@string/fiche_enregistrement"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        tools:ignore="ObsoleteLayoutParam" />
+    <EditText
+        android:id="@+id/etAdresse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvFicheDemande"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:gravity="left"
+        android:inputType="textPersonName"
+        android:hint="Adresse"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:digits="1234567890"
+        android:ems="8"
+        android:inputType="date"
+        android:textSize="18sp"
+        android:maxLength="8"
+        android:onClick="showDatePickerDialog"
+        android:hint="@string/DateNaissance"
+        android:textColor="@android:color/holo_blue_dark"
+        tools:ignore="RelativeOverlap" />
+
+    <EditText
+        android:id="@+id/etLieuNaissance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etDate"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:gravity="left"
+        android:inputType="textPersonName"
+        android:hint="Lieu de Naissance"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <Spinner
+        android:id="@+id/spiSexe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/etOccupation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spiSexe"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:gravity="left"
+        android:inputType="textPersonName"
+        android:hint="Occupation"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/etPersonnePrevenir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etOccupation"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:gravity="left"
+        android:inputType="textPersonName"
+        android:hint="Personne à Prevenir"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+
+    <EditText
+        android:id="@+id/etRelation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPersonnePrevenir"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:gravity="left"
+        android:inputType="textPersonName"
+        android:hint="Relation"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <Button
+        android:id="@+id/btnEnvoyer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="Envoyer"
+        android:scaleType="fitCenter"
+        android:text="@string/envoyer"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

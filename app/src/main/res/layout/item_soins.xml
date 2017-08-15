@@ -2,36 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/ivServiceImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:ignore="ContentDescription" />
+        android:layout_marginTop="5dp"
+        app:srcCompat="@mipmap/ic_hygienecorpor"
+        tools:ignore="ContentDescription,RtlHardcoded" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:layout_alignParentTop="true"
         android:layout_marginRight="5dp"
         android:layout_toEndOf="@+id/ivServiceImage"
-        android:layout_toRightOf="@+id/ivServiceImage"
-        android:text="Hygiene Corporelle"
+        android:text="Service d'Hygiene"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,RtlHardcoded" />
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_alignLeft="@+id/tvOverview"
+        android:layout_alignStart="@+id/tvOverview"
+        android:layout_toRightOf="@+id/ivServiceImage" />
 
     <TextView
         android:id="@+id/tvOverview"
@@ -39,10 +41,126 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitle"
         android:layout_toEndOf="@+id/ivServiceImage"
-        android:layout_toRightOf="@+id/ivServiceImage"
         android:text="Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement."
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_alignLeft="@+id/tvTitle1"
+        android:layout_alignStart="@+id/tvTitle1"
+        android:layout_toRightOf="@+id/ivServiceImage" />
+
+    <ImageView
+    android:id="@+id/ivServiceImage1"
+    android:layout_width="110dp"
+    android:layout_height="110dp"
+    android:layout_below="@+id/tvOverview"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="20dp"
+    app:srcCompat="@mipmap/ic_assistancemedical"
+    tools:ignore="ContentDescription,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assistance Medicale"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_above="@+id/tvOverview1"
+        android:layout_toEndOf="@+id/ivServiceImage"
+        android:layout_alignLeft="@+id/tvOverview1"
+        android:layout_alignStart="@+id/tvOverview1"
+        android:layout_toRightOf="@+id/ivServiceImage" />
+
+    <TextView
+        android:id="@+id/tvOverview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires."
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_marginRight="5dp"
+        android:layout_alignBottom="@+id/ivServiceImage1"
+        android:layout_toEndOf="@+id/ivServiceImage2"
+        android:layout_toRightOf="@+id/ivServiceImage2" />
+
+    <ImageView
+        android:id="@+id/ivServiceImage2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:srcCompat="@mipmap/ic_laboratoire"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_below="@+id/ivServiceImage1"
+        android:layout_alignLeft="@+id/ivServiceImage1"
+        android:layout_alignStart="@+id/ivServiceImage1" />
+
+    <TextView
+        android:id="@+id/tvTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Laboratoire"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_alignTop="@+id/ivServiceImage2"
+        android:layout_toRightOf="@+id/ivServiceImage2"
+        android:layout_toEndOf="@+id/ivServiceImage2"
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:id="@+id/tvOverview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prélèvement et transfert de spécimen (sang, selles, urines, etc.) aux laboratoires."
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
-        tools:ignore="HardcodedText,RtlHardcoded" />
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_below="@+id/tvTitle2"
+        android:layout_toEndOf="@+id/ivServiceImage2"
+        android:layout_toRightOf="@+id/ivServiceImage2" />
+
+    <ImageView
+        android:id="@+id/ivServiceImage3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:srcCompat="@mipmap/ic_diete"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_below="@+id/ivServiceImage2"
+        android:layout_alignLeft="@+id/ivServiceImage2"
+        android:layout_alignStart="@+id/ivServiceImage2" />
+
+    <TextView
+        android:id="@+id/tvTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Controle Diètes"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_alignTop="@+id/ivServiceImage3"
+        android:layout_toRightOf="@+id/ivServiceImage3"
+        android:layout_toEndOf="@+id/ivServiceImage3"
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:id="@+id/tvOverview3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Surveillance des diètes suivant l’ordonnance médicale."
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_below="@+id/tvTitle3"
+        android:layout_toEndOf="@+id/ivServiceImage3"
+        android:layout_toRightOf="@+id/ivServiceImage3" />
 
 </RelativeLayout>

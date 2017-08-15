@@ -10,4 +10,5 @@
     <string name="DateNaissance">07092017</string>
     <string name="envoyer">Envoyer</string>
     <string name="nom_complet">Nom Complet</string>
+    <string name="autres_choix">«Autres choix»</string>
 </resources>

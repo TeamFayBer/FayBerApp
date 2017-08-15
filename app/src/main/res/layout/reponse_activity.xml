@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvAlerteReponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="«Sous peu, vous recevrez un message relatif à votre demande»"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textStyle="italic"
+        android:textSize="22sp"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+    <TextView
+        android:id="@+id/tvChoix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAlerteReponse"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="«Merci»"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="750dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_launcherlogo"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvDescriptName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnChoix"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="2dp"
+        android:text="Fay and Ber"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+    <TextView
+        android:id="@+id/tvDescripActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDescriptName"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Nursing Care Agency"
+        android:textColor="@color/colorAccent"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDescripActivity"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:text="#6 Rue Assad Ave Jean Paul II               Bois Patate, P-au-P HAITI "
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+    <TextView
+        android:id="@+id/tvTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Tel: 4692-2424"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+       <TextView
+        android:id="@+id/tvMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTel"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="fayber.nursingcareagency@gmail.com"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+    <TextView
+        android:id="@+id/tvWeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMail"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="www.fayberagency.com"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+    <TextView
+        android:id="@+id/tvSlogan2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvWeb"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="left"
+        android:text="Visitez nous sur: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+
+        <ImageView
+            android:id="@+id/ivFacebook"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="130dp"
+            app:srcCompat="@mipmap/ic_facebook"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/ivTwitter"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@mipmap/ic_twitter"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/ivYoutube"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@mipmap/ic_youtube"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/ivGoogleBusiness"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@mipmap/ic_googlebusiness"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

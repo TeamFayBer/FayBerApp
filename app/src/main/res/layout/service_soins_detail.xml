@@ -10,16 +10,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light">
+
         <ImageView
             android:id="@+id/ivImageSoins"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            app:srcCompat="@mipmap/ic_launcher"
-            android:scaleType="fitCenter"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@mipmap/ic_installation"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -27,9 +28,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ivImageSoins"
-            android:text="Hygiene Corporelle"
+            android:text="Instatllation de Soluté et Cathéter"
             android:textAlignment="center"
-            android:textColor="@android:color/background_light"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/colorAccent"
             android:textSize="24sp"
             android:textStyle="normal|bold"
             tools:ignore="HardcodedText" />
@@ -40,10 +43,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_marginLeft="5dp"
             android:layout_below="@+id/tvTitle"
+            android:layout_marginRight="5dp"
             android:padding="5dp"
-            android:text="Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement."
-            android:textColor="@android:color/background_light"
+            android:text="Installation de soluté, contrôle de la diurèse horaire et changement de sondes vésicales (Changement de cathéter)."
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             tools:ignore="HardcodedText" />
 
@@ -54,14 +59,14 @@
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/tvOverview"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:background="@android:color/background_light"
+            android:layout_marginTop="40dp"
+            android:background="@color/colorPrimary"
             android:onClick="Soin choisi"
             android:scaleType="fitCenter"
-            android:textSize="18sp"
             android:text="@string/button"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </RelativeLayout>

@@ -1,4 +1,4 @@
-package codepath.fayberapp;
+package Activities;
 
 import android.content.Intent;
 import android.graphics.Movie;
@@ -11,7 +11,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class ServiceSoinsActivity extends AppCompatActivity {
+import codepath.fayberapp.R;
+
+public class ServiceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

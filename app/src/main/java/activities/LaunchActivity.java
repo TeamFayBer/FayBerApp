@@ -1,4 +1,4 @@
-package Activities;
+package activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ public class LaunchActivity extends AppCompatActivity {
     public void onLoginImage(View v) {
         Intent i = new Intent(this, FayActivity.class);
         startActivity(i);
-        Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show();
     }
 
 

@@ -1,4 +1,4 @@
-package Adapters;
+package adapters;
 
 
 public class ServiceArrayAdapter {

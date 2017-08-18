@@ -1,4 +1,4 @@
-package codepath.fayberapp;
+package Adapters;
 
 
 public class ServiceArrayAdapter {

@@ -1,4 +1,4 @@
-package codepath.fayberapp;
+package Activities;
 
 public class SignUpActivity {
 }

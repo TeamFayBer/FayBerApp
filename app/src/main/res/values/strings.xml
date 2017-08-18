@@ -11,4 +11,8 @@
     <string name="envoyer">Envoyer</string>
     <string name="nom_complet">Nom Complet</string>
     <string name="autres_choix">«Autres choix»</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
 </resources>

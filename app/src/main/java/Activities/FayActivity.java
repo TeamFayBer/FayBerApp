@@ -1,4 +1,4 @@
-package activities;
+package Activities;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,12 +11,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
+import Models.Services;
+import adapters.ServiceArrayAdapter;
 import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ListView IvItems;
+    ServiceArrayAdapter serviceAdapter;
+    ArrayList<Services> service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +32,30 @@ public class FayActivity extends AppCompatActivity
       setSupportActionBar(toolbar);
 
 
+        service = new ArrayList<>();
+        serviceAdapter = new ServiceArrayAdapter(this, service);
+        IvItems.setAdapter(serviceAdapter);
         IvItems = (ListView) findViewById(R.id.lvLists);
 
-      DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+      /*  String url = "https://apifayberagency.com";
+
+         public void
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+            {
+                JSONArray serviceJson = null;
+                try{
+                    movieJsonResults = response.getJSONArray("");
+                    service.addAll(Services.fromJSONArray(serviceJson));
+                    serviceAdapter.notifyDataSetChanged();
+                    Log.d("DEBUG", service.toString());
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+            }*/
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
        drawer.setDrawerListener(toggle);
@@ -76,9 +103,9 @@ public class FayActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_service) {
 
         } else if (id == R.id.nav_slideshow) {
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
         <item
@@ -11,26 +12,36 @@
             android:icon="@mipmap/ic_service"
             android:title="Nos Services" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_group"
             android:icon="@mipmap/ic_group"
             android:title="L'Equipe" />
         <item
-            android:id="@+id/nav_share"
-            android:icon="@mipmap/ic_share"
-            android:title="Share" />
+            android:id="@+id/nav_partenaire"
+            android:icon="@mipmap/ic_partnership"
+            android:title="Nos Partenaires" />
+
 
     </group>
-    <item>
-        <menu>
+
+    <group android:checkableBehavior="single">
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_contact"
                 android:icon="@mipmap/ic_contact"
                 android:title="Contact" />
-            <item
-                android:id="@+id/nav_setting"
-                android:icon="@mipmap/ic_setting"
-                android:title="Settings" />
-        </menu>
-    </item>
 
-</menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@mipmap/ic_share"
+                android:title="Partager" />
+
+            <item
+                android:id="@+id/nav_paramètre"
+                android:icon="@mipmap/ic_setting"
+                android:title="Paramètre" />
+
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@mipmap/ic_info"
+                android:title="A propos de Nous" />
+    </group>
+    </menu>

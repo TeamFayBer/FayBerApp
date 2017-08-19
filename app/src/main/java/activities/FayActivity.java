@@ -9,14 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    ListView IvItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,6 @@ public class FayActivity extends AppCompatActivity
         setContentView(R.layout.activity_fay);
      Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
-
-
-        IvItems = (ListView) findViewById(R.id.lvLists);
 
       DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -76,20 +74,23 @@ public class FayActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_service) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_group) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_paramètre) {
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_contact) {
+
+        } else if (id == R.id.nav_info) {
+
+        }else if (id == R.id.nav_partenaire) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

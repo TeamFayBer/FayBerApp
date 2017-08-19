@@ -6,14 +6,14 @@ Time spent: **8** hours spent in total
 
 ## User Stories
 
-* [ X ] User can **see and find in the offerts service list the one he/she wants and needs** by scrolling the list. The maximum number of services is limited by the list of services available in the Agency.
-* [ X ] User can click on "ever Image, title or description" which allows selection of **choice**.
-* [ X ] User can do its choice by click on the choice button, but user must Sign in to fill in the request form.
-* [ X ] User can see all information about the Agency.
-* [ ] Implements robust error handling, [check if internet is available](http://guides.codepath.com/android/Sending-and-Managing-Network-Requests#checking-for-network-connectivity), handle error cases, network failures
-* [ ] User can **share a service link available** to their friends or email it to themselves.
+* [X] User can **see and find in the offerts service list the one he/she wants and needs** by scrolling the list. The maximum number of services is limited by the list of services available in the Agency.
+* [X] User can click on "ever Image, title or description" which allows selection of **choice**.
+* [X] User can do its choice by click on the choice button, but user must Sign in to fill in the request form.
+* [X] User can see all information about the Agency.
+* [X] Implements robust error handling, [check if internet is available](http://guides.codepath.com/android/Sending-and-Managing-Network-Requests#checking-for-network-connectivity), handle error cases, network failures
+* [X] User can **share a service link available** to their friends or email it to themselves.
 
-* [ X ] List anything else that you can get done to improve the app functionality!
+* [X] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
 

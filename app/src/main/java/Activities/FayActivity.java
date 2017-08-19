@@ -9,7 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -20,10 +23,13 @@ import codepath.fayberapp.R;
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+<<<<<<< HEAD:app/src/main/java/Activities/FayActivity.java
     ListView IvItems;
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> service;
 
+=======
+>>>>>>> 033c3a16c6428a6fb3be9d89b7bfd47c9b64e25d:app/src/main/java/activities/FayActivity.java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +37,7 @@ public class FayActivity extends AppCompatActivity
      Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
 
+<<<<<<< HEAD:app/src/main/java/Activities/FayActivity.java
 
         service = new ArrayList<>();
         serviceAdapter = new ServiceArrayAdapter(this, service);
@@ -56,6 +63,9 @@ public class FayActivity extends AppCompatActivity
             }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+=======
+      DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+>>>>>>> 033c3a16c6428a6fb3be9d89b7bfd47c9b64e25d:app/src/main/java/activities/FayActivity.java
        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
        drawer.setDrawerListener(toggle);
@@ -107,16 +117,19 @@ public class FayActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_service) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_group) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_paramètre) {
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_contact) {
+
+        } else if (id == R.id.nav_info) {
+
+        }else if (id == R.id.nav_partenaire) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

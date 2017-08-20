@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by East Coast Pawn on 8/18/2017.
  */
 
-public class Services {
+public class Services {/*
 
     public String getTitle() {
         return title;
@@ -47,5 +47,5 @@ public class Services {
             }
         }
         return results;
-    }
+    }*/
 }

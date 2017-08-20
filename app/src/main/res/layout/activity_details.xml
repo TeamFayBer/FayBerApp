@@ -5,4 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ImageView
+        android:id="@+id/ivImage1"
+        android:layout_width="match_parent"
+        android:layout_height="206dp"
+        android:layout_marginBottom="7dp"
+        android:scaleType="centerCrop"
+        android:scrollbarSize="@android:dimen/app_icon_size"
+        tools:ignore="ContentDescription"
+        app:srcCompat="@mipmap/ic_diete" />
+
+    <TextView
+        android:id="@+id/tvDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="TextView"
+        android:layout_below="@+id/ivImage1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

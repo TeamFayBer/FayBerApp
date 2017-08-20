@@ -10,25 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="Activities.FayActivity"
+            android:name="activities.FayActivity"
             android:label="FayBerApp"
-<<<<<<< HEAD
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name="Activities.LaunchActivity">
-=======
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name="activities.LaunchActivity"
             android:theme="@style/AppTheme.NoActionBar" >
->>>>>>> 033c3a16c6428a6fb3be9d89b7bfd47c9b64e25d
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Activities.DetailsActivity"></activity>
+        <activity android:name="activities.DetailsActivity"></activity>
     </application>
 
 </manifest>

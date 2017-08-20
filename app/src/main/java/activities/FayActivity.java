@@ -1,5 +1,6 @@
-package Activities;
+package activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,39 +11,34 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-
-import Models.Services;
-import adapters.ServiceArrayAdapter;
 import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-<<<<<<< HEAD:app/src/main/java/Activities/FayActivity.java
-    ListView IvItems;
-    ServiceArrayAdapter serviceAdapter;
-    ArrayList<Services> service;
+    // GridView IvItems;
+    //  ServiceArrayAdapter serviceAdapter;
+    //  ArrayList<Services> service;
+    Button btnItems, btnItems1, btnItems2, btnItems3;
 
-=======
->>>>>>> 033c3a16c6428a6fb3be9d89b7bfd47c9b64e25d:app/src/main/java/activities/FayActivity.java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fay);
-     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-<<<<<<< HEAD:app/src/main/java/Activities/FayActivity.java
-
-        service = new ArrayList<>();
+        btnItems = (Button) findViewById(R.id.btnEducation);
+        btnItems1 = (Button) findViewById(R.id.btnSoins);
+        btnItems2 = (Button) findViewById(R.id.btnPrevention);
+        btnItems3 = (Button) findViewById(R.id.btnPromotion);
+      /*  service = new ArrayList<>();
         serviceAdapter = new ServiceArrayAdapter(this, service);
-        IvItems.setAdapter(serviceAdapter);
-        IvItems = (ListView) findViewById(R.id.lvLists);
+        IvItems.setAdapter(serviceAdapter);*/
+        // IvItems = (GridView) findViewById(R.id.lvLists);
 
       /*  String url = "https://apifayberagency.com";
 
@@ -63,13 +59,10 @@ public class FayActivity extends AppCompatActivity
             }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-=======
-      DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
->>>>>>> 033c3a16c6428a6fb3be9d89b7bfd47c9b64e25d:app/src/main/java/activities/FayActivity.java
-       ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-               this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-       drawer.setDrawerListener(toggle);
-       toggle.syncState();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -107,12 +100,12 @@ public class FayActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_service) {
@@ -127,11 +120,15 @@ public class FayActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_info) {
 
-        }else if (id == R.id.nav_partenaire) {
-
+        } else if (id == R.id.nav_partenaire) {
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onLogSuccess() {
+        Intent i = new Intent(this, DetailsActivity.class);
+        startActivity(i);
     }
 }

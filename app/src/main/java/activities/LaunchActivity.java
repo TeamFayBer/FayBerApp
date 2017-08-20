@@ -1,11 +1,10 @@
-package Activities;
+package activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.widget.Toast;
 
 import codepath.fayberapp.R;
 
@@ -26,4 +25,9 @@ public class LaunchActivity extends Activity {
         },2000);
     }
 
+    public void onSuccess() {
+        Intent i = new Intent(this, FayActivity.class);
+        startActivity(i);
+        Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show();
+    }
 }

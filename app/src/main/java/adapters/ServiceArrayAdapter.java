@@ -21,8 +21,8 @@ import codepath.fayberapp.R;
 
 import static codepath.fayberapp.R.id.imageView;
 
-public class ServiceArrayAdapter extends ArrayAdapter<Services> {
-    public static class ViewHolder{
+public class ServiceArrayAdapter {
+   /* public static class ViewHolder{
         TextView tvTitle;
         TextView tvDétails;
     }
@@ -56,5 +56,5 @@ public class ServiceArrayAdapter extends ArrayAdapter<Services> {
         Picasso.with(getContext()).load(image).error(R.mipmap.ic_service).into(ivImage);
 
         return convertView;
-    }
+    }*/
 }

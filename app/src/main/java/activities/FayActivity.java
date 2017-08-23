@@ -14,15 +14,22 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
+import Models.Services;
+import adapters.ServiceArrayAdapter;
 import codepath.fayberapp.R;
+
+import static codepath.fayberapp.R.id.ivImage1;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    // GridView IvItems;
-    //  ServiceArrayAdapter serviceAdapter;
-    //  ArrayList<Services> service;
-    Button btnItems, btnItems1, btnItems2, btnItems3;
+    ServiceArrayAdapter serviceAdapter;
+    ArrayList<Services> service;
+    ListView lvServices;
+
+    //  Button btnItems, btnItems1, btnItems2, btnItems3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,32 +38,51 @@ public class FayActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        btnItems = (Button) findViewById(R.id.btnEducation);
-        btnItems1 = (Button) findViewById(R.id.btnSoins);
-        btnItems2 = (Button) findViewById(R.id.btnPrevention);
-        btnItems3 = (Button) findViewById(R.id.btnPromotion);
-      /*  service = new ArrayList<>();
-        serviceAdapter = new ServiceArrayAdapter(this, service);
-        IvItems.setAdapter(serviceAdapter);*/
-        // IvItems = (GridView) findViewById(R.id.lvLists);
+        // create data
 
-      /*  String url = "https://apifayberagency.com";
+        Services services = new Services();
+        services.setImage(String.valueOf(ivImage1));
+        services.setTitle("EDUCATION ET RÉEDUCTION");
+        services.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
 
-         public void
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
-            {
-                JSONArray serviceJson = null;
-                try{
-                    movieJsonResults = response.getJSONArray("");
-                    service.addAll(Services.fromJSONArray(serviceJson));
-                    serviceAdapter.notifyDataSetChanged();
-                    Log.d("DEBUG", service.toString());
-                }
-                catch (JSONException e)
-                {
-                    e.printStackTrace();
-                }
-            }*/
+        Services services3 = new Services();
+        services3.setImage(String.valueOf(ivImage1));
+        services3.setTitle("EDUCATION ET RÉEDUCTION");
+        services3.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
+
+        Services services1 = new Services();
+        services1.setTitle("SOINS DE BASE DE NURSING");
+        services1.setDetails("Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
+
+        Services services2 = new Services();
+        services2.setTitle("PRÉVENTION DE LA MALADIE");
+        services2.setDetails("Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
+
+        Services services4 = new Services();
+        services4.setImage(String.valueOf(ivImage1));
+        services4.setTitle("EDUCATION ET RÉEDUCTION");
+        services4.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
+
+        Services services5 = new Services();
+        services5.setImage(String.valueOf(ivImage1));
+        services5.setTitle("EDUCATION ET RÉEDUCTION");
+        services5.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
+
+
+        lvServices = (ListView) findViewById(R.id.lvServices);
+
+        service = new ArrayList<>();
+        serviceAdapter = new ServiceArrayAdapter(FayActivity.this, service);
+        lvServices.setAdapter(serviceAdapter);
+
+        serviceAdapter.add(services);
+        serviceAdapter.add(services1);
+        serviceAdapter.add(services2);
+        serviceAdapter.add(services3);
+        serviceAdapter.add(services4);
+        serviceAdapter.add(services5);
+
+        serviceAdapter.notifyDataSetChanged();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -83,6 +109,11 @@ public class FayActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.fay, menu);
         return true;
+    }
+
+    public void onLogSuccess() {
+        Intent i = new Intent(this, DetailsActivity.class);
+        startActivity(i);
     }
 
     @Override
@@ -127,8 +158,4 @@ public class FayActivity extends AppCompatActivity
         return true;
     }
 
-    public void onLogSuccess() {
-        Intent i = new Intent(this, DetailsActivity.class);
-        startActivity(i);
-    }
 }

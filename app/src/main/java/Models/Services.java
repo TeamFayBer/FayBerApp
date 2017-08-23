@@ -4,13 +4,46 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by East Coast Pawn on 8/18/2017.
  */
 
-public class Services {/*
+public class Services implements Serializable {
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    String title;
+    String details;
+    String image;
+
+
+    public Services() {
+    }/*
 
     public String getTitle() {
         return title;

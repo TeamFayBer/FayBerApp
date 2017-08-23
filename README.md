@@ -19,7 +19,7 @@ Time spent: **8** hours spent in total
 
 Here's a walkthrough of implemented user stories:
 
-<img src="http://i.imgur.com/h4ngfkP.gif" />
+<img src="http://i.imgur.com/QLXvh2e.gif" />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

@@ -47,16 +47,16 @@ public class FayActivity extends AppCompatActivity
 
         Services services3 = new Services();
         services3.setImage(String.valueOf(ivImage1));
-        services3.setTitle("EDUCATION ET RÉEDUCTION");
-        services3.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
+        services3.setTitle("PRÉVENTION DE LA MALADIE");
+        services3.setDetails("Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
 
         Services services1 = new Services();
         services1.setTitle("SOINS DE BASE DE NURSING");
-        services1.setDetails("Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
+        services1.setDetails("Prélèvement et transfert de spécimen (sang, selles, urines, etc.) aux laboratoires.");
 
         Services services2 = new Services();
-        services2.setTitle("PRÉVENTION DE LA MALADIE");
-        services2.setDetails("Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
+        services2.setTitle("PROMOTION DE LA SANTÉ");
+        services2.setDetails("Réalisation des tests rapides (malaria, hémogramme, glycémie, HIV, RPR, et autres.)");
 
         Services services4 = new Services();
         services4.setImage(String.valueOf(ivImage1));
@@ -66,7 +66,7 @@ public class FayActivity extends AppCompatActivity
         Services services5 = new Services();
         services5.setImage(String.valueOf(ivImage1));
         services5.setTitle("EDUCATION ET RÉEDUCTION");
-        services5.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
+        services5.setDetails("Installation de soluté, contrôle de la diurèse horaire et changement de sondes vésicales (Changement de cathéter).");
 
 
         lvServices = (ListView) findViewById(R.id.lvServices);

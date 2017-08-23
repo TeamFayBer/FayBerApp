@@ -42,7 +42,7 @@ public class ServiceArrayAdapter  extends ArrayAdapter<Services> {
         // find the image view
         ImageView ivImage1 = (ImageView) convertView.findViewById(R.id.ivImage1);
         // clear out image from convertView
-        ivImage1.setImageResource(0);
+        // ivImage1.setImageResource(0);
 
         TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
         TextView tvOverview = (TextView) convertView.findViewById(R.id.tvDetails);
@@ -50,7 +50,8 @@ public class ServiceArrayAdapter  extends ArrayAdapter<Services> {
         tvTitle.setText(service.getTitle());
         tvOverview.setText(service.getDetails());
 
-        Picasso.with(getContext()).load(String.valueOf(ivImage1)).placeholder(R.mipmap.ic_diete).into(ivImage1);
+        ivImage1.setImageResource(service.getImage());
+        //Picasso.with(getContext()).load(service.getImage()).into(ivImage1);
         return convertView;
     }
 }

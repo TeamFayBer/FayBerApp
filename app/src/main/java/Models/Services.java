@@ -29,17 +29,17 @@ public class Services implements Serializable {
         this.details = details;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
     String title;
     String details;
-    String image;
+    int image;
 
 
     public Services() {

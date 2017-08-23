@@ -10,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,36 +44,46 @@ public class FayActivity extends AppCompatActivity
         // create data
 
         Services services = new Services();
-        services.setImage(String.valueOf(ivImage1));
+        services.setImage(R.mipmap.ic_diete);
         services.setTitle("EDUCATION ET RÉEDUCTION");
         services.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
 
+
         Services services3 = new Services();
-        services3.setImage(String.valueOf(ivImage1));
+        services3.setImage(R.mipmap.ic_hygienecorpor);
         services3.setTitle("PRÉVENTION DE LA MALADIE");
         services3.setDetails("Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
 
         Services services1 = new Services();
+        services1.setImage(R.mipmap.ic_assistancemedical);
         services1.setTitle("SOINS DE BASE DE NURSING");
         services1.setDetails("Prélèvement et transfert de spécimen (sang, selles, urines, etc.) aux laboratoires.");
 
         Services services2 = new Services();
+        services2.setImage(R.mipmap.ic_test);
         services2.setTitle("PROMOTION DE LA SANTÉ");
         services2.setDetails("Réalisation des tests rapides (malaria, hémogramme, glycémie, HIV, RPR, et autres.)");
 
         Services services4 = new Services();
-        services4.setImage(String.valueOf(ivImage1));
+        services4.setImage(R.mipmap.ic_laboratoire);
         services4.setTitle("EDUCATION ET RÉEDUCTION");
         services4.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
 
         Services services5 = new Services();
-        services5.setImage(String.valueOf(ivImage1));
+        services5.setImage(R.mipmap.ic_diete);
         services5.setTitle("EDUCATION ET RÉEDUCTION");
         services5.setDetails("Installation de soluté, contrôle de la diurèse horaire et changement de sondes vésicales (Changement de cathéter).");
 
 
+
         lvServices = (ListView) findViewById(R.id.lvServices);
 
+        lvServices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(FayActivity.this, "Pas data to see details of service", Toast.LENGTH_SHORT).show();
+            }
+        });
         service = new ArrayList<>();
         serviceAdapter = new ServiceArrayAdapter(FayActivity.this, service);
         lvServices.setAdapter(serviceAdapter);

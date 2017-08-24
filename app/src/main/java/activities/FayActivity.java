@@ -12,18 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import Models.Services;
 import adapters.ServiceArrayAdapter;
 import codepath.fayberapp.R;
-
-import static codepath.fayberapp.R.id.ivImage1;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -84,7 +79,7 @@ public class FayActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Services services = (Services) lvServices.getItemAtPosition(position);
             //   Toast.makeText(FayActivity.this, "Pas data to see details of service", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(FayActivity.this, DetailActivity.class);
+                Intent i = new Intent(FayActivity.this, DetailsActivity.class);
                 i.putExtra("services", services);
                 startActivity(i);
             }
@@ -130,7 +125,7 @@ public class FayActivity extends AppCompatActivity
     }
 
     public void onLogSuccess() {
-        Intent i = new Intent(this, DetailActivity.class);
+        Intent i = new Intent(this, DetailsActivity.class);
         startActivity(i);
     }
 

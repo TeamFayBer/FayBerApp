@@ -26,9 +26,10 @@
         <activity android:name="activities.NosServicesActivity" />
         <activity android:name="activities.EquipeActivity" />
         <activity
-            android:name="activities.DetailActivity"
+            android:name="activities.DetailsActivity"
             android:label="@string/title_activity_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="activities.SignInActivity"></activity>
     </application>
 
 </manifest>

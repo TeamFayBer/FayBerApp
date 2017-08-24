@@ -12,18 +12,23 @@
         <activity
             android:name="activities.FayActivity"
             android:label="FayBerApp"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activities.LaunchActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="activities.DetailsActivity"></activity>
+        <activity android:name="activities.AccueilActivity" />
+        <activity android:name="activities.NosServicesActivity" />
+        <activity android:name="activities.EquipeActivity" />
+        <activity
+            android:name="activities.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

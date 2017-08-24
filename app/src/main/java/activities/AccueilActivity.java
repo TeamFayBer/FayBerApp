@@ -1,19 +1,17 @@
 package activities;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,23 +21,22 @@ import Models.Services;
 import adapters.ServiceArrayAdapter;
 import codepath.fayberapp.R;
 
-import static codepath.fayberapp.R.id.ivImage1;
-
-public class FayActivity extends AppCompatActivity
+public class AccueilActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
 
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> service;
     ListView lvServices;
 
-    //  Button btnItems, btnItems1, btnItems2, btnItems3;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fay);
+        setContentView(R.layout.activity_accueil);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         // create data
 
@@ -78,19 +75,14 @@ public class FayActivity extends AppCompatActivity
 
         lvServices = (ListView) findViewById(R.id.lvServices);
 
-
         lvServices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Services services = (Services) lvServices.getItemAtPosition(position);
-            //   Toast.makeText(FayActivity.this, "Pas data to see details of service", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(FayActivity.this, DetailActivity.class);
-                i.putExtra("services", services);
-                startActivity(i);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               // Toast.makeText(FayActivity.this, "Pas data to see details of service", Toast.LENGTH_SHORT).show();
             }
         });
         service = new ArrayList<>();
-        serviceAdapter = new ServiceArrayAdapter(FayActivity.this, service);
+        serviceAdapter = new ServiceArrayAdapter(AccueilActivity.this, service);
         lvServices.setAdapter(serviceAdapter);
 
         serviceAdapter.add(services);
@@ -101,7 +93,6 @@ public class FayActivity extends AppCompatActivity
         serviceAdapter.add(services5);
 
         serviceAdapter.notifyDataSetChanged();
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -129,11 +120,6 @@ public class FayActivity extends AppCompatActivity
         return true;
     }
 
-    public void onLogSuccess() {
-        Intent i = new Intent(this, DetailActivity.class);
-        startActivity(i);
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -151,7 +137,7 @@ public class FayActivity extends AppCompatActivity
 
 
     @SuppressWarnings("StatementWithEmptyBody")
-    @Override
+
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
@@ -175,5 +161,4 @@ public class FayActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }

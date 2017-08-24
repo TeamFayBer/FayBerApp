@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="codepath.fayberapp.activities.DetailActivity"
+    tools:showIn="@layout/activity_detail">
+
+    <ImageView
+        android:id="@+id/ivImage1"
+        android:layout_width="match_parent"
+        android:layout_height="206dp"
+        android:scaleType="centerCrop"
+        android:scrollbarSize="@android:dimen/app_icon_size"
+        tools:ignore="ContentDescription"
+        app:srcCompat="@mipmap/ic_diete"
+        android:layout_marginTop="59dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tvDetails"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivImage1"
+        android:layout_marginTop="49dp"
+        android:text="Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement."
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onLogButton"
+        android:layout_below="@+id/tvDetails"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorPrimary"
+        android:text="CHoose Service"
+        android:textSize="24sp" />
+
+</RelativeLayout>

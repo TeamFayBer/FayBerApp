@@ -39,6 +39,7 @@ public class ServiceArrayAdapter  extends ArrayAdapter<Services> {
             convertView = inflater.inflate(R.layout.item_service, parent, false);
         }
 
+
         // find the image view
         ImageView ivImage1 = (ImageView) convertView.findViewById(R.id.ivImage1);
         // clear out image from convertView

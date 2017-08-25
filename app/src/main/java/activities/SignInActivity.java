@@ -49,7 +49,8 @@ public class SignInActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // Respond to the action bar's Up/Home button
-                return false;
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

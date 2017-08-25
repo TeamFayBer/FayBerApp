@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -49,5 +50,15 @@ public class DetailsActivity extends AppCompatActivity {
     public void onLogButton(View v) {
         Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
         startActivity(i);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Respond to the action bar's Up/Home button
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

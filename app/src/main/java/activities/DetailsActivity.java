@@ -10,12 +10,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import Models.Services;
 import codepath.fayberapp.R;
 
 public class DetailsActivity extends AppCompatActivity {
 
 
     TextView tvText;
+    TextView titre;
     ImageView ImageItem;
     Button button;
 
@@ -26,9 +28,20 @@ public class DetailsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Services serv = (Services) getIntent().getSerializableExtra("services");;
+
 
         tvText = (TextView) findViewById(R.id.tvDetails);
+        tvText.setText(serv.getDetails().toString());
+
+        titre = (TextView) findViewById(R.id.tvtitle4detail);
+        titre.setText(serv.getTitle().toString());
+
         ImageItem = (ImageView) findViewById(R.id.ivImage1);
+        ImageItem.setImageResource(serv.getImage());
+
+
+
         button = (Button) findViewById(R.id.btnRegister);
     }
 

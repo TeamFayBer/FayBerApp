@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:icon="@drawable/fayber"
         android:label="FayBerApp"
+        android:largeHeap="true"
         android:roundIcon="@drawable/fayber"
         android:supportsRtl="true"
-        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
             android:name="activities.FayActivity"
@@ -28,10 +28,17 @@
         <activity android:name="activities.EquipeActivity" />
         <activity
             android:name="activities.DetailsActivity"
-            android:label="@string/title_activity_detail"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="activities.SignInActivity" />
-        <activity android:name="activities.Signup1Activity"></activity>
+            android:label="Details"></activity>
+            <!--android:theme="@style/AppTheme.NoActionBar" -->
+        <activity
+            android:name="activities.SignInActivity"
+            android:label="Connecter"
+           />
+        <activity
+            android:name="activities.SignUpActivity"
+            android:label="Enregistrer"
+           >
+        </activity>
     </application>
 
 </manifest>

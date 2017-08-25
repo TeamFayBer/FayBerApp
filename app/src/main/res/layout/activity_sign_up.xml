@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -12,24 +12,27 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
         android:scaleType="fitCenter"
         android:src="@mipmap/ic_launcherlogo"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/etNomComplet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="left"
-        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Nom Complet"
         android:inputType="textPersonName"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/ivSignIn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/etPhone"
@@ -65,17 +68,17 @@
         android:id="@+id/etMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_below="@id/etIdentif"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
         android:ems="10"
         android:gravity="left"
         android:hint="E-Mail"
         android:inputType="textEmailAddress"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+        android:layout_below="@+id/etIdentif"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/etPass"
@@ -95,33 +98,49 @@
 
     <Button
         android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:text="Sign Up"
+        android:text="Enregistrer"
         android:textColor="@android:color/background_light"
         android:textColorHighlight="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute"
+        android:layout_below="@+id/etPass"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/tvSlogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSignIn"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="65dp"
         android:text="Infirmières Qualifiées, Services De Qualité"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textColorHighlight="@android:color/darker_gray"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp" />
 
-</LinearLayout>
+    <!--<android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Enregistrer"
+        android:titleTextColor="#FFF"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" /> -->
+
+</RelativeLayout>

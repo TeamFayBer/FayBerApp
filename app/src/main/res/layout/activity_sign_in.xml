@@ -15,6 +15,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+     <!--   <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:title="Connecter"
+            android:titleTextColor="#FFF"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" /> -->
+
         <ImageView
             android:id="@+id/ivSignIn"
             android:layout_width="100dp"
@@ -66,12 +79,13 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="35dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:text="Sign In"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@android:color/holo_blue_bright"
+            android:text="Connecter"
             android:textColor="@android:color/background_light"
             android:textColorHighlight="@android:color/darker_gray"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute" />
 
     </LinearLayout>
@@ -80,7 +94,6 @@
         android:id="@+id/tvOr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
         android:text="or"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHighlight="@android:color/darker_gray"
@@ -88,7 +101,8 @@
         android:textSize="15sp"
         tools:ignore="HardcodedText"
         android:layout_below="@+id/LinearLayout1"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
 
 
     <Button
@@ -96,17 +110,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:text="Sign Up"
+        android:text="Enregistrer"
         android:textColor="@android:color/background_light"
         android:textColorHighlight="@android:color/darker_gray"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textSize="14sp"
+        android:onClick="onLogButton"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute"
-        android:layout_below="@+id/tvOr"
+        android:layout_above="@+id/tvForgot"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="22dp" />
 
     <TextView
         android:id="@+id/tvForgot"
@@ -116,11 +132,10 @@
         android:text="Forgot your password?"
         android:textColor="@android:color/holo_blue_dark"
         android:textColorHighlight="@android:color/darker_gray"
-        android:textStyle="bold"
         tools:ignore="HardcodedText,ObsoleteLayoutParam"
+        android:layout_marginBottom="17dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="13dp" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -22,4 +22,6 @@
     <string name="promotion_de_la_sante">Promotion de la sante</string>
     <string name="soins_de_base_de_nursing">Soins de Base de Nursing</string>
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_sign_in">Connecter</string>
+    <string name="title_activity_sign_up">Enregistrer</string>
 </resources>

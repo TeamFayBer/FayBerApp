@@ -1,7 +1,11 @@
 package activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,6 +28,9 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+     //   setSupportActionBar(toolbar);
 
         edText = (EditText) findViewById(R.id.etIdentif);
         edText1 = (EditText) findViewById(R.id.etPass);
@@ -32,5 +39,18 @@ public class SignInActivity extends AppCompatActivity {
         Pic = (ImageView) findViewById(R.id.ivSignIn);
         but = (Button) findViewById(R.id.btnSignUp);
         but1 = (Button) findViewById(R.id.btnSignIn1);
+    }
+    public void onLogButton(View v) {
+        Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
+        startActivity(i);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Respond to the action bar's Up/Home button
+                return false;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

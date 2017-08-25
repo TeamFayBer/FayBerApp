@@ -116,7 +116,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="65dp"
-        android:text="Infirmières Qualifiées,                                                        Services De Qualité"
+        android:text="Infirmières Qualifiées, Services De Qualité"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textColorHighlight="@android:color/darker_gray"

@@ -84,6 +84,7 @@ public class FayActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+
         service = new ArrayList<>();
         serviceAdapter = new ServiceArrayAdapter(FayActivity.this, service);
         lvServices.setAdapter(serviceAdapter);

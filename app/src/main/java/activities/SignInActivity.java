@@ -18,13 +18,10 @@ public class SignInActivity extends AppCompatActivity {
     TextView text;
     TextView text1;
     ImageView Pic;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
         edText = (EditText) findViewById(R.id.etIdentif);
         edText1 = (EditText) findViewById(R.id.etPass);
         text = (TextView) findViewById(R.id.tvForgot);

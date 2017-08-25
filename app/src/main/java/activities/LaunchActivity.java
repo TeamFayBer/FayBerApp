@@ -15,7 +15,6 @@ public class LaunchActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -24,7 +23,6 @@ public class LaunchActivity extends Activity {
             }
         },2000);
     }
-
     public void onSuccess() {
         Intent i = new Intent(this, FayActivity.class);
         startActivity(i);

@@ -149,8 +149,11 @@ public class FayActivity extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_service) {
-        } else if (id == R.id.nav_group) {
+        }
+        else if (id == R.id.nav_localisation)
+        {
+        }
+        else if (id == R.id.nav_group) {
         } else if (id == R.id.nav_paramètre) {
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_contact) {

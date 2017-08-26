@@ -8,9 +8,9 @@
             android:icon="@mipmap/ic_home"
             android:title="Accueil" />
         <item
-            android:id="@+id/nav_service"
-            android:icon="@mipmap/ic_service"
-            android:title="Nos Services" />
+            android:id="@+id/nav_localisation"
+            android:icon="@mipmap/ic_localisation"
+            android:title="Localisation" />
         <item
             android:id="@+id/nav_group"
             android:icon="@mipmap/ic_group"

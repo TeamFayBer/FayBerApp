@@ -20,8 +20,9 @@ public class LaunchActivity extends Activity {
             public void run() {
                 Intent i = new Intent(LaunchActivity.this, FayActivity.class);
                 startActivity(i);
+                finish();
             }
-        },2000);
+        },1000);
     }
     public void onSuccess() {
         Intent i = new Intent(this, FayActivity.class);

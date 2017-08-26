@@ -39,6 +39,14 @@ public class SignInActivity extends AppCompatActivity {
         Pic = (ImageView) findViewById(R.id.ivSignIn);
         but = (Button) findViewById(R.id.btnSignUp);
         but1 = (Button) findViewById(R.id.btnSignIn1);
+
+        but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
+                startActivity(i);
+            }
+        });
     }
     public void onLogButton(View v) {
         Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);

@@ -4,8 +4,9 @@
         <item
             android:id="@+id/miShare"
             android:icon="@mipmap/ic_share"
-            android:onClick="onShareAction"
             app:showAsAction="ifRoom"
-            android:title="@string/share">
+            android:title="@string/share"
+            android:actionProviderClass=
+                "android.widget.ShareActionProvider" >
         </item>
 </menu>

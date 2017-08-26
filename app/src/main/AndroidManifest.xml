@@ -28,17 +28,15 @@
         <activity android:name="activities.EquipeActivity" />
         <activity
             android:name="activities.DetailsActivity"
-            android:label="Details"></activity>
-            <!--android:theme="@style/AppTheme.NoActionBar" -->
+            android:label="Details" />
+        <!-- android:theme="@style/AppTheme.NoActionBar" -->
         <activity
             android:name="activities.SignInActivity"
-            android:label="Connecter"
-           />
+            android:label="Connecter" />
         <activity
             android:name="activities.SignUpActivity"
-            android:label="Enregistrer"
-           >
-        </activity>
+            android:label="Enregistrer"></activity>
+        <activity android:name="activities.FicheDemandeActivity"></activity>
     </application>
 
 </manifest>

@@ -41,7 +41,7 @@ public class SignInActivity extends AppCompatActivity {
         but1 = (Button) findViewById(R.id.btnSignIn1);
     }
     public void onLogButton(View v) {
-        Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
+        Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);
         startActivity(i);
     }
     @Override

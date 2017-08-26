@@ -129,7 +129,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Forgot your password?"
+        android:text="Mot de passe oublier?"
         android:textColor="@android:color/holo_blue_dark"
         android:textColorHighlight="@android:color/darker_gray"
         tools:ignore="HardcodedText,ObsoleteLayoutParam"

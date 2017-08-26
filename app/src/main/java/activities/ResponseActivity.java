@@ -11,7 +11,7 @@ import codepath.fayberapp.R;
 
 public class ResponseActivity extends AppCompatActivity {
 
-    ImageView map;
+  //  ImageView map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +20,7 @@ public class ResponseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         //map
-        map = (ImageView) findViewById(R.id.mapView);
+       // map = (ImageView) findViewById(R.id.mapView);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

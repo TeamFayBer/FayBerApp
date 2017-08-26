@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,22 +9,21 @@
         android:id="@+id/tvFicheDemande"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:text="@string/fiche_enregistrement"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHighlight="@android:color/darker_gray"
         android:textStyle="bold"
         android:textSize="24sp"
-        tools:ignore="ObsoleteLayoutParam" />
+        tools:ignore="ObsoleteLayoutParam"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp" />
     <EditText
         android:id="@+id/etAdresse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvFicheDemande"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="left"
         android:inputType="textPersonName"
@@ -31,15 +31,16 @@
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/tvFicheDemande"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/etDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="5dp"
         android:digits="1234567890"
         android:ems="8"
         android:inputType="date"
@@ -48,15 +49,16 @@
         android:onClick="showDatePickerDialog"
         android:hint="@string/DateNaissance"
         android:textColor="@android:color/holo_blue_dark"
-        tools:ignore="RelativeOverlap" />
+        tools:ignore="RelativeOverlap"
+        android:layout_below="@+id/etAdresse"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/etLieuNaissance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etDate"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
         android:ems="10"
         android:gravity="left"
         android:inputType="textPersonName"
@@ -64,22 +66,25 @@
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+        android:layout_below="@+id/etDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:id="@+id/spiSexe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_below="@+id/etDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/etOccupation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spiSexe"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
         android:ems="10"
         android:gravity="left"
         android:inputType="textPersonName"
@@ -87,7 +92,10 @@
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+        android:layout_below="@+id/etLieuNaissance"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/etPersonnePrevenir"
@@ -124,17 +132,19 @@
 
     <Button
         android:id="@+id/btnEnvoyer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="Envoyer"
         android:scaleType="fitCenter"
         android:text="@string/envoyer"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-</LinearLayout>
+        android:textSize="14sp" />
+</RelativeLayout>

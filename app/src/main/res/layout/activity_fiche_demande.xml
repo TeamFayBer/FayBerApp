@@ -16,12 +16,15 @@
         android:textStyle="bold"
         android:textSize="24sp"
         tools:ignore="ObsoleteLayoutParam"
+        android:layout_marginBottom="15dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp" />
+        android:layout_marginTop="16dp" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_height="wrap_content"
         android:id="@+id/Adress"
         android:layout_marginBottom="5dp">
@@ -33,10 +36,11 @@
         android:ems="10"
         android:gravity="left"
         android:inputType="textPersonName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:hint="Adresse"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
-        android:textStyle="bold"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/tvFicheDemande"
@@ -47,6 +51,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/Date"
         android:layout_marginBottom="5dp">
 
@@ -57,6 +63,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/etAdresse"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:digits="1234567890"
             android:ems="8"
             android:hint="@string/DateNaissance"
@@ -71,12 +79,16 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/lieuNaissance"
         android:layout_marginBottom="5dp">
     <EditText
         android:id="@+id/etLieuNaissance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_gravity="center"
         android:ems="10"
         android:gravity="left"
@@ -84,7 +96,6 @@
         android:hint="Lieu de Naissance"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
-        android:textStyle="bold"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
         android:layout_below="@+id/etDate"
         android:layout_alignParentLeft="true"
@@ -95,6 +106,8 @@
         android:id="@+id/spiSexe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:visibility="visible"
@@ -103,6 +116,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/Occupation"
         android:layout_marginBottom="5dp">
     <EditText
@@ -113,10 +128,11 @@
         android:ems="10"
         android:gravity="left"
         android:inputType="textPersonName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:hint="Occupation"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
-        android:textStyle="bold"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
         android:layout_below="@+id/etLieuNaissance"
         android:layout_alignParentLeft="true"
@@ -126,6 +142,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/Prevenir"
         android:layout_marginBottom="5dp">
     <EditText
@@ -138,16 +156,19 @@
         android:ems="10"
         android:gravity="left"
         android:inputType="textPersonName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:hint="Personne à Prevenir"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
-        android:textStyle="bold"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/Relation"
         android:layout_marginBottom="5dp">
     <EditText
@@ -156,6 +177,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etPersonnePrevenir"
         android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
         android:ems="10"
         android:gravity="left"
@@ -163,7 +186,6 @@
         android:hint="Relation"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
-        android:textStyle="bold"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 
@@ -171,11 +193,10 @@
         android:id="@+id/btnEnvoyer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="onLogButton"

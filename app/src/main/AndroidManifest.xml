@@ -35,8 +35,9 @@
             android:label="Connecter" />
         <activity
             android:name="activities.SignUpActivity"
-            android:label="Enregistrer"></activity>
-        <activity android:name="activities.FicheDemandeActivity"></activity>
+            android:label="Enregistrer" />
+        <activity android:name="activities.FicheDemandeActivity" />
+        <activity android:name="activities.ResponseActivity"></activity>
     </application>
 
 </manifest>

@@ -114,6 +114,7 @@
         android:textColor="@android:color/background_light"
         android:textColorHighlight="@android:color/darker_gray"
         android:textSize="14sp"
+        android:onClick="onLogButton"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute"
         android:layout_marginTop="32dp"
         android:textStyle="bold"

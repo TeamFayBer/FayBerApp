@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import Models.Services;
 import codepath.fayberapp.R;
@@ -26,13 +28,13 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
+
         //Display the Up button home
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
         //Call a differents page,not the same
         Services serv = (Services) getIntent().getSerializableExtra("services");
-
         tvText = (TextView) findViewById(R.id.tvDetails);
         tvText.setText(serv.getDetails().toString());
         titre = (TextView) findViewById(R.id.tvtitle4detail);
@@ -41,15 +43,12 @@ public class DetailsActivity extends AppCompatActivity {
         ImageItem.setImageResource(serv.getImage());
         button = (Button) findViewById(R.id.btnRegister);
     }
+    //private ShareActionProvider mShareActionProvider;
    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.icon_share, menu);
-        return true;
-    }
-    //onClick in icon share
-    public void onShareAction(MenuItem mi) {
-        // handle click here
-    }
+       return true;
+   }
     //navigate to SignUp activity
     public void onLogButton(View v) {
         Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
@@ -63,9 +62,18 @@ public class DetailsActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.miShare:
-                finish();
+                shareInfo();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+//
+    public void shareInfo(){
+        String messageToShare="Pour plus de detail et de contenu, visitez notre siteWeb- http://fayberagency.com/";
+
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/html");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>"+messageToShare+"</p>"));
+        startActivity(Intent.createChooser(sharingIntent, "Share using"));
     }
 }

@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,7 +25,7 @@ import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+     // call the adapter,the listview and the model
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> service;
     ListView lvServices;
@@ -31,9 +34,10 @@ public class FayActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fay);
+        //Display the toobar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // create data
+        // create the fake data
         Services services = new Services();
         services.setImage(R.drawable.fitness);
         services.setTitle("HYGIENE CORPORELLE");
@@ -78,8 +82,9 @@ public class FayActivity extends AppCompatActivity
         services8.setImage(R.drawable.mental);
         services8.setTitle("SOUTIEN");
         services8.setDetails("Aide et soutien psychologique au besoin.");
-
+        // call the listview
         lvServices = (ListView) findViewById(R.id.lvServices);
+        // onclick in the listview for seeing the details
         lvServices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -124,12 +129,38 @@ public class FayActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.fay, menu);
-        return true;
-    }
+       // return true;
+        //inflate the button search
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.search, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        // Expand the search view and request focus
+        searchItem.expandActionView();
+        searchView.requestFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                              @Override
+                                              public boolean onQueryTextSubmit(String query) {
+                                                  // perform query here
+
+                                                  // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
+                                                  // see https://code.google.com/p/android/issues/detail?id=24599
+                                                  searchView.clearFocus();
+
+                                                  return true;
+                                              }
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            return false;
+        }
+    });
+   return super.onCreateOptionsMenu(menu);
+}
+    /*
     public void onLogSuccess() {
         Intent i = new Intent(this, DetailsActivity.class);
         startActivity(i);
-    }
+    }*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

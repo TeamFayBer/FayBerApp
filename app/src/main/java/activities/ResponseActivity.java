@@ -16,7 +16,7 @@ public class ResponseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_response);
-        //Display up button
+        //Display up button to home page
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         //map
@@ -25,7 +25,7 @@ public class ResponseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                // Respond to the action bar's Up/Home button
+                // Respond to the action bar's Up/Home button to the home page with (finishAffinity)
                 Intent i = new Intent(ResponseActivity.this, FayActivity.class);
                 startActivity(i);
                 finishAffinity();

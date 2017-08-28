@@ -49,7 +49,7 @@ public class DetailsActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.icon_share, menu);
        return true;
    }
-    //navigate to SignUp activity
+    //navigate to SignIn activity
     public void onLogButton(View v) {
         Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
         startActivity(i);

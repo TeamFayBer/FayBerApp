@@ -15,6 +15,7 @@ public class LaunchActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
+        //create the splash
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -24,9 +25,9 @@ public class LaunchActivity extends Activity {
             }
         },1000);
     }
-    public void onSuccess() {
+ /*   public void onSuccess() {
         Intent i = new Intent(this, FayActivity.class);
         startActivity(i);
         Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show();
-    }
+    }*/
 }

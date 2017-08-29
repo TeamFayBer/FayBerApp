@@ -13,19 +13,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tvAlerteReponse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:text="«Sous peu, vous recevrez un message relatif à votre demande»"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textStyle="italic"
-                android:textSize="22sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             <TextView
                 android:id="@+id/tvChoix"

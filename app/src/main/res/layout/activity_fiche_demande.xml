@@ -20,6 +20,14 @@
         android:textSize="24sp"
         android:textStyle="bold"
         tools:ignore="ObsoleteLayoutParam" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    android:layout_marginTop="16dp" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
@@ -32,7 +40,7 @@
         <EditText
             android:id="@+id/etAdresse"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tvFicheDemande"
@@ -47,6 +55,26 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/etAdresse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:gravity="left"
+        android:inputType="textPersonName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:hint="Adresse"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/tvFicheDemande"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -102,6 +130,8 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+      
+
     </android.support.design.widget.TextInputLayout>
 
     <Spinner
@@ -140,6 +170,9 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+
+   
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -166,6 +199,8 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -192,6 +227,8 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -210,4 +247,7 @@
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="14sp" />
+</LinearLayout>
+
+</ScrollView>
 </LinearLayout>

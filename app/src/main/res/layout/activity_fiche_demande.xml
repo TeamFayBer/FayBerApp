@@ -19,29 +19,36 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="31dp" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Adress"
         android:layout_marginBottom="5dp">
-    <EditText
-        android:id="@+id/etAdresse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:gravity="left"
-        android:inputType="textPersonName"
-        android:hint="Adresse"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/tvFicheDemande"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/etAdresse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:gravity="left"
+            android:inputType="textPersonName"
+            android:hint="Adresse"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/tvFicheDemande"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -73,22 +80,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/lieuNaissance"
         android:layout_marginBottom="5dp">
-    <EditText
-        android:id="@+id/etLieuNaissance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:gravity="left"
-        android:inputType="textPersonName"
-        android:hint="Lieu de Naissance"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
-        android:layout_below="@+id/etDate"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/etLieuNaissance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:gravity="left"
+            android:inputType="textPersonName"
+            android:hint="Lieu de Naissance"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+            android:layout_below="@+id/etDate"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </android.support.design.widget.TextInputLayout>
 
     <Spinner
@@ -105,22 +112,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/Occupation"
         android:layout_marginBottom="5dp">
-    <EditText
-        android:id="@+id/etOccupation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:gravity="left"
-        android:inputType="textPersonName"
-        android:hint="Occupation"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
-        android:layout_below="@+id/etLieuNaissance"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/etOccupation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:gravity="left"
+            android:inputType="textPersonName"
+            android:hint="Occupation"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+            android:layout_below="@+id/etLieuNaissance"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -128,21 +135,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/Prevenir"
         android:layout_marginBottom="5dp">
-    <EditText
-        android:id="@+id/etPersonnePrevenir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etOccupation"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:gravity="left"
-        android:inputType="textPersonName"
-        android:hint="Personne à Prevenir"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+        <EditText
+            android:id="@+id/etPersonnePrevenir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etOccupation"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:gravity="left"
+            android:inputType="textPersonName"
+            android:hint="Personne à Prevenir"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -150,21 +157,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/Relation"
         android:layout_marginBottom="5dp">
-    <EditText
-        android:id="@+id/etRelation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPersonnePrevenir"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:gravity="left"
-        android:inputType="textPersonName"
-        android:hint="Relation"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+        <EditText
+            android:id="@+id/etRelation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etPersonnePrevenir"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:gravity="left"
+            android:inputType="textPersonName"
+            android:hint="Relation"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -184,4 +191,7 @@
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="14sp" />
+</LinearLayout>
+
+</ScrollView>
 </LinearLayout>

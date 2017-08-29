@@ -77,10 +77,5 @@ public class DetailsActivity extends AppCompatActivity {
         sendIntent.putExtra(Intent.EXTRA_TEXT, messageToShare);
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
-
-        /*Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra("messsage", messageToShare);
-        startActivity(sharingIntent);*/
     }
 }

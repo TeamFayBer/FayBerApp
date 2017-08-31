@@ -178,7 +178,6 @@
         android:id="@+id/btnEnvoyer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="44dp"
@@ -190,7 +189,8 @@
         android:text="@string/envoyer"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:ignore="ObsoleteLayoutParam" />
 </LinearLayout>
 
 </ScrollView>

@@ -33,14 +33,14 @@ public class DetailsActivity extends AppCompatActivity {
 
         //Display the Up button home
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //Call a differents page,not the same
+        //Call a differents contenu,not the same in details page
         Services serv = (Services) getIntent().getSerializableExtra("services");
         tvText = (TextView) findViewById(R.id.tvDetails);
         tvText.setText(serv.getDetails().toString());
         titre = (TextView) findViewById(R.id.tvtitle4detail);
         titre.setText(serv.getTitle().toString());
         ImageItem = (ImageView) findViewById(R.id.ivImage1);
-        ImageItem.setImageResource(serv.getImage());
+       // ImageItem.setImageResource(Integer.parseInt(serv.getImage()));
         button = (Button) findViewById(R.id.btnRegister);
     }
     //private ShareActionProvider mShareActionProvider;
@@ -68,7 +68,9 @@ public class DetailsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 //
+    // To share via another apps
     public void shareInfo(){
+        //add the message for sharing
         String messageToShare="Pour plus de detail et de contenu, visitez notre siteWeb- http://fayberagency.com/";
 
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);

@@ -10,13 +10,22 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import cz.msebera.android.httpclient.Header;
 import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -53,12 +62,35 @@ public class FayActivity extends AppCompatActivity
             }
         });
 
+        String url = "http://fayberagency.com/v1/app/liste_service.php";
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(url, new JsonHttpResponseHandler(){
+          @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+            {
+                JSONArray serviceJsonResults = null;
+                try{
+                    serviceJsonResults = response.getJSONArray("response");
+                    aServices.addAll(Services.fromJSONArray(serviceJsonResults));
+                    serviceAdapter.notifyDataSetChanged();
+                    Log.d("DEBUG", aServices.toString());
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+
+
+            public void onFaillure(int statusCode, Header[] headers,String responseString,Throwable throwable)
+            {
+                super.onFailure(statusCode, headers, responseString, throwable);
+            }
+        });
+
         aServices = new ArrayList<>();
         serviceAdapter = new ServiceArrayAdapter(FayActivity.this, aServices);
         lvServices.setAdapter(serviceAdapter);
-
-        serviceAdapter.addAll(Services.fromFakeData());
-        serviceAdapter.notifyDataSetChanged();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -82,7 +114,7 @@ public class FayActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.fay, menu);
        // return true;
-        //inflate the button search
+          //inflate the button search
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
@@ -95,12 +127,14 @@ public class FayActivity extends AppCompatActivity
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(FayActivity.this, "--" +query, Toast.LENGTH_SHORT).show();
                 // perform query here
-                serviceAdapter.clear();
-                serviceAdapter.addAll(Services.searchFakeData(query));
+                /*serviceAdapter.clear();
+                aServices.addAll(Services.searchJSONArray(query));
+                //serviceAdapter.addAll(Services.searchFakeData(query));
                 serviceAdapter.notifyDataSetChanged();
                 // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
                 // see https://code.google.com/p/android/issues/detail?id=24599
-                searchView.clearFocus();
+                searchView.clearFocus(); */
+
               return true;
             }
 
@@ -111,7 +145,7 @@ public class FayActivity extends AppCompatActivity
         });
    return super.onCreateOptionsMenu(menu);
 }
-    /*
+  /*
     public void onLogSuccess() {
         Intent i = new Intent(this, DetailsActivity.class);
         startActivity(i);

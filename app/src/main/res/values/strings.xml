@@ -26,4 +26,7 @@
     <string name="title_activity_sign_up">Enregistrer</string>
     <string name="share">Share</string>
     <string name="sexeTitle">Sexe</string>
+    <string name="profil_poste">Profil Poste</string>
+    <string name="name">Name</string>
+    <string name="ivprofil">ivProfil</string>
 </resources>

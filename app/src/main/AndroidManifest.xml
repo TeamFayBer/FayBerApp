@@ -25,7 +25,6 @@
         </activity>
         <activity android:name="activities.AccueilActivity" />
         <activity android:name="activities.NosServicesActivity" />
-        <activity android:name="activities.EquipeActivity" />
         <activity
             android:name="activities.DetailsActivity"
             android:label="Details" />
@@ -37,7 +36,9 @@
             android:name="activities.SignUpActivity"
             android:label="Enregistrer" />
         <activity android:name="activities.FicheDemandeActivity" />
-        <activity android:name="activities.ResponseActivity"></activity>
+        <activity android:name="activities.ResponseActivity" />
+        <activity android:name="activities.TeamFayBerActivity"></activity>
+        <activity android:name=".PartenaireActivity"></activity>
     </application>
 
 </manifest>

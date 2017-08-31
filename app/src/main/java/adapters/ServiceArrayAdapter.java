@@ -14,8 +14,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import Models.Equipe;
 import Models.Services;
 import codepath.fayberapp.R;
 
@@ -24,7 +26,7 @@ import static codepath.fayberapp.R.id.imageView;
 import static codepath.fayberapp.R.id.ivImage1;
 
 public class ServiceArrayAdapter  extends ArrayAdapter<Services> {
-    public ServiceArrayAdapter(Context context, List<Services> service) {
+    public ServiceArrayAdapter(Context context, ArrayList<Services> service) {
         super(context, android.R.layout.simple_list_item_1, service);
     }
 

@@ -69,12 +69,12 @@ public class DetailsActivity extends AppCompatActivity {
     }
 //
     public void shareInfo(){
-        String messageToShare="Pour plus de detail et de contenu, visitez notre siteWeb- http://fayberagency.com/";
+        String messageToShare="visitez notre siteWeb- http://fayberagency.com/";
 
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, messageToShare);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, titre.getText().toString() + " " + messageToShare);
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
     }

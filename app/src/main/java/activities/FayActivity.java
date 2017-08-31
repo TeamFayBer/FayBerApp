@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import Models.Services;
 import adapters.ServiceArrayAdapter;
+import codepath.fayberapp.PartenaireActivity;
 import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
@@ -140,11 +141,15 @@ public class FayActivity extends AppCompatActivity
         {
         }
         else if (id == R.id.nav_group) {
+            Intent i = new Intent(FayActivity.this, TeamFayBerActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_paramètre) {
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_contact) {
         } else if (id == R.id.nav_info) {
         } else if (id == R.id.nav_partenaire) {
+            Intent i = new Intent(FayActivity.this, PartenaireActivity.class);
+            startActivity(i);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

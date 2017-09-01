@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="codepath.fayberapp.AproposActivity">
+
+    <TextView
+        android:id="@+id/tvApropos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="serif"
+        android:text="Est une agence de soins infirmiers a domicile. Elle se donne pour mission d'accompagner le patient/client, considerer dans sa globalite comme etre bio-psycho-sociospirituel, jusqu'a lui permettre de retrouver et/ou de conserver sa sante, de retrouver le moyen de fonctonner a la dimension souhaitee ou possible"
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText,RtlCompat" />
+
+
+</RelativeLayout>

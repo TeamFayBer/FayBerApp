@@ -26,9 +26,7 @@
                 android:textColorHighlight="@android:color/darker_gray"
                 android:textStyle="bold"
                 android:textSize="22sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam"
                 android:layout_marginBottom="10dp"
-                android:layout_below="@+id/tvAlerteReponse"
                 android:layout_centerHorizontal="true" />
 
             <ImageView

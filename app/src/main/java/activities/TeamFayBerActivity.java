@@ -3,6 +3,7 @@ package activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -20,8 +21,6 @@ public class TeamFayBerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_fay_ber);
-
-
         // call the listview
         lvEquipe = (ListView) findViewById(R.id.lvEquipe);
         // onclick in the listview for seeing the details
@@ -33,6 +32,11 @@ public class TeamFayBerActivity extends AppCompatActivity {
                 //Intent i = new Intent(TeamFayBerActivity.this, FayActivity.class);
                 //i.putExtra("Equipe", equipe);
                // startActivity(i);
+
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                getSupportActionBar().setDisplayShowHomeEnabled(true);
+                //map
+                // map = (ImageView) findViewById(R.id.mapView);
             }
         });
 
@@ -42,5 +46,16 @@ public class TeamFayBerActivity extends AppCompatActivity {
 
         equipeAdapter.addAll(Equipe.fromFakeData());
         equipeAdapter.notifyDataSetChanged();
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Respond to the action bar's Up/Home button to the home page with (finishAffinity)
+                Intent i = new Intent(TeamFayBerActivity.this, FayActivity.class);
+                startActivity(i);
+                finishAffinity();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

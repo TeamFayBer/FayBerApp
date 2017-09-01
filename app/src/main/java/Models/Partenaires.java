@@ -64,24 +64,10 @@ public class Partenaires implements Serializable {
         Partenaires1.setTitle("Chantal CORRIOLAND");
         Partenaires1.setDetails("Assistante directrice des soins de Fay&Ber\n" +
                 " Infirmière spécialisée en maladie infectieuse,  professeur, chef de service SOP à  Saint François de Sales.");
-        //
-        Partenaires Partenaires2 = new Partenaires();
-        Partenaires2.setImage(R.drawable.jerimage);
-        Partenaires2.setTitle("Jerry BAZILE");
-        Partenaires2.setDetails("Responsable partenariat et relation entre médecins traitants \n" +
-                "et/ou associations de médecins et FAY&BER. \n" +
-                "* Docteur Obstétricien, Gynécologue spécialisé en infertilité. ");
-        //
-        Partenaires Partenaires4 = new Partenaires();
-        Partenaires4.setImage(R.drawable.nurse);
-        Partenaires4.setTitle("INFIRMIERES LICENCIEES");
-        Partenaires4.setDetails("Recrutées par l’agence");
 
         results.add(Partenaires);
         results.add(Partenaires1);
-        results.add(Partenaires2);
         results.add(Partenaires3);
-        results.add(Partenaires4);
 
         return results;
     }

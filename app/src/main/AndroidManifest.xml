@@ -38,8 +38,9 @@
             android:label="Enregistrer" />
         <activity android:name="activities.FicheDemandeActivity" />
         <activity android:name="activities.ResponseActivity" />
-        <activity android:name="activities.TeamFayBerActivity"></activity>
-        <activity android:name=".PartenaireActivity"></activity>
+        <activity android:name="activities.TeamFayBerActivity" />
+        <activity android:name=".PartenaireActivity" />
+        <activity android:name=".AproposActivity"></activity>
     </application>
 
 </manifest>

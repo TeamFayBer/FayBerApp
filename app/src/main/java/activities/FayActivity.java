@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import Models.Services;
 import adapters.ServiceArrayAdapter;
+import codepath.fayberapp.AproposActivity;
 import codepath.fayberapp.PartenaireActivity;
 import codepath.fayberapp.R;
 
@@ -146,7 +147,11 @@ public class FayActivity extends AppCompatActivity
         } else if (id == R.id.nav_paramètre) {
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_contact) {
+            Intent i = new Intent(FayActivity.this, ResponseActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_info) {
+            Intent i = new Intent(FayActivity.this, AproposActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_partenaire) {
             Intent i = new Intent(FayActivity.this, PartenaireActivity.class);
             startActivity(i);

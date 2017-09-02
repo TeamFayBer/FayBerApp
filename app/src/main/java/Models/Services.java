@@ -52,7 +52,7 @@ public class Services implements Serializable {
         ArrayList<Services> results = new ArrayList<>();
 
         Services services = new Services();
-        services.setImage(R.drawable.fitness);
+        services.setImage(R.drawable.nurse);
         services.setTitle("HYGIENE CORPORELLE");
         services.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
         //

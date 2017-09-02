@@ -9,6 +9,7 @@
         android:largeHeap="true"
         android:roundIcon="@drawable/fayber"
         android:supportsRtl="true"
+        android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
         <activity
             android:name="activities.FayActivity"

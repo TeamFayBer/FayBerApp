@@ -53,8 +53,8 @@ public class ServiceArrayAdapter  extends ArrayAdapter<Services> {
         tvTitle.setText(service.getTitle());
         tvOverview.setText(service.getDetails());
 
-        ivImage1.setImageResource(service.getImage());
-        //Picasso.with(getContext()).load(service.getImage()).into(ivImage1);
+      ivImage1.setImageResource(service.getImage());
+       // Picasso.with(getContext()).load(service.getImage()).into(ivImage1);
         return convertView;
     }
 }

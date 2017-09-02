@@ -94,7 +94,7 @@ public class Services implements Serializable {
         //
         Services services8 = new Services();
         services8.setImage(R.drawable.soutienpsy);
-        services8.setTitle("SOUTIEN");
+        services8.setTitle("SOUTIEN PSYCHOLOGIQUE ");
         services8.setDetails("Aide et soutien psychologique au besoin.");
 
         results.add(services);

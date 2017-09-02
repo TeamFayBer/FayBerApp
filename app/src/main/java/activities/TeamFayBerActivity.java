@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,8 @@ public class TeamFayBerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_fay_ber);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         // call the listview
         lvEquipe = (ListView) findViewById(R.id.lvEquipe);
         // onclick in the listview for seeing the details
@@ -28,13 +31,12 @@ public class TeamFayBerActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Equipe equipe = (Equipe) lvEquipe.getItemAtPosition(position);
-                //   Toast.makeText(FayActivity.this, "Pas data to see details of service", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(TeamFayBerActivity.this, "Just click on the list and get back to do other choice", Toast.LENGTH_SHORT).show();
                 //Intent i = new Intent(TeamFayBerActivity.this, FayActivity.class);
                 //i.putExtra("Equipe", equipe);
                // startActivity(i);
 
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                getSupportActionBar().setDisplayShowHomeEnabled(true);
+
                 //map
                 // map = (ImageView) findViewById(R.id.mapView);
             }

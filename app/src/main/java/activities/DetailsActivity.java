@@ -35,13 +35,48 @@ public class DetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Call a differents page,not the same
         Services serv = (Services) getIntent().getSerializableExtra("services");
+
         tvText = (TextView) findViewById(R.id.tvDetails);
         tvText.setText(serv.getDetails().toString());
         titre = (TextView) findViewById(R.id.tvtitle4detail);
         titre.setText(serv.getTitle().toString());
         ImageItem = (ImageView) findViewById(R.id.ivImage1);
-        ImageItem.setImageResource(serv.getImage());
         button = (Button) findViewById(R.id.btnRegister);
+
+        changeImage(getIntent().getIntExtra("position",0));
+    }
+
+    public void changeImage(int position){
+        switch (position) {
+            case 0:
+                ImageItem.setImageResource(R.drawable.fitness);
+                break;
+            case 1:
+                ImageItem.setImageResource(R.drawable.blood);
+                break;
+            case 2:
+                ImageItem.setImageResource(R.drawable.diab);
+                break;
+            case 3:
+                ImageItem.setImageResource(R.drawable.diabetes);
+                break;
+            case 4:
+                ImageItem.setImageResource(R.drawable.diete);
+                break;
+            case 5:
+                ImageItem.setImageResource(R.drawable.ok);
+                break;
+            case 6:
+                ImageItem.setImageResource(R.drawable.reeducationbarres);
+                break;
+            case 7:
+                ImageItem.setImageResource(R.drawable.bandage);
+                break;
+            case 8:
+                ImageItem.setImageResource(R.drawable.mental);
+                break;
+            default:
+        }
     }
     //private ShareActionProvider mShareActionProvider;
    public boolean onCreateOptionsMenu(Menu menu) {

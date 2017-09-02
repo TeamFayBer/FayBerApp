@@ -8,54 +8,59 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        card_view:cardBackgroundColor="#FFF"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="5dp"
+        android:layout_height="130dp"
         android:layout_marginBottom="5dp"
-        card_view:cardUseCompatPadding="true">
+        app:cardBackgroundColor="#FFF"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="130dp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_googlebusiness"
-                android:layout_marginTop="15dp"
                 android:id="@+id/ivImage1"
-                android:layout_weight="1" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@mipmap/ic_googlebusiness"
+                android:layout_marginLeft="5dp" />
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_weight="2">
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:text="Service titre"
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="5dp"
-                    android:textSize="20sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/service_titre"
+                    android:textColor="@color/colorPrimary"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:id="@+id/tvTitle" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp" />
 
                 <TextView
                     android:id="@+id/tvDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Description de service"
-                    android:layout_marginTop="10dp"
-                    android:textSize="15sp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"/>
+                    android:lines="1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/description_de_service"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="5dp" />
             </LinearLayout>
         </LinearLayout>
 

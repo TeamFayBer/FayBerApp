@@ -13,23 +13,28 @@ import java.util.ArrayList;
 
 public class servicesUser implements Serializable {
 
-    public String getIdcl() {
+    public String getIdcl()
+    {
         return idcl;
     }
 
-    public String getNomCl() {
+    public String getNomCl()
+    {
         return nomCl;
     }
 
-    public String getTelephone() {
+    public String getTelephone()
+    {
         return telephone;
     }
 
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
@@ -38,6 +43,7 @@ public class servicesUser implements Serializable {
     String telephone;
     String username;
     String email;
+    String code;
 
     public servicesUser(JSONObject jsonObject) throws JSONException
     {
@@ -45,7 +51,9 @@ public class servicesUser implements Serializable {
         this.nomCl = jsonObject.getString("nom_client");
         this.telephone= jsonObject.getString("telephone_client");
         this.username = jsonObject.getString("username_client");
+        this.code = jsonObject.getString("password_client");
         this.email = jsonObject.getString("email_client");
+
 
     }
     public static ArrayList<Services> fromJSONArray (JSONArray array)

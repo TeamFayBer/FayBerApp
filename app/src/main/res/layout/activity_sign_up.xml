@@ -89,18 +89,17 @@
         android:id="@+id/etPass"
         android:layout_width="394dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etMail"
         android:layout_gravity="center"
         android:ems="10"
         android:gravity="left"
-        android:layout_marginTop="5dp"
         android:hint="Creer Mot de Pass"
         android:inputType="textPersonName"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+        android:layout_below="@+id/etMail"
+        android:layout_alignLeft="@+id/etMail"
+        android:layout_alignStart="@+id/etMail" />
 
     <Button
         android:id="@+id/btnSignIn"

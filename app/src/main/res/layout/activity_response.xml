@@ -13,45 +13,16 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tvAlerteReponse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:text="«Sous peu, vous recevrez un message relatif à votre demande»"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textStyle="italic"
-                android:textSize="22sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
-
-            <TextView
-                android:id="@+id/tvChoix"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_marginTop="19dp"
-                android:text="«Merci»"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textStyle="bold"
-                android:textSize="22sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/tvAlerteReponse"
-                android:layout_centerHorizontal="true" />
 
             <ImageView
                 android:id="@+id/ivLogo"
-                android:layout_width="750dp"
-                android:layout_height="75dp"
+                android:layout_width="770dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/ic_launcherlogo"
                 tools:ignore="ContentDescription"
-                android:layout_below="@+id/tvDescriptName"
+                android:layout_below="@+id/tvChoix"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -60,13 +31,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Fay and Ber"
+                android:text="Fay &amp; Ber"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textColorHighlight="@android:color/darker_gray"
                 android:textStyle="bold"
-                android:textSize="26sp"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/tvChoix"
+                android:layout_below="@+id/ivLogo"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -78,10 +49,10 @@
                 android:text="Nursing Care Agency"
                 android:textColor="@color/colorAccent"
                 android:textColorHighlight="@android:color/darker_gray"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/ivLogo"
+                android:layout_below="@+id/tvDescriptName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -91,11 +62,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:text="#6 Rue Assad Ave Jean Paul II               Bois Patate, P-au-P HAITI "
+                android:text="#6 Rue Assad Ave Jean Paul II                             Bois Patate, P-au-P HAITI "
                 android:textColor="@android:color/holo_blue_dark"
                 android:textColorHighlight="@android:color/darker_gray"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam"
                 android:layout_below="@+id/tvDescripActivity"
                 android:layout_alignParentLeft="true"
@@ -111,7 +82,7 @@
                 android:textColor="@android:color/holo_blue_dark"
                 android:textColorHighlight="@android:color/darker_gray"
                 android:textStyle="bold"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam"
                 android:layout_below="@+id/tvAddress"
                 android:layout_alignParentLeft="true"
@@ -126,7 +97,7 @@
                 android:textColor="@android:color/holo_blue_dark"
                 android:textColorHighlight="@android:color/darker_gray"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam"
                 android:layout_below="@+id/tvTel"
                 android:layout_alignParentLeft="true"
@@ -148,20 +119,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <TextView
-                android:id="@+id/tvSlogan2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="Visitez nous sur: "
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="23dp" />
         </RelativeLayout>
     </ScrollView>
 
@@ -172,14 +129,13 @@
         tools:ignore="ExtraText"
         android:id="@+id/linearLayout"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <ImageView
             android:id="@+id/ivFacebook"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="130dp"
             app:srcCompat="@mipmap/ic_facebook"
             tools:ignore="ContentDescription,RtlHardcoded" />
 
@@ -215,6 +171,24 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout"
         android:layout_below="@+id/scrollView" />
+
+    <TextView
+        android:id="@+id/tvSlogan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Visitez nous sur: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHighlight="@android:color/darker_gray"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/linearLayout"
+        android:layout_toStartOf="@+id/linearLayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12dp" />
 
 
 </RelativeLayout>

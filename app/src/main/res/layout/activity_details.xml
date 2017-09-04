@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -53,13 +54,13 @@
         android:id="@+id/tvtitle4detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/ivImage1"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16sp"
         android:text="Surveillance des diètes"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp" />
 
   <!--  <android.support.v7.widget.Toolbar

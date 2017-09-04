@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative1"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/colorControlHighlight">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout2"
@@ -20,107 +21,113 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
     <ListView
         android:id="@+id/lvServices"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff"
-        android:layout_below="@+id/appBarLayout2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-  <!--  <ImageView
-        android:id="@+id/ivImage"
-        android:layout_width="match_parent"
-        android:layout_height="206dp"
-        android:layout_marginBottom="5dp"
-        android:scaleType="centerCrop"
-        android:scrollbarSize="@android:dimen/app_icon_size"
-        app:srcCompat="@drawable/background"
-        tools:ignore="ContentDescription" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="UselessLeaf" />
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
+    </RelativeLayout>
 
 
-    <TextView
-        android:id="@+id/tvNservices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/appBarLayout2"
-        android:layout_marginTop="140dp"
-        android:layout_toRightOf="@+id/linearLayout"
-        android:background="@color/colorPrimary"
-        android:text="Nos services"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="40dp" />
 
-    <Button
-        android:id="@+id/btnEducation"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btnPrevention"
-        android:layout_alignBottom="@+id/btnPrevention"
-        android:layout_alignLeft="@+id/btnSoins"
-        android:layout_alignStart="@+id/btnSoins"
-        android:background="@color/colorPrimary"
-        android:onClick="onLogSuccess"
-        android:text="Education et Reeducation"
-        android:textColor="@android:color/background_dark"
-        android:textSize="8dp" />
+    <!--  <ImageView
+          android:id="@+id/ivImage"
+          android:layout_width="match_parent"
+          android:layout_height="206dp"
+          android:layout_marginBottom="5dp"
+          android:scaleType="centerCrop"
+          android:scrollbarSize="@android:dimen/app_icon_size"
+          app:srcCompat="@drawable/background"
+          tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/btnSoins"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btnPromotion"
-        android:layout_alignBottom="@+id/btnPromotion"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
-        android:background="@color/colorPrimary"
-        android:onClick="onLogSuccess"
-        android:text="Soins de base de nursing"
-        android:textColor="@android:color/background_dark"
-        android:textSize="8dp" />
+      <LinearLayout
+          android:id="@+id/linearLayout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          tools:ignore="UselessLeaf" />
 
-    <Button
-        android:id="@+id/btnPrevention"
-        android:layout_width="132dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnPromotion"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/btnPromotion"
-        android:layout_marginBottom="37dp"
-        android:background="@color/colorPrimary"
-        android:onClick="onLogSuccess"
-        android:text="Prevention de la maladie"
-        android:textColor="@android:color/background_dark"
-        android:textSize="8dp" />
 
-    <Button
-        android:id="@+id/btnPromotion"
-        android:layout_width="132dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvNservices"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="46dp"
-        android:layout_toEndOf="@+id/linearLayout"
-        android:layout_toRightOf="@+id/linearLayout"
-        android:background="@color/colorPrimary"
-        android:onClick="onLogSuccess"
-        android:text="Promotion de la sante"
-        android:textColor="@android:color/background_dark"
-        android:textSize="8dp" />
--->
+      <TextView
+          android:id="@+id/tvNservices"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          android:layout_below="@+id/appBarLayout2"
+          android:layout_marginTop="140dp"
+          android:layout_toRightOf="@+id/linearLayout"
+          android:background="@color/colorPrimary"
+          android:text="Nos services"
+          android:textAlignment="center"
+          android:textColor="@android:color/black"
+          android:textSize="40dp" />
 
-</RelativeLayout>
+      <Button
+          android:id="@+id/btnEducation"
+          android:layout_width="130dp"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/btnPrevention"
+          android:layout_alignBottom="@+id/btnPrevention"
+          android:layout_alignLeft="@+id/btnSoins"
+          android:layout_alignStart="@+id/btnSoins"
+          android:background="@color/colorPrimary"
+          android:onClick="onLogSuccess"
+          android:text="Education et Reeducation"
+          android:textColor="@android:color/background_dark"
+          android:textSize="8dp" />
+
+      <Button
+          android:id="@+id/btnSoins"
+          android:layout_width="130dp"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/btnPromotion"
+          android:layout_alignBottom="@+id/btnPromotion"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          android:layout_marginEnd="19dp"
+          android:layout_marginRight="19dp"
+          android:background="@color/colorPrimary"
+          android:onClick="onLogSuccess"
+          android:text="Soins de base de nursing"
+          android:textColor="@android:color/background_dark"
+          android:textSize="8dp" />
+
+      <Button
+          android:id="@+id/btnPrevention"
+          android:layout_width="132dp"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/btnPromotion"
+          android:layout_alignParentBottom="true"
+          android:layout_alignStart="@+id/btnPromotion"
+          android:layout_marginBottom="37dp"
+          android:background="@color/colorPrimary"
+          android:onClick="onLogSuccess"
+          android:text="Prevention de la maladie"
+          android:textColor="@android:color/background_dark"
+          android:textSize="8dp" />
+
+      <Button
+          android:id="@+id/btnPromotion"
+          android:layout_width="132dp"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/tvNservices"
+          android:layout_marginLeft="17dp"
+          android:layout_marginStart="17dp"
+          android:layout_marginTop="46dp"
+          android:layout_toEndOf="@+id/linearLayout"
+          android:layout_toRightOf="@+id/linearLayout"
+          android:background="@color/colorPrimary"
+          android:onClick="onLogSuccess"
+          android:text="Promotion de la sante"
+          android:textColor="@android:color/background_dark"
+          android:textSize="8dp" />
+  -->
+
+</LinearLayout>

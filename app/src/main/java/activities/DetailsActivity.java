@@ -35,13 +35,52 @@ public class DetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Call a differents contenu,not the same in details page
         Services serv = (Services) getIntent().getSerializableExtra("services");
+
         tvText = (TextView) findViewById(R.id.tvDetails);
         tvText.setText(serv.getDetails().toString());
         titre = (TextView) findViewById(R.id.tvtitle4detail);
         titre.setText(serv.getTitle().toString());
         ImageItem = (ImageView) findViewById(R.id.ivImage1);
+<<<<<<< HEAD
        // ImageItem.setImageResource(Integer.parseInt(serv.getImage()));
+=======
+>>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
         button = (Button) findViewById(R.id.btnRegister);
+
+        changeImage(getIntent().getIntExtra("position",0));
+    }
+
+    public void changeImage(int position){
+        switch (position) {
+            case 0:
+                ImageItem.setImageResource(R.drawable.fitness);
+                break;
+            case 1:
+                ImageItem.setImageResource(R.drawable.blood);
+                break;
+            case 2:
+                ImageItem.setImageResource(R.drawable.diab);
+                break;
+            case 3:
+                ImageItem.setImageResource(R.drawable.diabetes);
+                break;
+            case 4:
+                ImageItem.setImageResource(R.drawable.diete);
+                break;
+            case 5:
+                ImageItem.setImageResource(R.drawable.ok);
+                break;
+            case 6:
+                ImageItem.setImageResource(R.drawable.reeducationbarres);
+                break;
+            case 7:
+                ImageItem.setImageResource(R.drawable.bandage);
+                break;
+            case 8:
+                ImageItem.setImageResource(R.drawable.mental);
+                break;
+            default:
+        }
     }
     //private ShareActionProvider mShareActionProvider;
    public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,12 +109,18 @@ public class DetailsActivity extends AppCompatActivity {
 //
     // To share via another apps
     public void shareInfo(){
+<<<<<<< HEAD
         //add the message for sharing
         String messageToShare="Pour plus de detail et de contenu, visitez notre siteWeb- http://fayberagency.com/";
+=======
+        String messageToShare="visitez notre siteWeb- http://fayberagency.com/";
 
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        sharingIntent.setType("text/html");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>"+messageToShare+"</p>"));
-        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+>>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, titre.getText().toString() + " " + messageToShare);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 }

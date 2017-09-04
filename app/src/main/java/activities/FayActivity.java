@@ -31,6 +31,8 @@ import java.util.ArrayList;
 
 import Models.Services;
 import adapters.ServiceArrayAdapter;
+import codepath.fayberapp.AproposActivity;
+import codepath.fayberapp.PartenaireActivity;
 import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
@@ -58,6 +60,7 @@ public class FayActivity extends AppCompatActivity
             //   Toast.makeText(FayActivity.this, "Pas data to see details of service", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(FayActivity.this, DetailsActivity.class);
                 i.putExtra("services", services);
+                i.putExtra("position", position);
                 startActivity(i);
             }
         });
@@ -174,11 +177,20 @@ public class FayActivity extends AppCompatActivity
         {
         }
         else if (id == R.id.nav_group) {
+            Intent i = new Intent(FayActivity.this, TeamFayBerActivity.class);
+            startActivity(i);
+            Toast.makeText(FayActivity.this, "Just click on the list and get back to do other choice", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_paramètre) {
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_contact) {
+            Intent i = new Intent(FayActivity.this, ResponseActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_info) {
+            Intent i = new Intent(FayActivity.this, AproposActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_partenaire) {
+            Intent i = new Intent(FayActivity.this, PartenaireActivity.class);
+            startActivity(i);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

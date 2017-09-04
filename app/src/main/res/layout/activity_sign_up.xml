@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@android:color/background_light"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/ivSignIn"
@@ -15,91 +16,131 @@
         android:scaleType="fitCenter"
         android:src="@mipmap/ic_launcherlogo"
         tools:ignore="ContentDescription,UnknownIdInLayout"
-        android:layout_marginTop="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="5dp" />
 
-    <EditText
-        android:id="@+id/etNomComplet"
-        android:layout_width="match_parent"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
+        android:id="@+id/Nom"
+        android:layout_marginBottom="5dp">
+
+        <EditText
+            android:id="@+id/etNomComplet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/ic_action_nacomp"
+            android:gravity="center"
+            android:ems="10"
+            android:hint="Nom Complet"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorAccent"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:ems="10"
-        android:hint="Nom Complet"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/ivSignIn"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_height="wrap_content"
+        android:id="@+id/Phone"
+        android:layout_marginBottom="5dp">
 
     <EditText
         android:id="@+id/etPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etNomComplet"
-        android:layout_gravity="left"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:ems="10"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_action_namephone"
         android:hint="Telephone"
+        android:ems="10"
         android:inputType="phone"
         android:textColor="@color/colorAccent"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Identifiant"
+        android:layout_marginBottom="5dp">
 
     <EditText
         android:id="@+id/etIdentif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etPhone"
-        android:layout_gravity="center"
+        android:gravity="center"
+        android:drawableLeft="@drawable/ic_action_namecomp"
         android:layout_marginTop="5dp"
-        android:ems="10"
-        android:gravity="left"
         android:hint="Identifiant"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+       android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Mail"
+        android:layout_marginBottom="5dp">
 
     <EditText
         android:id="@+id/etMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:gravity="left"
+        android:gravity="center"
         android:hint="E-Mail"
+        android:drawableLeft="@drawable/ic_action_mail"
         android:inputType="textEmailAddress"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+      android:ems="10"
         android:textColor="@color/colorAccent"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
         android:layout_below="@+id/etIdentif"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Passcode"
+        android:layout_marginBottom="5dp">
 
     <EditText
         android:id="@+id/etPass"
-        android:layout_width="394dp"
+        android:layout_width="373dp"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_gravity="center"
         android:ems="10"
         android:gravity="left"
+=======
+        android:layout_below="@id/etMail"
+        android:gravity="center"
+        android:ems="10"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+>>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
         android:hint="Creer Mot de Pass"
+        android:drawableLeft="@drawable/ic_action_passcode"
         android:inputType="textPersonName"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
+<<<<<<< HEAD
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
         android:layout_below="@+id/etMail"
         android:layout_alignLeft="@+id/etMail"
         android:layout_alignStart="@+id/etMail" />
+=======
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+    </android.support.design.widget.TextInputLayout>
+>>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
 
     <Button
         android:id="@+id/btnSignIn"
@@ -115,7 +156,7 @@
         android:textSize="14sp"
         android:onClick="onLogButton"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="22dp"
         android:textStyle="bold"
         android:layout_below="@+id/etPass"
         android:layout_alignParentLeft="true"
@@ -134,5 +175,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" /> -->
 
-</RelativeLayout>
+</LinearLayout>
 

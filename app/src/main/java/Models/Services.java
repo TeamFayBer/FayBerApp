@@ -12,12 +12,15 @@ import java.util.ArrayList;
 
 import codepath.fayberapp.R;
 
+<<<<<<< HEAD
 import static android.support.design.R.id.image;
 
 /**
  * Created by East Coast Pawn on 8/18/2017.
  */
 
+=======
+>>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
 public class Services implements Serializable {
 
     public String getTitle()
@@ -63,6 +66,7 @@ public class Services implements Serializable {
     public static ArrayList<Services> fromJSONArray (JSONArray array)
     {
         ArrayList<Services> results = new ArrayList<>();
+<<<<<<< HEAD
         for (int x= 0; x < array.length(); x++)
         {
             try
@@ -72,6 +76,65 @@ public class Services implements Serializable {
                 e.printStackTrace();
             }
         }
+=======
+
+        Services services = new Services();
+
+        services.setImage(R.drawable.beauty);
+        services.setTitle("HYGIENE CORPORELLE");
+        services.setDetails("Soins et procédés visant à assurer l’hygiène corporelle du patient/client et de son environnement.");
+        //
+        Services services3 = new Services();
+        services3.setImage(R.drawable.test);
+        services3.setTitle("ASSISTANCE MEDICALE");
+        services3.setDetails("Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
+        //
+        Services services1 = new Services();
+        services1.setImage(R.drawable.science);
+        services1.setTitle("LABORATOIRE");
+        services1.setDetails("Prélèvement et transfert de spécimen (sang, selles, urines, etc.) aux laboratoires.");
+        //
+        Services services2 = new Services();
+        services2.setImage(R.drawable.laboratoire);
+        services2.setTitle("REALISATION DES TESTS");
+        services2.setDetails("Réalisation des tests rapides (malaria, hémogramme, glycémie, HIV, RPR, et autres.)");
+        //
+        Services services4 = new Services();
+        services4.setImage(R.drawable.diet);
+        services4.setTitle("SURVEILLANCE DES DIETES");
+        services4.setDetails("Surveillance des diètes suivant l’ordonnance médicale.");
+        //
+        Services services5 = new Services();
+        services5.setImage(R.drawable.catheter);
+        services5.setTitle("INSTALATION DE SOLUTE & CATHETER");
+        services5.setDetails("Installation de soluté, contrôle de la diurèse horaire et changement de sondes vésicales (Changement de cathéter).");
+        //
+        Services services6 = new Services();
+        services6.setImage(R.drawable.reeducationbarres);
+        services6.setTitle("EDUCATION & REEDUCATION");
+        services6.setDetails("Installation et éducation du patient/client par rapport à sa pathologie ou de son handicap.");
+        //
+        Services services7 = new Services();
+        services7.setImage(R.drawable.pansement);
+        services7.setTitle("SOINS PANSEMENTS");
+        services7.setDetails("Réalisation, surveillance et renouvellement de pansements.");
+        //
+        Services services8 = new Services();
+        services8.setImage(R.drawable.soutienpsy);
+        services8.setTitle("SOUTIEN PSYCHOLOGIQUE ");
+        services8.setDetails("Aide et soutien psychologique au besoin.");
+
+        results.add(services);
+        results.add(services1);
+        results.add(services2);
+        results.add(services3);
+        results.add(services4);
+        results.add(services5);
+        results.add(services6);
+        results.add(services7);
+        results.add(services8);
+        
+>>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
         return results;
     }
    /* public static ArrayList<Services> searchFakeData(String query) {

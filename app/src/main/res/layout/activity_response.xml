@@ -1,194 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@android:color/background_light"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/tvContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contactez_nous"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true" />
+
     <ScrollView
+        android:layout_below="@+id/tvContact"
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="250dp">
-        <RelativeLayout
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/ivLogo"
-                android:layout_width="770dp"
-                android:layout_height="95dp"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:src="@mipmap/ic_launcherlogo"
-                tools:ignore="ContentDescription"
-                android:layout_below="@+id/tvChoix"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:id="@+id/tvDescriptName"
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Fay &amp; Ber"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/ivLogo"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/Nom"
+                android:layout_marginBottom="5dp">
 
-            <TextView
-                android:id="@+id/tvDescripActivity"
-                android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/etNomComplet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:gravity="top"
+                    android:ems="10"
+                    android:hint="Nom Complet"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorAccent"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Nursing Care Agency"
-                android:textColor="@color/colorAccent"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/tvDescriptName"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/Phone"
+                android:layout_marginBottom="5dp">
 
-            <TextView
-                android:id="@+id/tvAddress"
-                android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/etNomComplet"
+                    android:gravity="top"
+                    android:layout_centerHorizontal="true"
+                    android:hint="Telephone"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:textColor="@color/colorAccent"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:text="#6 Rue Assad Ave Jean Paul II                             Bois Patate, P-au-P HAITI "
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/tvDescripActivity"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/Mail"
+                android:layout_marginBottom="5dp">
 
-            <TextView
-                android:id="@+id/tvTel"
-                android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/etMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:hint="E-Mail"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:textColor="@color/colorAccent"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+                    android:layout_below="@+id/etIdentif"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Tel: 4692-2424"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/tvAddress"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/Message"
+                android:layout_marginBottom="5dp">
 
-            <TextView
-                android:id="@+id/tvMail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="fayber.nursingcareagency@gmail.com"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/tvTel"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                <EditText
+                    android:id="@+id/etMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="top"
+                    android:fitsSystemWindows="true"
+                    android:breakStrategy="balanced"
+                    android:inputType="textMultiLine"
+                    android:padding="5dp"
+                    android:hint="@string/message" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvWeb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="www.fayberagency.com"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHighlight="@android:color/darker_gray"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam"
-                android:layout_below="@+id/tvMail"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-        </RelativeLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="ExtraText"
-        android:id="@+id/linearLayout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
-
-        <ImageView
-            android:id="@+id/ivFacebook"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:srcCompat="@mipmap/ic_facebook"
-            tools:ignore="ContentDescription,RtlHardcoded" />
-
-        <ImageView
-            android:id="@+id/ivTwitter"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@mipmap/ic_twitter"
-            tools:ignore="ContentDescription,RtlHardcoded" />
-
-        <ImageView
-            android:id="@+id/ivYoutube"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@mipmap/ic_youtube"
-            tools:ignore="ContentDescription,RtlHardcoded" />
-
-        <ImageView
-            android:id="@+id/ivGoogleBusiness"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@mipmap/ic_googlebusiness"
-            tools:ignore="ContentDescription,RtlHardcoded" />
-
-    </LinearLayout>
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+    <Button
+        android:id="@+id/btnEnvoyer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout"
-        android:layout_below="@+id/scrollView" />
-
-    <TextView
-        android:id="@+id/tvSlogan2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="Visitez nous sur: "
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHighlight="@android:color/darker_gray"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/linearLayout"
-        android:layout_toStartOf="@+id/linearLayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="12dp" />
-
-
+       android:layout_below="@id/scrollView"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="onLogButton"
+        android:text="@string/envoyer"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="14sp" />
 </RelativeLayout>

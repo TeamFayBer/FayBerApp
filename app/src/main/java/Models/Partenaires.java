@@ -71,6 +71,7 @@ public class Partenaires implements Serializable {
 
         return results;
     }
+    /*
 
     public static ArrayList<Partenaires> searchFakeData(String query) {
         query = query.toLowerCase();

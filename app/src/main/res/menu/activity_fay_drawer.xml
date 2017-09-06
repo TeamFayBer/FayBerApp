@@ -17,7 +17,7 @@
             android:title="L'Equipe" />
         <item
             android:id="@+id/nav_partenaire"
-            android:icon="@mipmap/ic_partnership"
+            android:icon="@mipmap/ic_partenaire"
             android:title="Nos Partenaires" />
 
 

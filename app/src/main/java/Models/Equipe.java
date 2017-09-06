@@ -85,7 +85,7 @@ public class Equipe implements Serializable {
 
         return results;
     }
-
+    /*
     public static ArrayList<Equipe> searchFakeData(String query) {
         query = query.toLowerCase();
 

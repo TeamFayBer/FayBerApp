@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -23,12 +24,13 @@ import java.util.ArrayList;
 import Models.Services;
 import adapters.ServiceArrayAdapter;
 import codepath.fayberapp.AproposActivity;
+import codepath.fayberapp.MyBrowser;
 import codepath.fayberapp.PartenaireActivity;
 import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-     // call the adapter,the listview and the model
+    // call the adapter,the listview and the model
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> aServices;
     ListView lvServices;
@@ -37,7 +39,7 @@ public class FayActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fay);
-        //Display the toobar
+    //Display the toobar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -141,6 +143,8 @@ public class FayActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_localisation)
         {
+            Intent i = new Intent(FayActivity.this, MyBrowser.class);
+            startActivity(i);
         }
         else if (id == R.id.nav_group) {
             Intent i = new Intent(FayActivity.this, TeamFayBerActivity.class);

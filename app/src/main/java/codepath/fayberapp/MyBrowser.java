@@ -1,13 +1,17 @@
 package codepath.fayberapp;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import activities.FayActivity;
 
 public class MyBrowser extends AppCompatActivity {
     private WebView myWebView;
@@ -15,6 +19,10 @@ public class MyBrowser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_browser);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         myWebView = (WebView) findViewById(R.id.webview);
         // Configure related browser settings
         myWebView.getSettings().setLoadsImagesAutomatically(true);
@@ -28,6 +36,18 @@ public class MyBrowser extends AppCompatActivity {
         myWebView.getSettings().setSupportZoom(true);
         myWebView.getSettings().setBuiltInZoomControls(true); // allow pinch to zooom
         myWebView.getSettings().setDisplayZoomControls(false); // disable the default zoom controls on the page
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Respond to the action bar's Up/Home button to the home page with (finishAffinity)
+                Intent i = new Intent(MyBrowser.this, FayActivity.class);
+                startActivity(i);
+                finishAffinity();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     // Manages the behavior when URLs are loaded

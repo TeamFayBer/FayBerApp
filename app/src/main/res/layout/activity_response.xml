@@ -21,7 +21,7 @@
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/ic_launcherlogo"
-                tools:ignore="ContentDescription"
+                tools:ignore="ContentDescription,UnknownIdInLayout"
                 android:layout_below="@+id/tvChoix"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />

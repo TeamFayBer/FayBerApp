@@ -16,8 +16,12 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import Models.Services;
 import codepath.fayberapp.R;
+
+import static codepath.fayberapp.R.id.ivImage1;
 
 public class DetailsActivity extends AppCompatActivity {
     TextView tvText;
@@ -40,16 +44,16 @@ public class DetailsActivity extends AppCompatActivity {
         tvText.setText(serv.getDetails().toString());
         titre = (TextView) findViewById(R.id.tvtitle4detail);
         titre.setText(serv.getTitle().toString());
-        ImageItem = (ImageView) findViewById(R.id.ivImage1);
-<<<<<<< HEAD
+        ImageItem = (ImageView) findViewById(ivImage1);
+        String imageUri = "http://fayberagency.com/v1/app/image_service/"+serv.getImage();
+        Picasso.with(getApplicationContext()).load(imageUri).placeholder(R.mipmap.ic_launcher).into(ImageItem);
        // ImageItem.setImageResource(Integer.parseInt(serv.getImage()));
-=======
->>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
+
         button = (Button) findViewById(R.id.btnRegister);
 
         changeImage(getIntent().getIntExtra("position",0));
     }
-
+//Find the different image in the details not the same in fayactivity
     public void changeImage(int position){
         switch (position) {
             case 0:
@@ -109,13 +113,11 @@ public class DetailsActivity extends AppCompatActivity {
 //
     // To share via another apps
     public void shareInfo(){
-<<<<<<< HEAD
+
         //add the message for sharing
         String messageToShare="Pour plus de detail et de contenu, visitez notre siteWeb- http://fayberagency.com/";
-=======
-        String messageToShare="visitez notre siteWeb- http://fayberagency.com/";
 
->>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
+        messageToShare = "visitez notre siteWeb- http://fayberagency.com/";
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);

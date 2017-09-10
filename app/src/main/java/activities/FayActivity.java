@@ -38,14 +38,18 @@ import codepath.fayberapp.R;
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
      // call the adapter,the listview and the model
+
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> aServices;
     ListView lvServices;
     //  Button btnItems, btnItems1, btnItems2, btnItems3;
+
+    JSONArray serviceJsonResults;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fay);
+  setContentView(R.layout.activity_fay);
         //Display the toobar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -71,7 +75,8 @@ public class FayActivity extends AppCompatActivity
           @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response)
             {
-                JSONArray serviceJsonResults = null;
+
+                serviceJsonResults = null;
                 try{
                     serviceJsonResults = response.getJSONArray("response");
                     aServices.addAll(Services.fromJSONArray(serviceJsonResults));
@@ -124,20 +129,19 @@ public class FayActivity extends AppCompatActivity
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         // Expand the search view and request focus
         //searchItem.expandActionView();
-        //searchView.requestFocus();
+        // searchView.requestFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(FayActivity.this, "--" +query, Toast.LENGTH_SHORT).show();
                 // perform query here
-                /*serviceAdapter.clear();
-                aServices.addAll(Services.searchJSONArray(query));
-                //serviceAdapter.addAll(Services.searchFakeData(query));
+                serviceAdapter.clear();
+                serviceAdapter.addAll(Services.searchFromJSONArray(serviceJsonResults,query));
                 serviceAdapter.notifyDataSetChanged();
                 // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
                 // see https://code.google.com/p/android/issues/detail?id=24599
-                searchView.clearFocus(); */
-
+                searchView.clearFocus();
+                finish();
               return true;
             }
 

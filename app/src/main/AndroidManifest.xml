@@ -25,8 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name="activities.AccueilActivity" />
-        <activity android:name="activities.NosServicesActivity" />
+
+        <activity android:name="activities.localisationActivity" />
+
         <activity
             android:name="activities.DetailsActivity"
             android:label="Details" />
@@ -37,10 +40,17 @@
         <activity
             android:name="activities.SignUpActivity"
             android:label="Enregistrer" />
-        <activity android:name="activities.FicheDemandeActivity" />
-        <activity android:name="activities.ResponseActivity" />
+
+        <activity
+            android:name="activities.FicheDemandeActivity" />
+
+        <activity
+            android:name="activities.ResponseActivity" />
+
         <activity android:name="activities.TeamFayBerActivity" />
+
         <activity android:name=".PartenaireActivity" />
+
         <activity android:name=".AproposActivity"></activity>
     </application>
 

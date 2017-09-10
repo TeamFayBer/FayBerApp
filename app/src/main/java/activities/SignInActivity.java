@@ -93,7 +93,7 @@ public class SignInActivity extends AppCompatActivity {
                         i.putExtra("telephone_client", articleJsonResults.getJSONObject(0).getString("telephone_client"));
                         i.putExtra("email_client", articleJsonResults.getJSONObject(0).getString("email_client"));
                         i.putExtra("username_client", articleJsonResults.getJSONObject(0).getString("username_client"));
-                        //startActivity(i);
+                        startActivity(i);
                         Toast.makeText(SignInActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(SignInActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();

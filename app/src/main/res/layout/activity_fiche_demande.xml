@@ -217,10 +217,7 @@
         android:id="@+id/btnEnvoyer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_centerHorizontal="true"
-=======
->>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"

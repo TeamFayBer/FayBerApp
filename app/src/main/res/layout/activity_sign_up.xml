@@ -116,31 +116,20 @@
         android:id="@+id/etPass"
         android:layout_width="373dp"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_gravity="center"
-        android:ems="10"
-        android:gravity="left"
-=======
         android:layout_below="@id/etMail"
         android:gravity="center"
         android:ems="10"
         android:layout_marginTop="5dp"
         android:layout_alignParentLeft="true"
->>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
         android:hint="Creer Mot de Pass"
         android:drawableLeft="@drawable/ic_action_passcode"
         android:inputType="textPersonName"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
-<<<<<<< HEAD
-        tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
-        android:layout_below="@+id/etMail"
-        android:layout_alignLeft="@+id/etMail"
-        android:layout_alignStart="@+id/etMail" />
-=======
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
->>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
+
 
     <Button
         android:id="@+id/btnSignIn"

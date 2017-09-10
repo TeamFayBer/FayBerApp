@@ -26,6 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText edT2;
     EditText edT3;
     EditText edT4;
+    JSONArray articleJsonResults;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +41,6 @@ public class SignUpActivity extends AppCompatActivity {
         edT2 = (EditText) findViewById(R.id.etIdentif);
         edT3 = (EditText) findViewById(R.id.etMail);
          edT4 = (EditText) findViewById(R.id.etPass);
-
-
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -53,9 +52,12 @@ public class SignUpActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
     public void onLogButton(View v) {
 
-        if (edT.getText().toString().equals("") && edT1.getText().toString().equals("") && edT2.getText().toString().equals("") && edT3.getText().toString().equals("") && edT4.getText().toString().equals("")) {
+        if (edT.getText().toString().equals("") && edT1.getText().toString().equals("") &&
+                edT2.getText().toString().equals("") && edT3.getText().toString().equals("") && edT4.getText().toString().equals("")) {
             Toast.makeText(this, "un ou plusieyur s sont vides", Toast.LENGTH_SHORT).show();
         } else {
             getInfoRegisterUser();
@@ -76,7 +78,8 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
-                JSONArray articleJsonResults = null;
+                //JSONArray articleJsonResults = null;
+                articleJsonResults = null;
                 try {
 
                     Object objectlogin = response.get("response");
@@ -87,7 +90,7 @@ public class SignUpActivity extends AppCompatActivity {
                         i.putExtra("telephone_client", edT1.getText().toString());
                         i.putExtra("email_client", edT3.getText().toString());
                         i.putExtra("username_client", edT2.getText().toString());
-                        //startActivity(i);
+                        startActivity(i);
                         Toast.makeText(SignUpActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();

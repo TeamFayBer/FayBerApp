@@ -12,19 +12,15 @@ import java.util.ArrayList;
 
 import codepath.fayberapp.R;
 
-<<<<<<< HEAD
 import static android.support.design.R.id.image;
 
 /**
  * Created by East Coast Pawn on 8/18/2017.
  */
 
-=======
->>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
 public class Services implements Serializable {
 
     public String getTitle()
-
     {
         return title;
     }
@@ -66,7 +62,6 @@ public class Services implements Serializable {
     public static ArrayList<Services> fromJSONArray (JSONArray array)
     {
         ArrayList<Services> results = new ArrayList<>();
-<<<<<<< HEAD
         for (int x= 0; x < array.length(); x++)
         {
             try
@@ -76,8 +71,29 @@ public class Services implements Serializable {
                 e.printStackTrace();
             }
         }
-=======
+        return results;
+    }
+    // for the searchview
+    public static ArrayList<Services> searchFromJSONArray(JSONArray array, String query) {
+        query = query.toLowerCase();
 
+        ArrayList<Services> results = new ArrayList<>();
+
+        ArrayList<Services> services = Services.fromJSONArray(array);
+
+        for (Services s : services) {
+
+            if (s.getTitle().toLowerCase().contains(query) || TextUtils.isEmpty(query)) {
+                results.add(s);
+                Log.d("DEBUG-Search", s.getTitle());
+            }
+
+        }
+
+        return results;
+    }
+}
+/*
         Services services = new Services();
 
         services.setImage(R.drawable.beauty);
@@ -133,10 +149,9 @@ public class Services implements Serializable {
         results.add(services6);
         results.add(services7);
         results.add(services8);
-        
->>>>>>> aae36905c1ac897fb7ab1d139ba2eb82860016ca
         return results;
     }
+    */
    /* public static ArrayList<Services> searchFakeData(String query) {
         query = query.toLowerCase();
 
@@ -157,7 +172,7 @@ public class Services implements Serializable {
     }*/
 
 
-}
+
     /*
    public String getTitle() {
        return title;
@@ -252,25 +267,7 @@ public class Services implements Serializable {
        return results;
    }
 
-   public static ArrayList<Services> searchFakeData(String query) {
-       query = query.toLowerCase();
-
-       ArrayList<Services> results = new ArrayList<>();
-
-       ArrayList<Services> services = Services.fromFakeData();
-
-       for (Services s : services) {
-
-           if (s.getTitle().toLowerCase().contains(query) || TextUtils.isEmpty(query)) {
-               results.add(s);
-               Log.d("DEBUG-Search", s.getTitle());
-           }
-
-       }
-
-       return results;
-   }
-}*/
+  */
 
 
 

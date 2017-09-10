@@ -2,15 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="codepath.fayberapp">
 
+<<<<<<< HEAD
 <uses-permission android:name="android.permission.INTERNET" />
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+
+>>>>>>> 128cd9d9b1dfd97cafbf71998090adb89c9a4447
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/fayber"
         android:label="FayBerApp"
         android:largeHeap="true"
         android:roundIcon="@drawable/fayber"
         android:supportsRtl="true"
-        android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
         <activity
             android:name="activities.FayActivity"
@@ -50,8 +55,13 @@
         <activity android:name="activities.TeamFayBerActivity" />
 
         <activity android:name=".PartenaireActivity" />
+<<<<<<< HEAD
 
         <activity android:name=".AproposActivity"></activity>
+=======
+        <activity android:name=".AproposActivity" />
+        <activity android:name=".MyBrowser"></activity>
+>>>>>>> 128cd9d9b1dfd97cafbf71998090adb89c9a4447
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import cz.msebera.android.httpclient.Header;
@@ -32,13 +33,18 @@ import java.util.ArrayList;
 import Models.Services;
 import adapters.ServiceArrayAdapter;
 import codepath.fayberapp.AproposActivity;
+import codepath.fayberapp.MyBrowser;
 import codepath.fayberapp.PartenaireActivity;
 import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+<<<<<<< HEAD
      // call the adapter,the listview and the model
 
+=======
+    // call the adapter,the listview and the model
+>>>>>>> 128cd9d9b1dfd97cafbf71998090adb89c9a4447
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> aServices;
     ListView lvServices;
@@ -49,8 +55,13 @@ public class FayActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
   setContentView(R.layout.activity_fay);
         //Display the toobar
+=======
+        setContentView(R.layout.activity_fay);
+    //Display the toobar
+>>>>>>> 128cd9d9b1dfd97cafbf71998090adb89c9a4447
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -179,11 +190,13 @@ public class FayActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_localisation)
         {
+            Intent i = new Intent(FayActivity.this, MyBrowser.class);
+            startActivity(i);
         }
         else if (id == R.id.nav_group) {
             Intent i = new Intent(FayActivity.this, TeamFayBerActivity.class);
             startActivity(i);
-            Toast.makeText(FayActivity.this, "Just click on the list and get back to do other choice", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(FayActivity.this, "Just click on the list and get back to do other choice", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_paramètre) {
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_contact) {

@@ -75,7 +75,7 @@ public class DetailsActivity extends AppCompatActivity {
                 ImageItem.setImageResource(R.drawable.ok);
                 break;
             case 6:
-                ImageItem.setImageResource(R.drawable.reeducationbarres);
+                ImageItem.setImageResource(R.drawable.walker);
                 break;
             case 7:
                 ImageItem.setImageResource(R.drawable.bandage);

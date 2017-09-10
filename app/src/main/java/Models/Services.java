@@ -103,7 +103,7 @@ public class Services implements Serializable {
         Services services3 = new Services();
         services3.setImage(R.drawable.test);
         services3.setTitle("ASSISTANCE MEDICALE");
-        services3.setDetails("Aide à la prise des médicaments présents sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
+        services3.setDetails("Aide à la prise des médicaments présentés sous forme injectable et non injectable, surveillance de leurs effets secondaires.");
         //
         Services services1 = new Services();
         services1.setImage(R.drawable.science);
@@ -117,12 +117,12 @@ public class Services implements Serializable {
         //
         Services services4 = new Services();
         services4.setImage(R.drawable.diet);
-        services4.setTitle("SURVEILLANCE DES DIETES");
+        services4.setTitle("SURVEILLANCE DES DIÈTES");
         services4.setDetails("Surveillance des diètes suivant l’ordonnance médicale.");
         //
         Services services5 = new Services();
         services5.setImage(R.drawable.catheter);
-        services5.setTitle("INSTALATION DE SOLUTE & CATHETER");
+        services5.setTitle("INSTALLATION DE SOLUTE & CATHETER");
         services5.setDetails("Installation de soluté, contrôle de la diurèse horaire et changement de sondes vésicales (Changement de cathéter).");
         //
         Services services6 = new Services();

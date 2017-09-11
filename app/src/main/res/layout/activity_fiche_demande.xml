@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:ems="10"
             android:gravity="left"
             android:hint="Adresse"
@@ -92,11 +92,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:id="@+id/lieuNaissance"
+        android:id="@+id/Maladie"
         android:layout_marginBottom="5dp">
 
         <EditText
-            android:id="@+id/etLieuNaissance"
+            android:id="@+id/etMaladie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -107,12 +107,38 @@
             android:layout_marginRight="5dp"
             android:ems="10"
             android:gravity="left"
-            android:hint="Lieu de Naissance"
+            android:hint="Raison de la demande et/ou MAladie"
             android:inputType="textPersonName"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-      
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/Relation"
+        android:layout_marginBottom="5dp">
+
+        <EditText
+            android:id="@+id/etGroupeSanguin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etMaladie"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:gravity="left"
+            android:hint="Groupe Sanguin"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -132,11 +158,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:id="@+id/Occupation"
+        android:id="@+id/Medecin"
         android:layout_marginBottom="5dp">
 
         <EditText
-            android:id="@+id/etOccupation"
+            android:id="@+id/etMedecin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -147,7 +173,7 @@
             android:layout_marginRight="5dp"
             android:ems="10"
             android:gravity="left"
-            android:hint="Occupation"
+            android:hint="Nom Complet Medecin Traitant"
             android:inputType="textPersonName"
             android:textColor="@android:color/black"
             android:textSize="16sp"
@@ -162,54 +188,25 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:id="@+id/Prevenir"
+        android:id="@+id/ContactMedecin"
         android:layout_marginBottom="5dp">
 
         <EditText
-            android:id="@+id/etPersonnePrevenir"
+            android:id="@+id/etContactMedecin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etOccupation"
+            android:layout_below="@+id/etMedecin"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:ems="10"
             android:gravity="left"
-            android:hint="Personne à Prevenir"
+            android:hint="Adresse et/ou Telephone Medecin Traitant"
             android:inputType="textPersonName"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:id="@+id/Relation"
-        android:layout_marginBottom="5dp">
-
-        <EditText
-            android:id="@+id/etRelation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/etPersonnePrevenir"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Relation"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-
 
     </android.support.design.widget.TextInputLayout>
 
@@ -220,7 +217,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="onLogButton"

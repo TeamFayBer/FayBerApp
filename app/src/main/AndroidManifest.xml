@@ -30,19 +30,24 @@
         <activity android:name="activities.NosServicesActivity" />
         <activity
             android:name="activities.DetailsActivity"
+            android:screenOrientation="portrait"
             android:label="Details" />
         <!-- android:theme="@style/AppTheme.NoActionBar" -->
         <activity
             android:name="activities.SignInActivity"
+            android:screenOrientation="portrait"
             android:label="Connecter" />
         <activity
             android:name="activities.SignUpActivity"
+            android:screenOrientation="portrait"
             android:label="Enregistrer" />
         <activity android:name="activities.FicheDemandeActivity" />
-        <activity android:name="activities.ResponseActivity" />
+        <activity android:name="activities.ResponseActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name="activities.TeamFayBerActivity" />
         <activity android:name=".PartenaireActivity" />
-        <activity android:name=".AproposActivity" />
+        <activity android:name=".AproposActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".MyBrowser"></activity>
     </application>
 

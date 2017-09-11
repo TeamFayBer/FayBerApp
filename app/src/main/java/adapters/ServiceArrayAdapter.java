@@ -1,6 +1,4 @@
 package adapters;
-
-
 import android.app.Service;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -24,7 +22,6 @@ import codepath.fayberapp.R;
 import static codepath.fayberapp.R.id.image;
 import static codepath.fayberapp.R.id.imageView;
 import static codepath.fayberapp.R.id.ivImage1;
-
 public class ServiceArrayAdapter  extends ArrayAdapter<Services> {
     public ServiceArrayAdapter(Context context, ArrayList<Services> service) {
         super(context, android.R.layout.simple_list_item_1, service);
@@ -40,21 +37,47 @@ public class ServiceArrayAdapter  extends ArrayAdapter<Services> {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.item_service, parent, false);
         }
-
-
         // find the image view
         ImageView ivImage1 = (ImageView) convertView.findViewById(R.id.ivImage1);
         // clear out image from convertView
-        // ivImage1.setImageResource(0);
+        ivImage1.setImageResource(0);
+
+        if(Integer.valueOf(service.getId())==3)
+        {
+            Picasso.with(getContext()).load(R.drawable.science).into(ivImage1);
+        }
+        else if(Integer.valueOf(service.getId())==4)
+        {
+            Picasso.with(getContext()).load(R.drawable.pansement).into(ivImage1);
+        }
+        else if(Integer.valueOf(service.getId())==5){
+            Picasso.with(getContext()).load(R.drawable.test).into(ivImage1);
+        }
+        else if(Integer.valueOf(service.getId())==6){
+            Picasso.with(getContext()).load(R.drawable.laboratoire).into(ivImage1);
+        }
+        else if(Integer.valueOf(service.getId())==7){
+            Picasso.with(getContext()).load(R.drawable.beauty).into(ivImage1);
+        }else if(Integer.valueOf(service.getId())==8){
+            Picasso.with(getContext()).load(R.drawable.catheter).into(ivImage1);
+        }else if(Integer.valueOf(service.getId())==9){
+            Picasso.with(getContext()).load(R.drawable.soutienpsy).into(ivImage1);
+        }
+        else if(Integer.valueOf(service.getId())==10){
+            Picasso.with(getContext()).load(R.drawable.diet).into(ivImage1);
+        }
+        else if(Integer.valueOf(service.getId())==11){
+            Picasso.with(getContext()).load(R.drawable.reeducationbarres).into(ivImage1);
+        }
 
         TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
         TextView tvOverview = (TextView) convertView.findViewById(R.id.tvDetails);
 
         tvTitle.setText(service.getTitle());
         tvOverview.setText(service.getDetails());
+        String imageUri = "http://fayberagency.com/v1/app/image_service/"+service.getImage();
 
-      ivImage1.setImageResource(service.getImage());
-       // Picasso.with(getContext()).load(service.getImage()).into(ivImage1);
+        //Picasso.with(getContext()).load(service.getImage()).placeholder(R.drawable.bandage).into(ivImage1);
         return convertView;
     }
 }

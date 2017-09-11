@@ -4,15 +4,26 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import Models.Services;
 import codepath.fayberapp.R;
+import cz.msebera.android.httpclient.entity.mime.Header;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -49,11 +60,62 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
     }
+
     public void onLogButton(View v) {
         Services serv = (Services) getIntent().getSerializableExtra("serv");
         Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);
         i.putExtra("serv",serv);
         startActivity(i);
+        if(edText.getText().toString().equals("") && edText1.getText().toString().equals("")){
+            Toast.makeText(this, "un ou plusieyur s sont vides", Toast.LENGTH_SHORT).show();
+        }else{
+            getInfoLoginUser();
+        }
+        //Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);
+        //startActivity(i);
+    }
+
+    public void getInfoLoginUser(){
+        String url = "http://fayberagency.com/v1/app/login_user.php";
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        RequestParams params = new RequestParams();
+        params.put("user_name", edText.getText().toString());
+        params.put("user_password", edText1.getText().toString());
+        client.post(url,params, new JsonHttpResponseHandler(){
+
+            @Override
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                JSONArray articleJsonResults = null;
+                try {
+
+                    Object objectlogin = response.get("response");
+                    if (objectlogin instanceof JSONArray) {
+                        articleJsonResults = response.getJSONArray("response");
+                        Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);
+                        i.putExtra("id_client", articleJsonResults.getJSONObject(0).getString("id_client"));
+                        i.putExtra("nom_client", articleJsonResults.getJSONObject(0).getString("nom_client"));
+                        i.putExtra("telephone_client", articleJsonResults.getJSONObject(0).getString("telephone_client"));
+                        i.putExtra("email_client", articleJsonResults.getJSONObject(0).getString("email_client"));
+                        i.putExtra("username_client", articleJsonResults.getJSONObject(0).getString("username_client"));
+                        startActivity(i);
+                        Toast.makeText(SignInActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(SignInActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(SignInActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

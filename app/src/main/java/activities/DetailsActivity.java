@@ -16,8 +16,12 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import Models.Services;
 import codepath.fayberapp.R;
+
+import static codepath.fayberapp.R.id.ivImage1;
 
 public class DetailsActivity extends AppCompatActivity {
     TextView tvText;
@@ -33,19 +37,23 @@ public class DetailsActivity extends AppCompatActivity {
 
         //Display the Up button home
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //Call a differents page,not the same
+        //Call a differents contenu,not the same in details page
         Services serv = (Services) getIntent().getSerializableExtra("services");
 
         tvText = (TextView) findViewById(R.id.tvDetails);
         tvText.setText(serv.getDetails().toString());
         titre = (TextView) findViewById(R.id.tvtitle4detail);
         titre.setText(serv.getTitle().toString());
-        ImageItem = (ImageView) findViewById(R.id.ivImage1);
+        ImageItem = (ImageView) findViewById(ivImage1);
+        String imageUri = "http://fayberagency.com/v1/app/image_service/"+serv.getImage();
+        Picasso.with(getApplicationContext()).load(imageUri).placeholder(R.mipmap.ic_launcher).into(ImageItem);
+       // ImageItem.setImageResource(Integer.parseInt(serv.getImage()));
+
         button = (Button) findViewById(R.id.btnRegister);
 
         changeImage(getIntent().getIntExtra("position",0));
     }
-
+//Find the different image in the details not the same in fayactivity
     public void changeImage(int position){
         switch (position) {
             case 0:
@@ -105,9 +113,13 @@ public class DetailsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 //
+    // To share via another apps
     public void shareInfo(){
-        String messageToShare="visitez notre siteWeb- http://fayberagency.com/";
 
+        //add the message for sharing
+        String messageToShare="Pour plus de detail et de contenu, visitez notre siteWeb- http://fayberagency.com/";
+
+        messageToShare = "visitez notre siteWeb- http://fayberagency.com/";
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);

@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Models.Services;
 import codepath.fayberapp.R;
 import cz.msebera.android.httpclient.entity.mime.Header;
 
@@ -61,6 +62,10 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void onLogButton(View v) {
+        Services serv = (Services) getIntent().getSerializableExtra("serv");
+        Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);
+        i.putExtra("serv",serv);
+        startActivity(i);
         if(edText.getText().toString().equals("") && edText1.getText().toString().equals("")){
             Toast.makeText(this, "un ou plusieyur s sont vides", Toast.LENGTH_SHORT).show();
         }else{
@@ -110,6 +115,7 @@ public class SignInActivity extends AppCompatActivity {
                 Toast.makeText(SignInActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

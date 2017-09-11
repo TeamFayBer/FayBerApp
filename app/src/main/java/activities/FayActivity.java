@@ -39,12 +39,9 @@ import codepath.fayberapp.R;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-<<<<<<< HEAD
-     // call the adapter,the listview and the model
 
-=======
+     // call the adapter,the listview and the model
     // call the adapter,the listview and the model
->>>>>>> 128cd9d9b1dfd97cafbf71998090adb89c9a4447
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> aServices;
     ListView lvServices;
@@ -55,13 +52,11 @@ public class FayActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-  setContentView(R.layout.activity_fay);
+       setContentView(R.layout.activity_fay);
         //Display the toobar
-=======
+
         setContentView(R.layout.activity_fay);
     //Display the toobar
->>>>>>> 128cd9d9b1dfd97cafbf71998090adb89c9a4447
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

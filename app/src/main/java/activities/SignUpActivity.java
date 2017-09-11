@@ -3,6 +3,7 @@ package activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +36,9 @@ public class SignUpActivity extends AppCompatActivity {
       //  setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        //create notification
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
 
        edT = (EditText) findViewById(R.id.etNomComplet);
         edT1 = (EditText) findViewById(R.id.etPhone);
@@ -104,7 +108,7 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String responseString, Throwable throwable) {
-                Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Models.Services;
 import codepath.fayberapp.R;
 import cz.msebera.android.httpclient.entity.mime.Header;
 
@@ -93,6 +94,8 @@ public class SignInActivity extends AppCompatActivity {
                         i.putExtra("telephone_client", articleJsonResults.getJSONObject(0).getString("telephone_client"));
                         i.putExtra("email_client", articleJsonResults.getJSONObject(0).getString("email_client"));
                         i.putExtra("username_client", articleJsonResults.getJSONObject(0).getString("username_client"));
+                        Services serv = (Services) getIntent().getSerializableExtra("services");
+                        i.putExtra("services",serv);
                         startActivity(i);
                         Toast.makeText(SignInActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
                     }else{

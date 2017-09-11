@@ -16,6 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import Models.Services;
 import codepath.fayberapp.R;
 
 import static android.os.Build.VERSION_CODES.M;
@@ -96,10 +97,15 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
     }
 
     public void senMail(){
+        Services serv = (Services) getIntent().getSerializableExtra("services");
+        String nom_client=getIntent().getStringExtra("nom_client");
+        String telephone_client=getIntent().getStringExtra("telephone_client");
+        String email_client=getIntent().getStringExtra("email_client");
+
         String uriText = "mailto:fayber.nursingcareagency@gmail.com" +
                 "?subject="+ Uri.encode("Demande d'aide") +
-                "&body="+Uri.encode("string");
-
+                "&body="+Uri.encode("Service Demande:\t"+serv.getTitle()+"\n Description Service:\t"+serv.getDetails()
+                        +"\nNom Client:\t"+nom_client+"\nTelephone Client:\t"+telephone_client+"\nEmail Client:\t"+email_client);
         Uri uri = Uri.parse(uriText);
         Intent send = new Intent(Intent.ACTION_SENDTO);
         send.setData(uri);

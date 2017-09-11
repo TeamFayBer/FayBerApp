@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import Models.Services;
 import codepath.fayberapp.R;
 
 import static android.os.Build.VERSION_CODES.M;
@@ -75,9 +76,10 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
     }
     public void onLogButton(View v) {
         if(spinner.getSelectedItem().toString()!="Sexe"){
+            Services serv = (Services) getIntent().getSerializableExtra("serv");
             Intent i = new Intent(FicheDemandeActivity.this, FayActivity.class);
             startActivity(i);
-            Toast.makeText(this, "Sous peu, vous recevrez un message relatif à votre demande", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Sous peu, vous recevrez un message relatif à votre demande: "+serv.getTitle()+" \n"+serv.getDetails(), Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this, "Select sex", Toast.LENGTH_SHORT).show();
         }

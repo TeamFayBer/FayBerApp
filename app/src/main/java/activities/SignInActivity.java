@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import Models.Services;
 import codepath.fayberapp.R;
 
 public class SignInActivity extends AppCompatActivity {
@@ -49,7 +50,9 @@ public class SignInActivity extends AppCompatActivity {
         });
     }
     public void onLogButton(View v) {
+        Services serv = (Services) getIntent().getSerializableExtra("serv");
         Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);
+        i.putExtra("serv",serv);
         startActivity(i);
     }
     @Override

@@ -28,7 +28,35 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="770dp"
+                android:layout_height="95dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_launcherlogo"
+                tools:ignore="ContentDescription,UnknownIdInLayout"
+                android:layout_below="@+id/tvChoix"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/tvDescriptName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Fay &amp; Ber"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textColorHighlight="@android:color/darker_gray"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam"
+                android:layout_below="@+id/ivLogo"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="fill_parent"

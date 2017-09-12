@@ -40,6 +40,8 @@ public class SignUpActivity extends AppCompatActivity {
 
         //create notification
         edT = (EditText) findViewById(R.id.etNomComplet);
+        edT.getText().clear();
+
         edT1 = (EditText) findViewById(R.id.etPhone);
         edT2 = (EditText) findViewById(R.id.etIdentif);
         edT3 = (EditText) findViewById(R.id.etMail);
@@ -62,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         if (edT.getText().toString().equals("") && edT1.getText().toString().equals("") &&
                 edT2.getText().toString().equals("") && edT3.getText().toString().equals("") && edT4.getText().toString().equals("")) {
-            Toast.makeText(this, "un ou plusieyur s sont vides", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "un ou plusieurs champ(s) sont vides", Toast.LENGTH_SHORT).show();
         } else {
             getInfoRegisterUser();
         }

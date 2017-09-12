@@ -64,7 +64,7 @@ public class ResponseActivity extends AppCompatActivity {
         try{
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage("36893514", null, body, null, null);
-            Toast.makeText(ResponseActivity.this, "Message envoye", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ResponseActivity.this, "Message envoyé", Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             Toast.makeText(ResponseActivity.this, "erreur", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
@@ -73,6 +73,12 @@ public class ResponseActivity extends AppCompatActivity {
     public void onLogButton(View v) {
         Intent i = new Intent(ResponseActivity.this, FayActivity.class);
         startActivity(i);
+        if (etName.getText().toString().equals("") && etMessagi.getText().toString().equals("") &&
+                etPhono.getText().toString().equals("") && etMaili.getText().toString().equals("")) {
+            Toast.makeText(this, "un ou plusieurs champ(s) sont vides", Toast.LENGTH_SHORT).show();
+        } else {
+           sendSMS();
+        }
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

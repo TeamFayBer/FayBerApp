@@ -59,6 +59,10 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void onLogButton(View v) {
+        Services serv = (Services) getIntent().getSerializableExtra("serv");
+        Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);
+        i.putExtra("serv",serv);
+        startActivity(i);
         if(edText.getText().toString().equals("") && edText1.getText().toString().equals("")){
             Toast.makeText(this, "un ou plusieurs sont vides", Toast.LENGTH_SHORT).show();
         }else{

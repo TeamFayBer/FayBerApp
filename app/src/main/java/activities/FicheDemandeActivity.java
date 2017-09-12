@@ -15,7 +15,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -81,7 +83,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         mTodayDate = (EditText)findViewById(R.id.etDate);
 
         //Get or Generate Date
-        Date todayDate = new Date();
+      Date todayDate = new Date();
 
         //Get an instance of the formatter
         DateFormat dateFormat = DateFormat.getDateTimeInstance();
@@ -94,6 +96,15 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 
         //display Date
         mTodayDate.setText(todayDateTimeString);
+
+        Calendar cal = Calendar.getInstance();
+        Date currentDate = cal.getTime();
+
+        DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        String formattedDateString = formatter.format(currentDate);
+        mTodayDate.setText(formattedDateString);
+
+
         //Button
         btnenvoyer.setOnClickListener(new View.OnClickListener() {
             @Override

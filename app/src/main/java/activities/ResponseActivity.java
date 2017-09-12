@@ -49,8 +49,8 @@ public class ResponseActivity extends AppCompatActivity {
         btnEnvoyi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(ResponseActivity.this, FayActivity.class);
-                //startActivity(i);
+                Intent i = new Intent(ResponseActivity.this, FayActivity.class);
+                startActivity(i);
                 sendSMS();
             }
         });
@@ -71,10 +71,11 @@ public class ResponseActivity extends AppCompatActivity {
         }
     }
     public void onLogButton(View v) {
-        Intent i = new Intent(ResponseActivity.this, FayActivity.class);
-        startActivity(i);
+       // Intent i = new Intent(ResponseActivity.this, FayActivity.class);
+     //   startActivity(i);
         if (etName.getText().toString().equals("") && etMessagi.getText().toString().equals("") &&
-                etPhono.getText().toString().equals("") && etMaili.getText().toString().equals("")) {
+                etPhono.getText().toString().equals("") && etMaili.getText().toString().equals(""))
+        {
             Toast.makeText(this, "un ou plusieurs champ(s) sont vides", Toast.LENGTH_SHORT).show();
         } else {
            sendSMS();

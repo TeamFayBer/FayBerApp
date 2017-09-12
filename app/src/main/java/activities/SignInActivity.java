@@ -1,10 +1,8 @@
 package activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +21,6 @@ import org.json.JSONObject;
 
 import Models.Services;
 import codepath.fayberapp.R;
-import cz.msebera.android.httpclient.entity.mime.Header;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -62,12 +59,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void onLogButton(View v) {
-        Services serv = (Services) getIntent().getSerializableExtra("serv");
-        Intent i = new Intent(SignInActivity.this, FicheDemandeActivity.class);
-        i.putExtra("serv",serv);
-        startActivity(i);
         if(edText.getText().toString().equals("") && edText1.getText().toString().equals("")){
-            Toast.makeText(this, "un ou plusieyur s sont vides", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "un ou plusieurs sont vides", Toast.LENGTH_SHORT).show();
         }else{
             getInfoLoginUser();
         }

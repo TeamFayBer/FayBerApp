@@ -3,10 +3,9 @@ package activities;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -34,17 +33,17 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-      //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      //  setSupportActionBar(toolbar);
+        //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //  setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         //create notification
-       edT = (EditText) findViewById(R.id.etNomComplet);
+        edT = (EditText) findViewById(R.id.etNomComplet);
         edT1 = (EditText) findViewById(R.id.etPhone);
         edT2 = (EditText) findViewById(R.id.etIdentif);
         edT3 = (EditText) findViewById(R.id.etMail);
-         edT4 = (EditText) findViewById(R.id.etPass);
+        edT4 = (EditText) findViewById(R.id.etPass);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -84,11 +83,11 @@ public class SignUpActivity extends AppCompatActivity {
 
         //NotificationManager.notify().
 
-                mNotificationManager.notify(001, mBuilder.build());
+        mNotificationManager.notify(001, mBuilder.build());
     }
     public void getInfoRegisterUser(){
 
-        String url = "http://fayberagency.com/v1/app/login_user.php";
+        String url = "http://fayberagency.com/v1/app/register_user.php";
         AsyncHttpClient client = new AsyncHttpClient();
 
         RequestParams params = new RequestParams();
@@ -98,7 +97,7 @@ public class SignUpActivity extends AppCompatActivity {
         params.put("username_client", edT2.getText().toString());
         params.put("email_client", edT3.getText().toString());
         client.post(url,params, new JsonHttpResponseHandler(){
-
+            //ingbenoit@gmail.com
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                 //JSONArray articleJsonResults = null;

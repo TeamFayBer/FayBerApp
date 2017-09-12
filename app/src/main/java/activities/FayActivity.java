@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -15,10 +16,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import cz.msebera.android.httpclient.Header;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -36,11 +36,14 @@ import codepath.fayberapp.AproposActivity;
 import codepath.fayberapp.MyBrowser;
 import codepath.fayberapp.PartenaireActivity;
 import codepath.fayberapp.R;
+import cz.msebera.android.httpclient.Header;
 
 public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-     // call the adapter,the listview and the model
+    ProgressBar progress;
+    private SwipeRefreshLayout swiperefresh;
+    // call the adapter,the listview and the model
     // call the adapter,the listview and the model
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> aServices;
@@ -52,13 +55,17 @@ public class FayActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_fay);
+        setContentView(R.layout.activity_fay);
         //Display the toobar
 
         setContentView(R.layout.activity_fay);
-    //Display the toobar
+
+        //Display the toobar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        progress = (ProgressBar ) findViewById(R.id.progress);
+        swiperefresh = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
 
         // call the listview
         lvServices = (ListView) findViewById(R.id.lvServices);
@@ -67,7 +74,7 @@ public class FayActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Services services = (Services) lvServices.getItemAtPosition(position);
-            //   Toast.makeText(FayActivity.this, "Pas data to see details of service", Toast.LENGTH_SHORT).show();
+                //   Toast.makeText(FayActivity.this, "Pas data to see details of service", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(FayActivity.this, DetailsActivity.class);
                 i.putExtra("services", services);
                 i.putExtra("position", position);
@@ -75,36 +82,22 @@ public class FayActivity extends AppCompatActivity
             }
         });
 
-        String url = "http://fayberagency.com/v1/app/liste_service.php";
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.get(url, new JsonHttpResponseHandler(){
-          @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
-            {
+        getListService();
 
-                serviceJsonResults = null;
-                try{
-                    serviceJsonResults = response.getJSONArray("response");
-                    aServices.addAll(Services.fromJSONArray(serviceJsonResults));
-                    serviceAdapter.notifyDataSetChanged();
-                    Log.d("DEBUG", aServices.toString());
-                }
-                catch (JSONException e)
-                {
-                    e.printStackTrace();
-                }
-            }
-
-
-            public void onFaillure(int statusCode, Header[] headers,String responseString,Throwable throwable)
-            {
-                super.onFailure(statusCode, headers, responseString, throwable);
+        swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                progress.setVisibility(View.VISIBLE);
+                getListService();
+                swiperefresh.setRefreshing(false);
             }
         });
+        // Configure the refreshing colors
+        swiperefresh.setColorSchemeResources(android.R.color.holo_red_light,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_red_dark);
 
-        aServices = new ArrayList<>();
-        serviceAdapter = new ServiceArrayAdapter(FayActivity.this, aServices);
-        lvServices.setAdapter(serviceAdapter);
+        progress.setVisibility(View.VISIBLE);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -114,6 +107,42 @@ public class FayActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    private void getListService() {
+        aServices = new ArrayList<>();
+        serviceAdapter = new ServiceArrayAdapter(FayActivity.this, aServices);
+        lvServices.setAdapter(serviceAdapter);
+
+        String url = "http://fayberagency.com/v1/app/liste_service.php";
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(url, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+            {
+
+                serviceJsonResults = null;
+                try{
+                    serviceJsonResults = response.getJSONArray("response");
+                    aServices.addAll(Services.fromJSONArray(serviceJsonResults));
+                    serviceAdapter.notifyDataSetChanged();
+                    progress.setVisibility(View.GONE);
+                    Log.d("DEBUG", aServices.toString());
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+
+
+            public void onFailure(int statusCode, Header[] headers,String responseString,Throwable throwable)
+            {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                getListService();
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -127,8 +156,8 @@ public class FayActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.fay, menu);
-       // return true;
-          //inflate the button search
+        // return true;
+        //inflate the button search
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
@@ -148,7 +177,7 @@ public class FayActivity extends AppCompatActivity
                 // see https://code.google.com/p/android/issues/detail?id=24599
                 searchView.clearFocus();
                 finish();
-              return true;
+                return true;
             }
 
             @Override
@@ -156,13 +185,13 @@ public class FayActivity extends AppCompatActivity
                 return false;
             }
         });
-   return super.onCreateOptionsMenu(menu);
-}
-  /*
-    public void onLogSuccess() {
-        Intent i = new Intent(this, DetailsActivity.class);
-        startActivity(i);
-    }*/
+        return super.onCreateOptionsMenu(menu);
+    }
+    /*
+      public void onLogSuccess() {
+          Intent i = new Intent(this, DetailsActivity.class);
+          startActivity(i);
+      }*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -191,7 +220,7 @@ public class FayActivity extends AppCompatActivity
         else if (id == R.id.nav_group) {
             Intent i = new Intent(FayActivity.this, TeamFayBerActivity.class);
             startActivity(i);
-           // Toast.makeText(FayActivity.this, "Just click on the list and get back to do other choice", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(FayActivity.this, "Just click on the list and get back to do other choice", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_paramètre) {
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_contact) {

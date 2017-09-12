@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/cardview_light_background"
     android:layout_height="match_parent"
     tools:context="codepath.fayberapp.AproposActivity">
 
@@ -125,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_below="@+id/tvWeb"
+                android:background="@color/cardview_light_background"
                 android:layout_marginLeft="65dp"
                 android:layout_marginRight="65dp"
                 android:layout_marginTop="10dp"
@@ -134,29 +136,37 @@
                     android:id="@+id/ivFacebook"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:onClick="onFacebookClick"
+                    android:background="@color/cardview_light_background"
                     app:srcCompat="@drawable/facebook"
                     tools:ignore="ContentDescription,RtlHardcoded" />
 
                 <ImageView
                     android:id="@+id/ivTwitter"
+                    android:onClick="onTwitterClick"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:background="@color/cardview_light_background"
                     android:layout_marginLeft="10dp"
                     app:srcCompat="@drawable/twitter"
                     tools:ignore="ContentDescription,RtlHardcoded" />
 
                 <ImageView
                     android:id="@+id/ivYoutube"
+                    android:onClick="onYoutubeClick"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:background="@color/cardview_light_background"
                     android:layout_marginLeft="10dp"
                     app:srcCompat="@drawable/youtoube"
                     tools:ignore="ContentDescription,RtlHardcoded" />
 
                 <ImageView
                     android:id="@+id/ivGoogleBusiness"
+                    android:onClick="onPlusClick"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:background="@color/cardview_light_background"
                     android:layout_marginLeft="10dp"
                     app:srcCompat="@drawable/googleplus"
                     tools:ignore="ContentDescription,RtlHardcoded" />
@@ -167,7 +177,7 @@
 
     <TextView
         android:id="@+id/tvApropos"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -175,7 +185,6 @@
         android:layout_below="@+id/scrollView"
         android:fontFamily=""
         android:text="@string/information"
-        android:textAlignment="viewStart"
         android:textColor="@color/cardview_dark_background"
         android:textSize="12sp"
         tools:ignore="HardcodedText,RtlCompat,SmallSp" />

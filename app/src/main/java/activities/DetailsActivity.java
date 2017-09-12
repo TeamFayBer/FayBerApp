@@ -94,8 +94,8 @@ public class DetailsActivity extends AppCompatActivity {
    }
     //navigate to SignIn activity
     public void onLogButton(View v) {
-        Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
         Services serv = (Services) getIntent().getSerializableExtra("services");
+        Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
         i.putExtra("services",serv);
         startActivity(i);
     }

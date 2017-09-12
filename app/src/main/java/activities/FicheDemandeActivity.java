@@ -1,6 +1,7 @@
 package activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,6 +22,8 @@ import codepath.fayberapp.R;
 import static android.os.Build.VERSION_CODES.M;
 
 public class FicheDemandeActivity extends AppCompatActivity implements OnItemSelectedListener {
+
+    Button btnenvoyer;
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,14 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         //Display the up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        btnenvoyer = (Button) findViewById(R.id.btnEnvoyer);
+
+        btnenvoyer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                senMail();
+            }
+        });
 
         // Spinner element
         spinner = (Spinner) findViewById(R.id.spiSexe);
@@ -82,6 +94,24 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
             Toast.makeText(this, "Sous peu, vous recevrez un message relatif à votre demande: "+serv.getTitle()+" \n"+serv.getDetails(), Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this, "Select sex", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void senMail(){
+        Services serv = (Services) getIntent().getSerializableExtra("services");
+        String nom_client=getIntent().getStringExtra("nom_client");
+        String telephone_client=getIntent().getStringExtra("telephone_client");
+        String email_client=getIntent().getStringExtra("email_client");
+
+        String uriText = "mailto:fayber.nursingcareagency@gmail.com" +
+                "?subject="+ Uri.encode("Demande d'aide") +
+                "&body="+Uri.encode("Service Demande:\t"+serv.getTitle()+"\n Description Service:\t"+serv.getDetails()
+                        +"\nNom Client:\t"+nom_client+"\nTelephone Client:\t"+telephone_client+"\nEmail Client:\t"+email_client);
+        Uri uri = Uri.parse(uriText);
+        Intent send = new Intent(Intent.ACTION_SENDTO);
+        send.setData(uri);
+        if(send.resolveActivity(getPackageManager()) != null){
+            startActivity(Intent.createChooser(send, "Send email"));
         }
     }
 }

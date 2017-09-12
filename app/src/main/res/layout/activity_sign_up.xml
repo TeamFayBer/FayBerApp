@@ -6,12 +6,18 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@android:color/background_light"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:weightSum="1">
 
     <ImageView
         android:id="@+id/ivSignIn"
+<<<<<<< HEAD
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+=======
         android:layout_width="80dp"
         android:layout_height="80dp"
+>>>>>>> 0c6ab41be15bbec074dada138554bc5a389f30bf
         android:layout_gravity="center"
         android:scaleType="fitCenter"
         android:src="@mipmap/ic_launcherlogo"
@@ -31,9 +37,13 @@
             android:layout_gravity="center"
             android:layout_marginTop="3dp"
             android:drawableLeft="@drawable/ic_action_nacomp"
+<<<<<<< HEAD
+=======
             android:gravity="center"
             android:textSize="16sp"
+>>>>>>> 0c6ab41be15bbec074dada138554bc5a389f30bf
             android:ems="10"
+            android:gravity="center"
             android:hint="Nom Complet"
             android:inputType="textPersonName"
             android:textColor="@color/colorAccent"
@@ -109,30 +119,47 @@
         android:layout_alignParentStart="true" />
     </android.support.design.widget.TextInputLayout>
 
+<<<<<<< HEAD
+=======
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Passcode"
         android:layout_marginBottom="3dp">
 
+>>>>>>> 0c6ab41be15bbec074dada138554bc5a389f30bf
     <EditText
         android:id="@+id/etPass"
-        android:layout_width="373dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_alignParentLeft="true"
         android:layout_below="@id/etMail"
+<<<<<<< HEAD
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+=======
         android:gravity="center"
         android:ems="10"
         android:layout_marginTop="3dp"
         android:layout_alignParentLeft="true"
         android:hint="Creer Mot de Pass"
+>>>>>>> 0c6ab41be15bbec074dada138554bc5a389f30bf
         android:drawableLeft="@drawable/ic_action_passcode"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Creer Mot de Pass"
         android:inputType="textPersonName"
         android:textColor="@color/colorAccent"
         android:textSize="16sp"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-    </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Passcode"
+        android:layout_marginBottom="5dp">
+
+    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
@@ -160,23 +187,31 @@
 
     <Button
         android:id="@+id/btnSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="351dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etPass"
         android:layout_gravity="center"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginTop="22dp"
         android:backgroundTint="@color/colorPrimaryDark"
+        android:onClick="onLogButton"
         android:text="Enregistrer"
         android:textColor="@android:color/background_light"
         android:textColorHighlight="@android:color/darker_gray"
+<<<<<<< HEAD
+        android:textSize="14sp"
+=======
         android:textSize="18sp"
         android:onClick="onLogButton"
         tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute"
         android:layout_marginTop="20dp"
+>>>>>>> 0c6ab41be15bbec074dada138554bc5a389f30bf
         android:textStyle="bold"
-        android:layout_below="@+id/etPass"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        tools:ignore="HardcodedText,ObsoleteLayoutParam,UnusedAttribute" />
+
 
     <!--<android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

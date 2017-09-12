@@ -46,7 +46,7 @@ public class DetailsActivity extends AppCompatActivity {
         titre.setText(serv.getTitle().toString());
         ImageItem = (ImageView) findViewById(ivImage1);
         String imageUri = "http://fayberagency.com/v1/app/image_service/"+serv.getImage();
-        Picasso.with(getApplicationContext()).load(imageUri).placeholder(R.mipmap.ic_launcher).into(ImageItem);
+        Picasso.with(getApplicationContext()).load(imageUri).into(ImageItem);
        // ImageItem.setImageResource(Integer.parseInt(serv.getImage()));
 
         button = (Button) findViewById(R.id.btnRegister);
@@ -96,7 +96,12 @@ public class DetailsActivity extends AppCompatActivity {
     public void onLogButton(View v) {
         Services serv = (Services) getIntent().getSerializableExtra("services");
         Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
+<<<<<<< HEAD
+        Services serv = (Services) getIntent().getSerializableExtra("services");
+        i.putExtra("services",serv);
+=======
         i.putExtra("serv",serv);
+>>>>>>> 0c6ab41be15bbec074dada138554bc5a389f30bf
         startActivity(i);
     }
     @Override

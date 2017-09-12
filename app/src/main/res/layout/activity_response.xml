@@ -21,10 +21,12 @@
         android:layout_centerHorizontal="true" />
 
     <ScrollView
-        android:layout_below="@+id/tvContact"
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvContact"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -34,14 +36,14 @@
             <ImageView
                 android:id="@+id/ivLogo"
                 android:layout_width="770dp"
-                android:layout_height="95dp"
+                android:layout_height="59dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvChoix"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/ic_launcherlogo"
-                tools:ignore="ContentDescription,UnknownIdInLayout"
-                android:layout_below="@+id/tvChoix"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                tools:ignore="ContentDescription,UnknownIdInLayout" />
 
             <TextView
                 android:id="@+id/tvDescriptName"
@@ -130,14 +132,14 @@
                 <EditText
                     android:id="@+id/etMessage"
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
+                    android:layout_height="133dp"
                     android:layout_marginTop="10dp"
-                    android:gravity="top"
-                    android:fitsSystemWindows="true"
                     android:breakStrategy="balanced"
+                    android:fitsSystemWindows="true"
+                    android:gravity="top"
+                    android:hint="@string/message"
                     android:inputType="textMultiLine"
-                    android:padding="5dp"
-                    android:hint="@string/message" />
+                    android:padding="5dp" />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
@@ -147,8 +149,10 @@
         android:id="@+id/btnEnvoyer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_below="@id/scrollView"
-        android:layout_marginTop="40dp"
+        android:layout_below="@+id/scrollView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="onLogButton"
         android:text="@string/envoyer"

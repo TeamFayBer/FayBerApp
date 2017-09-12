@@ -50,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // Respond to the action bar's Up/Home button
+                Intent i = new Intent(SignUpActivity.this, SignInActivity.class);
                 finish();
                 return true;
         }

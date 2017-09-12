@@ -113,6 +113,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
         android:id="@+id/Passcode"
         android:layout_marginBottom="3dp">
         <EditText
@@ -127,7 +128,7 @@
             android:drawableLeft="@drawable/ic_action_passcode"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
@@ -137,6 +138,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
         android:id="@+id/ConPasscode"
         android:layout_marginBottom="5dp">
 
@@ -151,7 +153,7 @@
             android:layout_alignParentLeft="true"
             android:hint="Confirmer Mot de Pass"
             android:drawableLeft="@drawable/ic_action_passcode"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />

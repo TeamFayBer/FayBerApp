@@ -32,9 +32,17 @@ public class ResponseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         etName = (EditText) findViewById(R.id.etNomComplet);
+      //  etName.getText().clear();
+
         etPhono = (EditText) findViewById(R.id.etPhone);
+       // etPhono.getText().clear();
+
         etMaili = (EditText) findViewById(R.id.etMail);
+     //   etMaili.getText().clear();
+
         etMessagi = (EditText) findViewById(R.id.etMessage);
+       // etMessagi.getText().clear();
+
         btnEnvoyi = (Button) findViewById(R.id.btnEnvoyer);
         tvContacti = (TextView) findViewById(R.id.tvContact);
 

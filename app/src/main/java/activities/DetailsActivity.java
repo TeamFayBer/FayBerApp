@@ -39,8 +39,8 @@ public class DetailsActivity extends AppCompatActivity {
         titre = (TextView) findViewById(R.id.tvtitle4detail);
         titre.setText(serv.getTitle().toString());
         ImageItem = (ImageView) findViewById(ivImage1);
-        String imageUri = "http://fayberagency.com/v1/app/image_service/"+serv.getImage();
-        Picasso.with(getApplicationContext()).load(imageUri).into(ImageItem);
+    //    String imageUri = "http://fayberagency.com/v1/app/image_service/"+serv.getImage();
+       // Picasso.with(getApplicationContext()).load(imageUri).into(ImageItem);
         // ImageItem.setImageResource(Integer.parseInt(serv.getImage()));
 
         button = (Button) findViewById(R.id.btnRegister);

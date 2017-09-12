@@ -12,14 +12,14 @@
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@drawable/fayber"
-        android:label="FayBerApp"
+        android:label="FayBer Agency"
         android:largeHeap="true"
         android:roundIcon="@drawable/fayber"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name="activities.FayActivity"
-            android:label="FayBerApp"
+            android:label="FayBer Agency"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="activities.LaunchActivity"

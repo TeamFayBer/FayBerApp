@@ -1,20 +1,14 @@
 package activities;
 
-import android.app.SharedElementCallback;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -47,13 +41,13 @@ public class DetailsActivity extends AppCompatActivity {
         ImageItem = (ImageView) findViewById(ivImage1);
         String imageUri = "http://fayberagency.com/v1/app/image_service/"+serv.getImage();
         Picasso.with(getApplicationContext()).load(imageUri).into(ImageItem);
-       // ImageItem.setImageResource(Integer.parseInt(serv.getImage()));
+        // ImageItem.setImageResource(Integer.parseInt(serv.getImage()));
 
         button = (Button) findViewById(R.id.btnRegister);
 
         changeImage(getIntent().getIntExtra("position",0));
     }
-//Find the different image in the details not the same in fayactivity
+    //Find the different image in the details not the same in fayactivity
     public void changeImage(int position){
         switch (position) {
             case 0:
@@ -87,21 +81,16 @@ public class DetailsActivity extends AppCompatActivity {
         }
     }
     //private ShareActionProvider mShareActionProvider;
-   public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.icon_share, menu);
-       return true;
-   }
+        return true;
+    }
     //navigate to SignIn activity
     public void onLogButton(View v) {
         Services serv = (Services) getIntent().getSerializableExtra("services");
         Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
-<<<<<<< HEAD
-        Services serv = (Services) getIntent().getSerializableExtra("services");
         i.putExtra("services",serv);
-=======
-        i.putExtra("serv",serv);
->>>>>>> 0c6ab41be15bbec074dada138554bc5a389f30bf
         startActivity(i);
     }
     @Override
@@ -117,14 +106,14 @@ public class DetailsActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-//
+    //
     // To share via another apps
     public void shareInfo(){
 
         //add the message for sharing
         String messageToShare="Pour plus de detail et de contenu, visitez notre siteWeb- http://fayberagency.com/";
 
-        messageToShare = "visitez notre siteWeb- http://fayberagency.com/";
+        messageToShare = "visitez notre site Web:- http://fayberagency.com/";
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);

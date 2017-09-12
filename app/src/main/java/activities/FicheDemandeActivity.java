@@ -2,8 +2,8 @@ package activities;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,8 +19,6 @@ import java.util.List;
 import Models.Services;
 import codepath.fayberapp.R;
 
-import static android.os.Build.VERSION_CODES.M;
-
 public class FicheDemandeActivity extends AppCompatActivity implements OnItemSelectedListener {
 
     Button btnenvoyer;
@@ -33,13 +31,6 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         btnenvoyer = (Button) findViewById(R.id.btnEnvoyer);
-
-        btnenvoyer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                senMail();
-            }
-        });
 
         // Spinner element
         spinner = (Spinner) findViewById(R.id.spiSexe);
@@ -60,6 +51,17 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+
+        btnenvoyer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(spinner.getSelectedItem().toString()!="Sexe"){
+                    senMail();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Select sex", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -86,16 +88,6 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         }
         return super.onOptionsItemSelected(item);
     }
-    public void onLogButton(View v) {
-        if(spinner.getSelectedItem().toString()!="Sexe"){
-            Services serv = (Services) getIntent().getSerializableExtra("serv");
-            Intent i = new Intent(FicheDemandeActivity.this, FayActivity.class);
-            startActivity(i);
-            Toast.makeText(this, "Sous peu, vous recevrez un message relatif à votre demande: "+serv.getTitle()+" \n"+serv.getDetails(), Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(this, "Select sex", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     public void senMail(){
         Services serv = (Services) getIntent().getSerializableExtra("services");
@@ -103,10 +95,12 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         String telephone_client=getIntent().getStringExtra("telephone_client");
         String email_client=getIntent().getStringExtra("email_client");
 
+        Toast.makeText(getApplicationContext(), "Sous peu, vous recevrez un message relatif à votre demande: "+serv.getTitle()+" \n"+serv.getDetails(), Toast.LENGTH_LONG).show();
+
         String uriText = "mailto:fayber.nursingcareagency@gmail.com" +
                 "?subject="+ Uri.encode("Demande d'aide") +
                 "&body="+Uri.encode("Service Demande:\t"+serv.getTitle()+"\n Description Service:\t"+serv.getDetails()
-                        +"\nNom Client:\t"+nom_client+"\nTelephone Client:\t"+telephone_client+"\nEmail Client:\t"+email_client);
+                +"\nNom Client:\t"+nom_client+"\nTelephone Client:\t"+telephone_client+"\nEmail Client:\t"+email_client);
         Uri uri = Uri.parse(uriText);
         Intent send = new Intent(Intent.ACTION_SENDTO);
         send.setData(uri);

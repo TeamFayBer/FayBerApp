@@ -40,7 +40,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         //create notification
         edT = (EditText) findViewById(R.id.etNomComplet);
-        edT.getText().clear();
 
         edT1 = (EditText) findViewById(R.id.etPhone);
         edT2 = (EditText) findViewById(R.id.etIdentif);
@@ -117,6 +116,11 @@ public class SignUpActivity extends AppCompatActivity {
                         i.putExtra("username_client", edT2.getText().toString());
                         startActivity(i);
                         Toast.makeText(SignUpActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
+                        edT.getText().clear();
+                        edT1.getText().clear();
+                        edT2.getText().clear();
+                        edT3.getText().clear();
+                        edT4.getText().clear();
                     }else{
                         Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
                     }

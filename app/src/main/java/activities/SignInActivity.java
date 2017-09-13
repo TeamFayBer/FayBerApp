@@ -95,6 +95,8 @@ public class SignInActivity extends AppCompatActivity {
                         i.putExtra("services",serv);
                         startActivity(i);
                         Toast.makeText(SignInActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
+                        edText.getText().clear();
+                        edText1.getText().clear();
                     }else{
                         Toast.makeText(SignInActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
                     }

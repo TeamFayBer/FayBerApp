@@ -10,10 +10,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import Models.Services;
@@ -22,7 +27,8 @@ import codepath.fayberapp.R;
 public class FicheDemandeActivity extends AppCompatActivity implements OnItemSelectedListener {
 
     Button btnenvoyer;
-    Spinner spinner;
+    Spinner spinner, spin;
+    EditText  mTodayDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +40,30 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 
         // Spinner element
         spinner = (Spinner) findViewById(R.id.spiSexe);
+        spin = (Spinner) findViewById(R.id.spiGroudSanguin);
         // Spinner click listener
         spinner.setOnItemSelectedListener(this);
+        spin.setOnItemSelectedListener(this);
+
+
+        // Spinner Drop down elements
+        List<String> categories1 = new ArrayList<String>();
+        categories1.add("Groupe Sanguin");
+        categories1.add("O+");
+        categories1.add("O-");
+        categories1.add("A+");
+        categories1.add("A-");
+        categories1.add("B+");
+        categories1.add("B+");
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories1);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spin.setAdapter(dataAdapter1);
 
         // Spinner Drop down elements
         List<String> categories = new ArrayList<String>();
@@ -52,6 +80,32 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
 
+        mTodayDate = (EditText)findViewById(R.id.etDate);
+
+        //Get or Generate Date
+      Date todayDate = new Date();
+
+        //Get an instance of the formatter
+        DateFormat dateFormat = DateFormat.getDateTimeInstance();
+
+        //If you want to show only the date then you will use
+        //DateFormat dateFormat = DateFormat.getDateInstance();
+
+        //Format date
+        String todayDateTimeString = dateFormat.format(todayDate);
+
+        //display Date
+        mTodayDate.setText(todayDateTimeString);
+
+        Calendar cal = Calendar.getInstance();
+        Date currentDate = cal.getTime();
+
+        DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        String formattedDateString = formatter.format(currentDate);
+        mTodayDate.setText(formattedDateString);
+
+
+        //Button
         btnenvoyer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +149,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         String telephone_client=getIntent().getStringExtra("telephone_client");
         String email_client=getIntent().getStringExtra("email_client");
 
-        Toast.makeText(getApplicationContext(), "Sous peu, vous recevrez un message relatif à votre demande: "+serv.getTitle()+" \n"+serv.getDetails(), Toast.LENGTH_LONG).show();
+      //  Toast.makeText(getApplicationContext(), "Sous peu, vous recevrez un message relatif à votre demande: "+serv.getTitle()+" \n"+serv.getDetails(), Toast.LENGTH_LONG).show();
 
         String uriText = "mailto:fayber.nursingcareagency@gmail.com" +
                 "?subject="+ Uri.encode("Demande d'aide") +

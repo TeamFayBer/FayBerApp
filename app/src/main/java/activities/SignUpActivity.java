@@ -40,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         //create notification
         edT = (EditText) findViewById(R.id.etNomComplet);
+
         edT1 = (EditText) findViewById(R.id.etPhone);
         edT2 = (EditText) findViewById(R.id.etIdentif);
         edT3 = (EditText) findViewById(R.id.etMail);
@@ -50,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // Respond to the action bar's Up/Home button
+                Intent i = new Intent(SignUpActivity.this, SignInActivity.class);
                 finish();
                 return true;
         }
@@ -61,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         if (edT.getText().toString().equals("") && edT1.getText().toString().equals("") &&
                 edT2.getText().toString().equals("") && edT3.getText().toString().equals("") && edT4.getText().toString().equals("")) {
-            Toast.makeText(this, "un ou plusieyur s sont vides", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "un ou plusieurs champ(s) sont vides", Toast.LENGTH_SHORT).show();
         } else {
             getInfoRegisterUser();
         }
@@ -114,6 +116,11 @@ public class SignUpActivity extends AppCompatActivity {
                         i.putExtra("username_client", edT2.getText().toString());
                         startActivity(i);
                         Toast.makeText(SignUpActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
+                        edT.getText().clear();
+                        edT1.getText().clear();
+                        edT2.getText().clear();
+                        edT3.getText().clear();
+                        edT4.getText().clear();
                     }else{
                         Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
                     }

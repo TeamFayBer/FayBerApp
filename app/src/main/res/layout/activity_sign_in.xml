@@ -60,6 +60,7 @@
             android:id="@+id/etPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
             android:layout_below="@+id/etIdentif"
             android:layout_marginTop="5dp"
             android:drawableLeft="@drawable/ic_lock"

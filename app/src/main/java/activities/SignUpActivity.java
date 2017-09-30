@@ -1,8 +1,10 @@
 package activities;
 
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
@@ -29,6 +31,9 @@ public class SignUpActivity extends AppCompatActivity {
     EditText edT3;
     EditText edT4;
     JSONArray articleJsonResults;
+    SharedPreferences sharedPreferences ;
+    SharedPreferences.Editor editor ;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,9 @@ public class SignUpActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        progressDialog = new ProgressDialog(SignUpActivity.this);
         //create notification
         edT = (EditText) findViewById(R.id.etNomComplet);
 
@@ -65,6 +73,12 @@ public class SignUpActivity extends AppCompatActivity {
                 edT2.getText().toString().equals("") && edT3.getText().toString().equals("") && edT4.getText().toString().equals("")) {
             Toast.makeText(this, "un ou plusieurs champ(s) sont vides", Toast.LENGTH_SHORT).show();
         } else {
+            progressDialog.setIndeterminate(true);
+            progressDialog.setMessage("Enregistrement en cours...");
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+
             getInfoRegisterUser();
         }
         //Get an instance of NotificationManager//
@@ -110,29 +124,36 @@ public class SignUpActivity extends AppCompatActivity {
                     if (objectlogin instanceof JSONArray) {
                         articleJsonResults = response.getJSONArray("response");
                         Intent i = new Intent(SignUpActivity.this, FicheDemandeActivity.class);
-                        i.putExtra("nom_client", edT.getText().toString());
-                        i.putExtra("telephone_client", edT1.getText().toString());
-                        i.putExtra("email_client", edT3.getText().toString());
-                        i.putExtra("username_client", edT2.getText().toString());
-                        startActivity(i);
+                        editor.putString("nom_client", edT.getText().toString());
+                        editor.putString("telephone_client", edT1.getText().toString());
+                        editor.putString("email_client", edT3.getText().toString());
+                        editor.putString("username_client", edT2.getText().toString());
+                        editor.apply();
                         Toast.makeText(SignUpActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        startActivity(i);
+                        finish();
+
                         edT.getText().clear();
                         edT1.getText().clear();
                         edT2.getText().clear();
                         edT3.getText().clear();
                         edT4.getText().clear();
                     }else{
+                        progressDialog.dismiss();
                         Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
                     }
 
 
                 } catch (JSONException e) {
+                    progressDialog.dismiss();
                     e.printStackTrace();
                 }
             }
 
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String responseString, Throwable throwable) {
+                progressDialog.dismiss();
                 Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
             }
         });

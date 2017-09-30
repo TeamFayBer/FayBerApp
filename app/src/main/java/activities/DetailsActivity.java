@@ -1,6 +1,8 @@
 package activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -9,8 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import Models.Services;
 import codepath.fayberapp.R;
@@ -22,6 +22,9 @@ public class DetailsActivity extends AppCompatActivity {
     TextView titre;
     ImageView ImageItem;
     Button button;
+    SharedPreferences sharedPreferences ;
+    SharedPreferences.Editor editor ;
+    Services serv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +35,9 @@ public class DetailsActivity extends AppCompatActivity {
         //Display the Up button home
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Call a differents contenu,not the same in details page
-        Services serv = (Services) getIntent().getSerializableExtra("services");
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        serv = (Services) getIntent().getSerializableExtra("services");
 
         tvText = (TextView) findViewById(R.id.tvDetails);
         tvText.setText(serv.getDetails().toString());
@@ -88,10 +93,15 @@ public class DetailsActivity extends AppCompatActivity {
     }
     //navigate to SignIn activity
     public void onLogButton(View v) {
-        Services serv = (Services) getIntent().getSerializableExtra("services");
-        Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
-        i.putExtra("services",serv);
-        startActivity(i);
+        if(sharedPreferences.getString("id_client", null)!=null){
+            Intent i = new Intent(DetailsActivity.this, FicheDemandeActivity.class);
+            i.putExtra("services",serv);
+            startActivity(i);
+        }else{
+            Intent i = new Intent(DetailsActivity.this, SignInActivity.class);
+            i.putExtra("services",serv);
+            startActivity(i);
+        }
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -1,6 +1,8 @@
 package activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -42,6 +45,7 @@ public class FayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ProgressBar progress;
+    TextView tvName, tvPhone;
     private SwipeRefreshLayout swiperefresh;
     // call the adapter,the listview and the model
     // call the adapter,the listview and the model
@@ -51,6 +55,9 @@ public class FayActivity extends AppCompatActivity
     //  Button btnItems, btnItems1, btnItems2, btnItems3;
 
     JSONArray serviceJsonResults;
+    SharedPreferences sharedPreferences ;
+    SharedPreferences.Editor editor ;
+    String saveListService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,9 @@ public class FayActivity extends AppCompatActivity
         //Display the toobar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         progress = (ProgressBar ) findViewById(R.id.progress);
         swiperefresh = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
@@ -106,6 +116,22 @@ public class FayActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header=navigationView.getHeaderView(0);
+        tvName=(TextView)header.findViewById(R.id.tvName);
+        tvPhone=(TextView)header.findViewById(R.id.tvPhone);
+
+        if(sharedPreferences.getString("id_client", null)!=null){
+            tvName.setVisibility(View.VISIBLE);
+            tvPhone.setVisibility(View.VISIBLE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+            tvName.setText(sharedPreferences.getString("username_client", null));
+            tvPhone.setText(sharedPreferences.getString("telephone_client", null));
+        }else{
+            tvName.setVisibility(View.GONE);
+            tvPhone.setVisibility(View.GONE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+        }
     }
 
     private void getListService() {
@@ -119,7 +145,6 @@ public class FayActivity extends AppCompatActivity
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response)
             {
-
                 serviceJsonResults = null;
                 try{
                     serviceJsonResults = response.getJSONArray("response");
@@ -168,15 +193,19 @@ public class FayActivity extends AppCompatActivity
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(FayActivity.this, "--" +query, Toast.LENGTH_SHORT).show();
                 // perform query here
-                serviceAdapter.clear();
-                serviceAdapter.addAll(Services.searchFromJSONArray(serviceJsonResults,query));
-                serviceAdapter.notifyDataSetChanged();
-                // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
-                // see https://code.google.com/p/android/issues/detail?id=24599
-                searchView.clearFocus();
-                finish();
+                if(Services.searchFromJSONArray(serviceJsonResults,query).size()==1){
+                    Toast.makeText(FayActivity.this, "" +query, Toast.LENGTH_SHORT).show();
+                    serviceAdapter.clear();
+                    serviceAdapter.addAll(Services.searchFromJSONArray(serviceJsonResults,query));
+                    serviceAdapter.notifyDataSetChanged();
+                    // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
+                    // see https://code.google.com/p/android/issues/detail?id=24599
+                    searchView.clearFocus();
+                    //finish();
+                }else{
+                    Toast.makeText(FayActivity.this, "Service non disponible: " +query, Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
 
@@ -211,6 +240,9 @@ public class FayActivity extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.nav_home) {
             // Handle the camera action
+            Intent i = new Intent(getApplicationContext(), FayActivity.class);
+            startActivity(i);
+            finish();
         }
         else if (id == R.id.nav_localisation)
         {
@@ -221,7 +253,10 @@ public class FayActivity extends AppCompatActivity
             Intent i = new Intent(FayActivity.this, TeamFayBerActivity.class);
             startActivity(i);
             // Toast.makeText(FayActivity.this, "Just click on the list and get back to do other choice", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_paramètre) {
+        } else if (id == R.id.nav_logout) {
+            editor.clear().apply();
+            startActivity(new Intent(getApplicationContext(), FayActivity.class));
+            finish();
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_contact) {
             Intent i = new Intent(FayActivity.this, ResponseActivity.class);
@@ -238,3 +273,27 @@ public class FayActivity extends AppCompatActivity
         return true;
     }
 }
+
+/*
+**Step 1**(Save JSONArray to SharedPreferences
+
+editor.putString("jsonListServ", serviceJsonResults.toString());
+                    editor.apply();
+
+**Step 2** (Get JSONArray from SharedPreferences)
+
+saveListService = sharedPreferences.getString("jsonListServ", "0");
+        if (saveListService != null) {
+            Toast.makeText(this, "it is...", Toast.LENGTH_SHORT).show();
+            JSONArray jsonData = null;
+            try {
+                jsonData = new JSONArray(saveListService);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            aServices.addAll(Services.fromJSONArray(jsonData));
+            serviceAdapter.notifyDataSetChanged();
+            progress.setVisibility(View.GONE);
+        }
+
+ */

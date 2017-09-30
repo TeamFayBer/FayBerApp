@@ -1,6 +1,8 @@
 package activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +31,9 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
     Button btnenvoyer;
     Spinner spinner, spin;
     EditText  mTodayDate;
+    SharedPreferences sharedPreferences ;
+    SharedPreferences.Editor editor ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,16 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         //Display the up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        if(sharedPreferences.getString("nom_client", null).length()>5){
+            getSupportActionBar().setTitle("Fiche Demande : "+sharedPreferences.getString("nom_client", null).substring(0,6)+"...");
+        }else{
+            getSupportActionBar().setTitle("Fiche Demande : "+sharedPreferences.getString("nom_client", null));
+        }
+
+
         btnenvoyer = (Button) findViewById(R.id.btnEnvoyer);
 
         // Spinner element
@@ -145,9 +160,9 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 
     public void senMail(){
         Services serv = (Services) getIntent().getSerializableExtra("services");
-        String nom_client=getIntent().getStringExtra("nom_client");
-        String telephone_client=getIntent().getStringExtra("telephone_client");
-        String email_client=getIntent().getStringExtra("email_client");
+        String nom_client=sharedPreferences.getString("nom_client", null);
+        String telephone_client=sharedPreferences.getString("telephone_client", null);
+        String email_client=sharedPreferences.getString("email_client", null);
 
       //  Toast.makeText(getApplicationContext(), "Sous peu, vous recevrez un message relatif à votre demande: "+serv.getTitle()+" \n"+serv.getDetails(), Toast.LENGTH_LONG).show();
 

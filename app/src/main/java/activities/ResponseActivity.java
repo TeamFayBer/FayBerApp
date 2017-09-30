@@ -1,14 +1,15 @@
 package activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,9 +50,16 @@ public class ResponseActivity extends AppCompatActivity {
         btnEnvoyi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ResponseActivity.this, FayActivity.class);
-                startActivity(i);
-                sendSMS();
+
+                if (etName.getText().toString().equals("") && etMessagi.getText().toString().equals("") &&
+                        etPhono.getText().toString().equals("") && etMaili.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "un ou plusieurs champ(s) sont vides", Toast.LENGTH_SHORT).show();
+                } else {
+                    String title="Confirmer envoi: ";
+                    String message="Frais de service selon votre compagnie...";
+                    alerteMessage(title,message);
+                }
             }
         });
     }
@@ -65,6 +73,8 @@ public class ResponseActivity extends AppCompatActivity {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage("36893514", null, body, null, null);
             Toast.makeText(ResponseActivity.this, "Message envoyé", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(ResponseActivity.this, FayActivity.class));
+            finish();
         }catch (Exception e){
             Toast.makeText(ResponseActivity.this, "erreur", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
@@ -78,7 +88,9 @@ public class ResponseActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "un ou plusieurs champ(s) sont vides", Toast.LENGTH_SHORT).show();
         } else {
-           sendSMS();
+            String title="Confirmer envoi: ";
+            String message="Frais de service selon votre compagnie...";
+            alerteMessage(title,message);
         }
     }
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -91,5 +103,26 @@ public class ResponseActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void alerteMessage(String title,String message) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(ResponseActivity.this);
+
+        dialog.setTitle(title)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setMessage(message)
+                .setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialoginterface, int i) {
+                        dialoginterface.cancel();
+                        sendSMS();
+                    }
+                });
+        dialog.setNegativeButton("NON", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogN, int which) {
+                dialogN.cancel();
+            }
+        });
+        dialog.show();
     }
 }

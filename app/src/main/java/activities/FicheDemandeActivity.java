@@ -30,7 +30,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 
     Button btnenvoyer;
     Spinner spinner, spin;
-    EditText  mTodayDate;
+    EditText  mTodayDate, etAdresse, etMaladie, etMedecin, etContactMedecin ;
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
 
@@ -52,6 +52,11 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 
 
         btnenvoyer = (Button) findViewById(R.id.btnEnvoyer);
+        etAdresse = (EditText) findViewById(R.id.etAdresse);
+        etMaladie = (EditText) findViewById(R.id.etMaladie);
+        etMedecin = (EditText) findViewById(R.id.etMedecin);
+        etContactMedecin = (EditText) findViewById(R.id.etContactMedecin);
+
 
         // Spinner element
         spinner = (Spinner) findViewById(R.id.spiSexe);
@@ -123,11 +128,16 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         //Button
         btnenvoyer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if(spinner.getSelectedItem().toString()!="Sexe"){
-                    senMail();
+            public void onClick(View v) {//Groupe Sanguin
+                if(spinner.getSelectedItem().toString()!="Sexe" || spin.getSelectedItem().toString()!="Groupe Sanguin"){
+                    //etAdresse, etMaladie, etMedecin, etContactMedecin
+                    if(mTodayDate.getText().toString().equals("") || etAdresse.getText().toString().equals("") || etMaladie.getText().toString().equals("") || etMedecin.getText().toString().equals("")  || etContactMedecin.getText().toString().equals("") ){
+                        Toast.makeText(FicheDemandeActivity.this, "Des champs sont vides...", Toast.LENGTH_SHORT).show();
+                    }else{
+                        senMail();
+                    }
                 }else{
-                    Toast.makeText(getApplicationContext(), "Select sex", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Select sex ou GS", Toast.LENGTH_SHORT).show();
                 }
             }
         });

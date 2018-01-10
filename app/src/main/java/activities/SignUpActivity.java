@@ -81,25 +81,6 @@ public class SignUpActivity extends AppCompatActivity {
 
             getInfoRegisterUser();
         }
-        //Get an instance of NotificationManager//
-
-        NotificationCompat.Builder mBuilder =
-                (NotificationCompat.Builder) new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.notification_icon)
-                        .setContentTitle("My notification")
-                        .setContentText("Hello World!");
-
-        // Gets an instance of the NotificationManager service//
-
-        NotificationManager mNotificationManager =
-
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-//When you issue multiple notifications about the same type of event, it’s best practice for your app to try to update an existing notification with this new information, rather than immediately creating a new notification. If you want to update this notification at a later date, you need to assign it an ID. You can then use this ID whenever you issue a subsequent notification. If the previous notification is still visible, the system will update this existing notification, rather than create a new one. In this example, the notification’s ID is 001//
-
-        //NotificationManager.notify().
-
-        mNotificationManager.notify(001, mBuilder.build());
     }
     public void getInfoRegisterUser(){
 
@@ -123,7 +104,6 @@ public class SignUpActivity extends AppCompatActivity {
                     Object objectlogin = response.get("response");
                     if (objectlogin instanceof JSONArray) {
                         articleJsonResults = response.getJSONArray("response");
-                        Intent i = new Intent(SignUpActivity.this, FicheDemandeActivity.class);
                         editor.putString("nom_client", edT.getText().toString());
                         editor.putString("telephone_client", edT1.getText().toString());
                         editor.putString("email_client", edT3.getText().toString());
@@ -131,14 +111,7 @@ public class SignUpActivity extends AppCompatActivity {
                         editor.apply();
                         Toast.makeText(SignUpActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
-                        startActivity(i);
-                        finish();
-
-                        edT.getText().clear();
-                        edT1.getText().clear();
-                        edT2.getText().clear();
-                        edT3.getText().clear();
-                        edT4.getText().clear();
+                        notifNewUser(edT.getText().toString(),edT1.getText().toString(),edT2.getText().toString(),edT3.getText().toString());
                     }else{
                         progressDialog.dismiss();
                         Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
@@ -157,5 +130,37 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(SignUpActivity.this, "Verifier nom utilisateur et mot de pass", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void notifNewUser(String nom, String telephone, String username, String email) {
+        //Get an instance of NotificationManager//
+
+        NotificationCompat.Builder mBuilder =
+                (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.notification_icon)
+                        .setContentTitle("Bienvenue sur FayBer App: "+nom)
+                        .setSubText(""+username)
+                        .setContentText("Vos Informations :\n"+telephone+"\n"+email);
+
+        // Gets an instance of the NotificationManager service//
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+//When you issue multiple notifications about the same type of event, it’s best practice for your app to try to update an existing notification with this new information, rather than immediately creating a new notification. If you want to update this notification at a later date, you need to assign it an ID. You can then use this ID whenever you issue a subsequent notification. If the previous notification is still visible, the system will update this existing notification, rather than create a new one. In this example, the notification’s ID is 001//
+
+        //NotificationManager.notify().
+
+        mNotificationManager.notify(001, mBuilder.build());
+
+        edT.getText().clear();
+        edT1.getText().clear();
+        edT2.getText().clear();
+        edT3.getText().clear();
+        edT4.getText().clear();
+        startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+        finish();
+
     }
 }

@@ -71,8 +71,6 @@ public class ResponseActivity extends AppCompatActivity {
         }
     }
     public void onLogButton(View v) {
-       // Intent i = new Intent(ResponseActivity.this, FayActivity.class);
-     //   startActivity(i);
         if (etName.getText().toString().equals("") && etMessagi.getText().toString().equals("") &&
                 etPhono.getText().toString().equals("") && etMaili.getText().toString().equals(""))
         {
@@ -89,6 +87,7 @@ public class ResponseActivity extends AppCompatActivity {
                 startActivity(i);
                 finishAffinity();
                 return true;
+
         }
         return super.onOptionsItemSelected(item);
     }

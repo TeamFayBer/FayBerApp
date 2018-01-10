@@ -7,14 +7,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import Models.Equipe;
+import adapters.EquipeArrayAdapter;
 import codepath.fayberapp.R;
 
-public class TeamFayBerActivity extends AppCompatActivity {
+public class TeamFayBerActivity extends AppCompatActivity { 
     EquipeArrayAdapter equipeAdapter;
     ArrayList<Equipe> aEquipe;
     ListView lvEquipe;
@@ -22,6 +22,9 @@ public class TeamFayBerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_fay_ber);
+        //call the buttom back
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         // call the listview
@@ -33,8 +36,8 @@ public class TeamFayBerActivity extends AppCompatActivity {
                 Equipe equipe = (Equipe) lvEquipe.getItemAtPosition(position);
                // Toast.makeText(TeamFayBerActivity.this, "Just click on the list and get back to do other choice", Toast.LENGTH_SHORT).show();
                 //Intent i = new Intent(TeamFayBerActivity.this, FayActivity.class);
-                //i.putExtra("Equipe", equipe);
-               // startActivity(i);
+               // i.putExtra("Equipe", equipe);
+             //   startActivity(i);
 
 
                 //map

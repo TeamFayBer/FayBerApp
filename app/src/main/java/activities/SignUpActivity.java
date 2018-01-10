@@ -73,7 +73,7 @@ public class SignUpActivity extends AppCompatActivity {
                 (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.notification_icon)
                         .setContentTitle("My notification")
-                        .setContentText("Hello World!");
+                        .setContentText("Welcome");
 
         // Gets an instance of the NotificationManager service//
 

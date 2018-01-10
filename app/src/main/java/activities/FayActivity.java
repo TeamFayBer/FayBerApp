@@ -44,7 +44,6 @@ public class FayActivity extends AppCompatActivity
     ProgressBar progress;
     private SwipeRefreshLayout swiperefresh;
     // call the adapter,the listview and the model
-    // call the adapter,the listview and the model
     ServiceArrayAdapter serviceAdapter;
     ArrayList<Services> aServices;
     ListView lvServices;
@@ -82,22 +81,25 @@ public class FayActivity extends AppCompatActivity
             }
         });
 
-        getListService();
-
+       getListService();
         swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 progress.setVisibility(View.VISIBLE);
-                getListService();
+               getListService();
                 swiperefresh.setRefreshing(false);
             }
         });
+
+
         // Configure the refreshing colors
         swiperefresh.setColorSchemeResources(android.R.color.holo_red_light,
                 android.R.color.holo_orange_dark,
-                android.R.color.holo_red_dark);
+               android.R.color.holo_red_dark);
 
         progress.setVisibility(View.VISIBLE);
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -164,7 +166,7 @@ public class FayActivity extends AppCompatActivity
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         // Expand the search view and request focus
         //searchItem.expandActionView();
-        // searchView.requestFocus();
+        searchView.requestFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

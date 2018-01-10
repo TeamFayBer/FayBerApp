@@ -1,4 +1,4 @@
-package activities;
+package adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -18,25 +18,29 @@ import codepath.fayberapp.R;
 import static java.security.AccessController.getContext;
 
 
-public class EquipeArrayAdapter  extends ArrayAdapter<Equipe> {
-    public EquipeArrayAdapter(Context context, ArrayList<Equipe> equipe) {
+public class EquipeArrayAdapter  extends ArrayAdapter<Equipe>
+{
+    public EquipeArrayAdapter(Context context, ArrayList<Equipe> equipe)
+    {
         super(context, android.R.layout.simple_list_item_1, equipe);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
         // get the data item for position
         Equipe equipe = getItem(position);
 
         // check the existing view being reused
-        if (convertView == null) {
+        if (convertView == null)
+        {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.fayber_equipe, parent, false);
         }
 
 
         // find the image view
-        ImageView ivImage1 = (ImageView) convertView.findViewById(R.id.ivProfil);
+             ImageView ivImage1 = (ImageView) convertView.findViewById(R.id.ivProfil);
         // clear out image from convertView
         // ivImage1.setImageResource(0);
 

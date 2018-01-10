@@ -16,6 +16,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,6 +37,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
     EditText  mTodayDate, etAdresse, etMaladie, etMedecin, etContactMedecin ;
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
+    String sexe,gSanguin,theDate,adresse,maladie,medecin,contactMedecin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +139,14 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
                     if(mTodayDate.getText().toString().equals("") || etAdresse.getText().toString().equals("") || etMaladie.getText().toString().equals("") || etMedecin.getText().toString().equals("")  || etContactMedecin.getText().toString().equals("") ){
                         Toast.makeText(FicheDemandeActivity.this, "Des champs sont vides...", Toast.LENGTH_SHORT).show();
                     }else{
-                        senMail();
+                        sexe = spinner.getSelectedItem().toString();
+                        gSanguin = spin.getSelectedItem().toString();
+                        theDate = mTodayDate.getText().toString();
+                        adresse = etAdresse.getText().toString();
+                        maladie = etMaladie.getText().toString();
+                        medecin = etMedecin.getText().toString();
+                        contactMedecin = etContactMedecin.getText().toString();
+                        saveDemandClient(sexe,gSanguin,theDate,adresse,maladie,medecin,contactMedecin);
                     }
                 }else{
                     Toast.makeText(getApplicationContext(), "Select sex ou GS", Toast.LENGTH_SHORT).show();
@@ -142,6 +154,23 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
             }
         });
 
+    }
+
+    private void saveDemandClient(String sexe, String gSanguin, String theDate, String adresse, String maladie, String medecin, String contactMedecin) {
+        senMail();
+
+        String url = "http://fayberagency.com/v1/app/register_user.php";
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        RequestParams params = new RequestParams();
+        params.put("nom_client", edT.getText().toString());
+        params.put("password_client", edT4.getText().toString());
+        params.put("telephone_client", edT1.getText().toString());
+        params.put("username_client", edT2.getText().toString());
+        params.put("email_client", edT3.getText().toString());
+        client.post(url,params, new JsonHttpResponseHandler(){
+
+        });
     }
 
     @Override

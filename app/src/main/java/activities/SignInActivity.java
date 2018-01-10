@@ -66,6 +66,15 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        /*
+        TelephonyManager tMgr = (TelephonyManager)mAppContext.getSystemService(Context.TELEPHONY_SERVICE);
+String mPhoneNumber = tMgr.getLine1Number();
+
+In AndroidManifest.xml, give the following permission:
+
+ <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+         */
     }
 
     public void onLogButton(View v) {
@@ -146,6 +155,7 @@ public class SignInActivity extends AppCompatActivity {
         });
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

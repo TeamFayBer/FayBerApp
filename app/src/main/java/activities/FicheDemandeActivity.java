@@ -72,7 +72,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 
         btnenvoyer = (Button) findViewById(R.id.btnEnvoyer);
 
-
+        progressDialog = new ProgressDialog(FicheDemandeActivity.this);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Sauvegarde en cours...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);

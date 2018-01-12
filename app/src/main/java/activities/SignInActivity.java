@@ -34,6 +34,7 @@ public class SignInActivity extends AppCompatActivity {
     TextView text;
     TextView text1;
     ImageView Pic;
+    Services serv;
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
     ProgressDialog progressDialog;
@@ -59,10 +60,13 @@ public class SignInActivity extends AppCompatActivity {
         but = (Button) findViewById(R.id.btnSignUp);
         but1 = (Button) findViewById(R.id.btnSignIn1);
 
+        serv = (Services) getIntent().getSerializableExtra("services");
+
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
+                i.putExtra("services",serv);
                 startActivity(i);
             }
         });
@@ -122,7 +126,6 @@ In AndroidManifest.xml, give the following permission:
                             editor.putString("username_client", articleJsonResults.getJSONObject(0).getString("username_client"));
                             editor.apply();
 
-                            Services serv = (Services) getIntent().getSerializableExtra("services");
                             i.putExtra("services",serv);
 
                             Toast.makeText(SignInActivity.this, "Welcome back "+articleJsonResults.getJSONObject(0).getString("username_client"), Toast.LENGTH_SHORT).show();

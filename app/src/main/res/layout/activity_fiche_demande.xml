@@ -35,7 +35,6 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_height="wrap_content"
-        android:id="@+id/Adress"
         android:layout_marginBottom="5dp">
 
         <EditText
@@ -51,176 +50,327 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:gravity="left"
-            android:hint="Adresse"
+            android:hint="Votre adresse"
             android:inputType="textPersonName"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
-
     </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spiGroudSanguin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="2"
+            android:visibility="visible"/>
+
+        <Spinner
+            android:id="@+id/spiSexe"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="visible"
+            android:prompt="@string/sexeTitle"/>
+    </LinearLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:id="@+id/Date"
         android:layout_marginBottom="5dp">
 
         <EditText
-            android:id="@+id/etDate"
+            android:id="@+id/etRaison"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:layout_height="150dp"
             android:layout_below="@+id/etAdresse"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:digits="1234567890"
             android:ems="8"
-            android:hint="@string/DateNaissance"
-            android:inputType="date"
-            android:maxLength="8"
-            android:onClick="showDatePickerDialog"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            tools:ignore="RelativeOverlap" />
-    </android.support.design.widget.TextInputLayout>
-  <!--  <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:id="@+id/Relation"
-        android:layout_marginBottom="5dp">
-
-        <EditText
-            android:id="@+id/etGroupeSanguin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/etMaladie"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Groupe Sanguin"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-
-    </android.support.design.widget.TextInputLayout> -->
-
-    <Spinner
-        android:id="@+id/spiGroudSanguin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:visibility="visible"/>
-
-    <Spinner
-        android:id="@+id/spiSexe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:visibility="visible"
-        android:prompt="@string/sexeTitle"/>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/Maladie"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
-
-        <EditText
-            android:id="@+id/etMaladie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/etDate"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Raison de la demande et/ou MAladie"
-            android:inputType="textPersonName"
-            android:lines="4"
+            android:hint="Raison demande :"
+            android:inputType="textLongMessage"
+            android:lines="5"
+            android:maxLength="1500"
             android:minLines="2"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+            tools:ignore="RelativeOverlap" />
 
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:id="@+id/Medecin"
-        android:layout_marginBottom="5dp">
+        android:text="Information Docteur"/>
 
-        <EditText
-            android:id="@+id/etMedecin"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etNomDoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="textPersonName"
+                android:maxLength="100"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:hint="Nom :"
+                tools:ignore="RelativeOverlap" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etTelDoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="phone"
+                android:digits="1234567890+"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:hint="Téléphone :"
+                tools:ignore="RelativeOverlap" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etClinicDoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="textPersonName"
+                android:maxLength="140"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:hint="Clinique :"
+                tools:ignore="RelativeOverlap" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etAdrDoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="textPersonName"
+                android:maxLength="140"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:hint="Adresse clinique :"
+                tools:ignore="RelativeOverlap" />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disponibilité :"/>
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- Lundi -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/etLieuNaissance"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Nom Complet Medecin Traitant"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chLun"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Lundi"/>
 
-
-   
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:id="@+id/ContactMedecin"
-        android:layout_marginBottom="5dp">
-
-        <EditText
-            android:id="@+id/etContactMedecin"
+            <Spinner
+                android:layout_weight="2"
+                android:id="@+id/spHLundi"
+                android:layout_width="match_parent"
+                android:entries="@array/hours_list"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!-- mardi -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etMedecin"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:gravity="left"
-            android:hint="Adresse et/ou Telephone Medecin Traitant"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chMardi"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Lundi"/>
 
-    </android.support.design.widget.TextInputLayout>
+            <Spinner
+                android:layout_weight="2"
+                android:id="@+id/spHMar"
+                android:layout_width="match_parent"
+                android:entries="@array/hours_list"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!-- Mercredi -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chMercredi"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Mercredi"/>
+
+            <Spinner
+                android:layout_weight="2"
+                android:id="@+id/spHMer"
+                android:layout_width="match_parent"
+                android:entries="@array/hours_list"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!-- Jeudi -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chJeu"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Jeudi"/>
+
+            <Spinner
+                android:layout_weight="2"
+                android:id="@+id/spHJeu"
+                android:layout_width="match_parent"
+                android:entries="@array/hours_list"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!-- Vendredi -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chVend"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Vendredi"/>
+
+            <Spinner
+                android:layout_weight="2"
+                android:id="@+id/spHVend"
+                android:layout_width="match_parent"
+                android:entries="@array/hours_list"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!-- Samedi -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chSam"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Samedi"/>
+
+            <Spinner
+                android:layout_weight="2"
+                android:id="@+id/spHSam"
+                android:layout_width="match_parent"
+                android:entries="@array/hours_list"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!-- Dimanche-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chDim"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Dimanche"/>
+
+            <Spinner
+                android:layout_weight="2"
+                android:id="@+id/spHDim"
+                android:layout_width="match_parent"
+                android:entries="@array/hours_list"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnEnvoyer"

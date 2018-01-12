@@ -255,12 +255,12 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
                        notifNewUser(sharedPreferences.getString("nom_client", null),adrClient,gsClient,serv.getTitle());
                     }else{
                         progressDialog.dismiss();
-                        Toast.makeText(FicheDemandeActivity.this, "Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FicheDemandeActivity.this, "-Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
                     }
 
 
                 } catch (JSONException e) {
-                    Toast.makeText(FicheDemandeActivity.this, "Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FicheDemandeActivity.this, "*Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                     e.printStackTrace();
                 }

@@ -208,7 +208,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
                             disponibiliteClient += "Dimanche "+spHDim.getSelectedItem().toString()+" - ";
                         }
 
-
+                        progressDialog.show();
                         saveDemandClient(adrClient,raisonClient,docClient,telDocClient,clinicDocClient,adrClinicClient, sexeClient, gsClient, disponibiliteClient);
                     }
 
@@ -270,6 +270,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String responseString, Throwable throwable) {
                 Toast.makeText(FicheDemandeActivity.this, "Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
             }
         });
     }

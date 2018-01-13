@@ -3,10 +3,12 @@ package activities;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
@@ -187,25 +189,25 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 
                         disponibiliteClient = "";
                         if(chLun.isChecked()){
-                            disponibiliteClient += "Lundi "+spHLundi.getSelectedItem().toString()+" - ";
+                            disponibiliteClient += "Lundi "+spHLundi.getSelectedItem().toString()+" ; ";
                         }
                         if(chMardi.isChecked()){
-                            disponibiliteClient += "Mardi "+spHMar.getSelectedItem().toString()+" - ";
+                            disponibiliteClient += "Mardi "+spHMar.getSelectedItem().toString()+" ; ";
                         }
                         if(chMercredi.isChecked()){
-                            disponibiliteClient += "Mercredi "+spHMer.getSelectedItem().toString()+" - ";
+                            disponibiliteClient += "Mercredi "+spHMer.getSelectedItem().toString()+" ; ";
                         }
                         if(chJeu.isChecked()){
-                            disponibiliteClient += "Jeudi "+spHJeu.getSelectedItem().toString()+" - ";
+                            disponibiliteClient += "Jeudi "+spHJeu.getSelectedItem().toString()+" ; ";
                         }
                         if(chVend.isChecked()){
-                            disponibiliteClient += "Vendredi "+spHVend.getSelectedItem().toString()+" - ";
+                            disponibiliteClient += "Vendredi "+spHVend.getSelectedItem().toString()+" ; ";
                         }
                         if(chSam.isChecked()){
-                            disponibiliteClient += "Samedi "+spHSam.getSelectedItem().toString()+" - ";
+                            disponibiliteClient += "Samedi "+spHSam.getSelectedItem().toString()+" ; ";
                         }
                         if(chDim.isChecked()){
-                            disponibiliteClient += "Dimanche "+spHDim.getSelectedItem().toString()+" - ";
+                            disponibiliteClient += "Dimanche "+spHDim.getSelectedItem().toString()+" ; ";
                         }
 
                         progressDialog.show();
@@ -249,20 +251,25 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
                 try {
 
                     Object objectlogin = response.get("response");
+                    System.out.println(objectlogin.toString());
                     if (objectlogin instanceof JSONArray) {
                         articleJsonResults = response.getJSONArray("response");
                         progressDialog.dismiss();
-                       notifNewUser(sharedPreferences.getString("nom_client", null),adrClient,gsClient,serv.getTitle());
+                        if(articleJsonResults.getJSONObject(0).getString("saveClient").equals("success")){
+                            notifNewUser(sharedPreferences.getString("nom_client", null),adrClient,gsClient,serv.getTitle());
+                        }else{
+                            alerteConfirm("essayer a nouveau ","vos informations n'ont pas ete enregistre");
+                        }
                     }else{
                         progressDialog.dismiss();
-                        Toast.makeText(FicheDemandeActivity.this, "Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
+                        alerteConfirm("essayer a nouveau ","vos informations n'ont pas ete enregistre");
                     }
 
 
                 } catch (JSONException e) {
-                    Toast.makeText(FicheDemandeActivity.this, "Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
                     e.printStackTrace();
+                    progressDialog.dismiss();
+                    alerteConfirm("essayer a nouveau ","vos informations n'ont pas ete enregistre");
                 }
 
             }
@@ -270,6 +277,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String responseString, Throwable throwable) {
                 Toast.makeText(FicheDemandeActivity.this, "Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
+                System.out.println(responseString);
                 progressDialog.dismiss();
             }
         });
@@ -367,5 +375,21 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
         finishAffinity();
         //edT.getText().clear();
 
+    }
+
+
+    private void alerteConfirm(final String info, final String desc) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getApplicationContext());
+
+        progressDialog.dismiss();
+        dialog.setTitle("Echec demande : ")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setMessage(info+"\n"+desc)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialoginterface, int i) {
+                        dialoginterface.cancel();
+                    }
+                });
+        dialog.show();
     }
 }

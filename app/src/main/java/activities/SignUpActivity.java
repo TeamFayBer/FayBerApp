@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Models.Services;
 import codepath.fayberapp.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText edT2;
     EditText edT3;
     EditText edT4;
+    Services serv;
     JSONArray articleJsonResults;
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
@@ -42,6 +44,8 @@ public class SignUpActivity extends AppCompatActivity {
         //  setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        serv = (Services) getIntent().getSerializableExtra("services");
 
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -83,6 +87,9 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
     public void getInfoRegisterUser(){
+        //fayapp@fayberagency.com
+        // F@yApp!2
+
 
         String url = "http://fayberagency.com/v1/app/register_user.php";
         AsyncHttpClient client = new AsyncHttpClient();
@@ -109,7 +116,7 @@ public class SignUpActivity extends AppCompatActivity {
                         editor.putString("email_client", edT3.getText().toString());
                         editor.putString("username_client", edT2.getText().toString());
                         editor.apply();
-                        Toast.makeText(SignUpActivity.this, "hello user...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, edT.getText().toString()+", Bienvenue sur Fayber app...", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
                         notifNewUser(edT.getText().toString(),edT1.getText().toString(),edT2.getText().toString(),edT3.getText().toString());
                     }else{
@@ -159,8 +166,10 @@ public class SignUpActivity extends AppCompatActivity {
         edT2.getText().clear();
         edT3.getText().clear();
         edT4.getText().clear();
-        startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
-        finish();
+        Intent i = new Intent(SignUpActivity.this, SignInActivity.class);
+        i.putExtra("services",serv);
+        startActivity(i);
+        finishAffinity();
 
     }
 }

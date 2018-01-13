@@ -34,4 +34,17 @@
     <string name="information"><![CDATA[Le service des soins infirmiers à domicile est une alternative à l\'hospitalisation. Il favorise, d\'une part, la continuité des soins jusqu\'au domicile des patients/clients, d\'autre part, la liberté de choix des patients/clients de rester chez eux s\'ils le souhaitent et si leur état de santé le permet à un cout moindre que ce de l\'hospitalisation conventionnelle. \tBien qu\'il soit un secteur, en pleine expansion dans les pays occidentaux, encore en développement dans les pays du tiers-monde, est aujourd\'hui effectif en HAITI avec nous. \tNotre mission est d\'accompagner le patient/client, considérer dans sa globalité comme être bio-psycho-socio spirituel, jusqu\'à lui permettre de retrouver et/ou de conserver sa santé, de retrouver le moyen de fonctionner à la dimension souhaitée ou possible. \tFay&amp;Ber Nursing Care Agency à pour objectif de: favoriser la continuité des soins à domicile à un prix abordable au grand public; assurer la mise en application des prescriptions médicales établis par le ou les médecins prescripteurs; contribuer de manière active à réduire le taux de mortalité lié aux problèmes de soins et ou non accès aux soins; mettre en place des dispositifs permettant de traiter en ambulatoire des pathologies chroniques et autres.]]></string>
     <string name="message">Message</string>
     <string name="contactez_nous">Contactez-Nous</string>
+
+    <string-array name="hours_list">
+        <item>8h - 9h</item>
+        <item>9h - 10h</item>
+        <item>10h - 11h</item>
+        <item>11h - 12h</item>
+        <item>12h - 13h</item>
+        <item>13h - 14h</item>
+        <item>14h - 15h</item>
+        <item>15h - 16h</item>
+        <item>16h - 17h</item>
+        <item>17h - 18h</item>
+    </string-array>
 </resources>

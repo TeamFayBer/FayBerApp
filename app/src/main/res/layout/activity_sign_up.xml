@@ -22,6 +22,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:id="@+id/Nom"
         android:layout_marginBottom="-5dp">
 
@@ -43,9 +45,9 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:id="@+id/Phone"
         android:layout_marginBottom="3dp">
 
@@ -54,6 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:layout_below="@+id/etNomComplet"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/ic_action_namephone"
@@ -68,6 +72,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:id="@+id/Identifiant"
         android:layout_marginBottom="-5dp">
 
@@ -90,6 +96,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:id="@+id/Mail"
         android:layout_marginBottom="-5dp">
 
@@ -124,6 +132,8 @@
             android:layout_below="@id/etMail"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:hint="Creer Mot de Pass"
             android:drawableLeft="@drawable/ic_action_passcode"
             android:ems="10"
@@ -139,6 +149,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         app:passwordToggleEnabled="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:id="@+id/ConPasscode"
         android:layout_marginBottom="-5dp">
 

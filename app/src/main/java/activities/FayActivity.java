@@ -91,25 +91,22 @@ public class FayActivity extends AppCompatActivity
             }
         });
 
-       getListService();
+        getListService();
+
         swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 progress.setVisibility(View.VISIBLE);
-               getListService();
+                getListService();
                 swiperefresh.setRefreshing(false);
             }
         });
-
-
         // Configure the refreshing colors
         swiperefresh.setColorSchemeResources(android.R.color.holo_red_light,
                 android.R.color.holo_orange_dark,
-               android.R.color.holo_red_dark);
+                android.R.color.holo_red_dark);
 
         progress.setVisibility(View.VISIBLE);
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -121,7 +118,7 @@ public class FayActivity extends AppCompatActivity
 
         View header=navigationView.getHeaderView(0);
         tvName=(TextView)header.findViewById(R.id.tvName);
-
+        tvPhone=(TextView)header.findViewById(R.id.tvPhone);
 
         if(sharedPreferences.getString("id_client", null)!=null){
             tvName.setVisibility(View.VISIBLE);
@@ -135,7 +132,6 @@ public class FayActivity extends AppCompatActivity
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
         }
     }
-
     private void getListService() {
         aServices = new ArrayList<>();
         serviceAdapter = new ServiceArrayAdapter(FayActivity.this, aServices);

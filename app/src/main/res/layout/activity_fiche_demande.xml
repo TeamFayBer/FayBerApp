@@ -230,14 +230,14 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/mybutton"
         android:onClick="onLogButton"
         android:scaleType="fitCenter"
         android:text="@string/envoyer"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="14sp"
+        android:textSize="15dp"
         tools:ignore="ObsoleteLayoutParam" />
 
 

@@ -54,6 +54,8 @@
             android:inputType="textPersonName"
             android:textColor="@android:color/black"
             android:textSize="16sp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
     </android.support.design.widget.TextInputLayout>
@@ -107,6 +109,9 @@
             android:lines="5"
             android:maxLength="1500"
             android:minLines="2"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/etNomDoc"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:ignore="RelativeOverlap" />
@@ -141,6 +146,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:hint="Nom :"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
+                android:nextFocusDown="@+id/etTelDoc"
                 tools:ignore="RelativeOverlap" />
         </android.support.design.widget.TextInputLayout>
 
@@ -157,6 +165,9 @@
                 android:digits="1234567890+"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
+                android:nextFocusDown="@+id/etClinicDoc"
                 android:hint="Téléphone :"
                 tools:ignore="RelativeOverlap" />
         </android.support.design.widget.TextInputLayout>
@@ -175,6 +186,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:hint="Clinique :"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
+                android:nextFocusForward="@+id/etAdrDoc"
                 tools:ignore="RelativeOverlap" />
         </android.support.design.widget.TextInputLayout>
 
@@ -191,6 +205,8 @@
                 android:maxLength="140"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
                 android:hint="Adresse clinique :"
                 tools:ignore="RelativeOverlap" />
         </android.support.design.widget.TextInputLayout>
@@ -246,7 +262,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="Lundi"/>
+                android:text="Mardi"/>
 
             <Spinner
                 android:layout_weight="2"

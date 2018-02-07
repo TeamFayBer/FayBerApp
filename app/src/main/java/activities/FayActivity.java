@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import Models.Services;
 import adapters.ServiceArrayAdapter;
 import codepath.fayberapp.AproposActivity;
+import codepath.fayberapp.HistoricActivity;
 import codepath.fayberapp.MyBrowser;
 import codepath.fayberapp.PartenaireActivity;
 import codepath.fayberapp.R;
@@ -256,6 +257,9 @@ public class FayActivity extends AppCompatActivity
             startActivity(new Intent(getApplicationContext(), FayActivity.class));
             finish();
         } else if (id == R.id.nav_share) {
+        }else if (id == R.id.nav_historic) {
+            Intent i = new Intent(FayActivity.this, HistoricActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_contact) {
             Intent i = new Intent(FayActivity.this, ResponseActivity.class);
             startActivity(i);

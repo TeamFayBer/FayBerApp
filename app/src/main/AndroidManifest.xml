@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="codepath.fayberapp">
 
-
-<uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -29,38 +27,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name="activities.AccueilActivity" />
-
         <activity android:name="activities.localisationActivity" />
-
         <activity
             android:name="activities.DetailsActivity"
-            android:screenOrientation="portrait"
-            android:label="Details" />
+            android:label="Details"
+            android:screenOrientation="portrait" />
         <!-- android:theme="@style/AppTheme.NoActionBar" -->
         <activity
             android:name="activities.SignInActivity"
-            android:screenOrientation="portrait"
-            android:label="Connecter" />
+            android:label="Connecter"
+            android:screenOrientation="portrait" />
         <activity
             android:name="activities.SignUpActivity"
-            android:screenOrientation="portrait"
-            android:label="Enregistrer" />
+            android:label="Enregistrer"
+            android:screenOrientation="portrait" />
         <activity android:name="activities.FicheDemandeActivity" />
-        <activity android:name="activities.ResponseActivity"
-            android:screenOrientation="portrait"/>
-
+        <activity
+            android:name="activities.ResponseActivity"
+            android:screenOrientation="portrait" />
         <activity android:name="activities.TeamFayBerActivity" />
-
         <activity android:name=".PartenaireActivity" />
-        <activity android:name=".AproposActivity"
-            android:screenOrientation="portrait"/>
-
-
-
-        <activity android:name=".MyBrowser"></activity>
-
+        <activity
+            android:name=".AproposActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MyBrowser" />
+        <activity android:name=".HistoricActivity"></activity>
     </application>
 
 </manifest>

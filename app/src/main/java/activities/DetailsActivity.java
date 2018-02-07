@@ -38,6 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         serv = (Services) getIntent().getSerializableExtra("services");
+        getSupportActionBar().setTitle("Fiche "+serv.getTitle());
 
         tvText = (TextView) findViewById(R.id.tvDetails);
         tvText.setText(serv.getDetails().toString());
@@ -56,31 +57,31 @@ public class DetailsActivity extends AppCompatActivity {
     public void changeImage(int position){
         switch (position) {
             case 0:
-                ImageItem.setImageResource(R.drawable.fitness);
+                ImageItem.setImageResource(R.drawable.blood); //blood fitness
                 break;
             case 1:
-                ImageItem.setImageResource(R.drawable.blood);
+                ImageItem.setImageResource(R.drawable.bandage); //bandage blood
                 break;
             case 2:
-                ImageItem.setImageResource(R.drawable.diab);
+                ImageItem.setImageResource(R.drawable.diabetes);//diabetes diab
                 break;
             case 3:
-                ImageItem.setImageResource(R.drawable.diabetes);
+                ImageItem.setImageResource(R.drawable.diab);//diab diabetes
                 break;
             case 4:
-                ImageItem.setImageResource(R.drawable.diete);
+                ImageItem.setImageResource(R.drawable.fitness);//fitness diete
                 break;
             case 5:
-                ImageItem.setImageResource(R.drawable.ok);
+                ImageItem.setImageResource(R.drawable.ok);//ok
                 break;
             case 6:
-                ImageItem.setImageResource(R.drawable.walker);
+                ImageItem.setImageResource(R.drawable.mental);//mental walker
                 break;
             case 7:
-                ImageItem.setImageResource(R.drawable.bandage);
+                ImageItem.setImageResource(R.drawable.diete);//diete bandage
                 break;
             case 8:
-                ImageItem.setImageResource(R.drawable.mental);
+                ImageItem.setImageResource(R.drawable.walker);//walker mental
                 break;
             default:
         }

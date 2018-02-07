@@ -53,6 +53,9 @@
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:textSize="18sp"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/etPass"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
 
@@ -71,6 +74,8 @@
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:textSize="18sp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
         <Button

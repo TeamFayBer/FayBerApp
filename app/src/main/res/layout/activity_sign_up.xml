@@ -40,6 +40,9 @@
             android:inputType="textPersonName"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/etPhone"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 
@@ -66,6 +69,9 @@
             android:ems="10"
             android:inputType="phone"
             android:textColor="@color/colorAccent"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/etIdentif"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 
@@ -90,6 +96,9 @@
             android:inputType="textPersonName"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/etMail"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 
@@ -115,6 +124,9 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/etPass"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 
@@ -141,6 +153,9 @@
             android:inputType="textPassword"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/etConPass"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
     </android.support.design.widget.TextInputLayout>
@@ -168,6 +183,8 @@
             android:inputType="textPassword"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
     </android.support.design.widget.TextInputLayout>
 

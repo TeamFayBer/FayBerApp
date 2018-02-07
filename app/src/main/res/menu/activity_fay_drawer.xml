@@ -20,7 +20,13 @@
             android:icon="@mipmap/ic_partenaire"
             android:title="Nos Partenaires" />
     </group>
-        <item
+
+            <item
+                android:id="@+id/nav_historic"
+                android:icon="@drawable/ic_medical_history"
+                android:title="Historique" />
+
+            <item
                 android:id="@+id/nav_contact"
                 android:icon="@mipmap/ic_contact"
                 android:title="Contact" />

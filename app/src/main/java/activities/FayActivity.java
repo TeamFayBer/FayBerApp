@@ -58,6 +58,10 @@ public class FayActivity extends AppCompatActivity
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
     String saveListService;
+    NavigationView navigationView;
+    DrawerLayout drawer;
+    ActionBarDrawerToggle toggle;
+    View header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,15 +113,15 @@ public class FayActivity extends AppCompatActivity
 
         progress.setVisibility(View.VISIBLE);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        drawer = findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        View header=navigationView.getHeaderView(0);
+        header=navigationView.getHeaderView(0);
         tvName= header.findViewById(R.id.tvName);
         tvPhone= header.findViewById(R.id.tvPhone);
 
@@ -135,6 +139,79 @@ public class FayActivity extends AppCompatActivity
             navigationView.getMenu().findItem(R.id.nav_historic).setVisible(false);
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(sharedPreferences.getString("id_client", null)!=null){
+            tvName.setVisibility(View.VISIBLE);
+            tvPhone.setVisibility(View.VISIBLE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(true);
+            tvName.setText(sharedPreferences.getString("username_client", null));
+            tvPhone.setText(sharedPreferences.getString("telephone_client", null));
+        }else{
+            tvName.setVisibility(View.GONE);
+            tvPhone.setVisibility(View.GONE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(false);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(sharedPreferences.getString("id_client", null)!=null){
+            tvName.setVisibility(View.VISIBLE);
+            tvPhone.setVisibility(View.VISIBLE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(true);
+            tvName.setText(sharedPreferences.getString("username_client", null));
+            tvPhone.setText(sharedPreferences.getString("telephone_client", null));
+        }else{
+            tvName.setVisibility(View.GONE);
+            tvPhone.setVisibility(View.GONE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(false);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(sharedPreferences.getString("id_client", null)!=null){
+            tvName.setVisibility(View.VISIBLE);
+            tvPhone.setVisibility(View.VISIBLE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(true);
+            tvName.setText(sharedPreferences.getString("username_client", null));
+            tvPhone.setText(sharedPreferences.getString("telephone_client", null));
+        }else{
+            tvName.setVisibility(View.GONE);
+            tvPhone.setVisibility(View.GONE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(false);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(sharedPreferences.getString("id_client", null)!=null){
+            tvName.setVisibility(View.VISIBLE);
+            tvPhone.setVisibility(View.VISIBLE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(true);
+            tvName.setText(sharedPreferences.getString("username_client", null));
+            tvPhone.setText(sharedPreferences.getString("telephone_client", null));
+        }else{
+            tvName.setVisibility(View.GONE);
+            tvPhone.setVisibility(View.GONE);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(false);
+        }
+    }
+
     private void getListService() {
         aServices = new ArrayList<>();
         serviceAdapter = new ServiceArrayAdapter(FayActivity.this, aServices);
@@ -171,7 +248,6 @@ public class FayActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -273,7 +349,6 @@ public class FayActivity extends AppCompatActivity
             Intent i = new Intent(FayActivity.this, PartenaireActivity.class);
             startActivity(i);
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -277,6 +277,7 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String responseString, Throwable throwable) {
                 Toast.makeText(FicheDemandeActivity.this, "Echec sauvegarde, essayer a nouveau...", Toast.LENGTH_SHORT).show();
+                alerteConfirm("Echec Connexion ","vos informations n'ont pas ete enregistre");
                 System.out.println(responseString);
                 progressDialog.dismiss();
             }
@@ -297,10 +298,20 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Intent i = new Intent(getApplicationContext(), FayActivity.class);
+        // startActivity(i);
+        finish();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // Respond to the action bar's Up/Home button
+               // Intent i = new Intent(getApplicationContext(), FayActivity.class);
+               // startActivity(i);
                 finish();
                 return true;
         }

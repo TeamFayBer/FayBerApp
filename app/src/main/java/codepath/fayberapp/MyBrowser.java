@@ -1,20 +1,24 @@
 package codepath.fayberapp;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import activities.FayActivity;
 
 public class MyBrowser extends AppCompatActivity {
     private WebView myWebView;
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +27,13 @@ public class MyBrowser extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        myWebView = (WebView) findViewById(R.id.webview);
+        pd = new ProgressDialog(this);
+        pd.setTitle("Localisation en cours...");
+        pd.setMessage(".....");
+        pd.setCancelable(false);
+        pd.show();
+
+        myWebView =  findViewById(R.id.webview);
         // Configure related browser settings
         myWebView.getSettings().setLoadsImagesAutomatically(true);
         myWebView.getSettings().setJavaScriptEnabled(true);
@@ -31,7 +41,7 @@ public class MyBrowser extends AppCompatActivity {
         // Configure the client to use when opening URLs
         myWebView.setWebViewClient(new MyWebBrowser());
         // the initial URL
-                myWebView.loadUrl("https://goo.gl/maps/VoHn1dzMqSD2");
+        myWebView.loadUrl("https://goo.gl/maps/xkks3n16G3t");
 
         myWebView.getSettings().setSupportZoom(true);
         myWebView.getSettings().setBuiltInZoomControls(true); // allow pinch to zooom
@@ -64,6 +74,24 @@ public class MyBrowser extends AppCompatActivity {
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             view.loadUrl(request.getUrl().toString());
             return true;
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            Toast.makeText(MyBrowser.this, "!!!", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            pd.dismiss();
+            Toast.makeText(MyBrowser.this, "Ok!!!", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPageCommitVisible(WebView view, String url) {
+            super.onPageCommitVisible(view, url);
         }
     }
 }

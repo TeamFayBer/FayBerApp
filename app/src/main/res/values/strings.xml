@@ -35,6 +35,9 @@
     <string name="message">Message</string>
     <string name="contactez_nous">Contactez-Nous</string>
     <string name="details_service">Soins et procédés visant à s\'assurer l’hygiène corporelle du patient client et de son environnement.Soins et procédés visant à s\'assurer l’hygiène corporelle du patient client et de son environnement.</string>
+    <string name="itin_raire"><u>Itinéraire :</u></string>
+    <string name="adress">#6 Rue Assad, Avenue Jean Paul II/Bois Patate, Port-au-Prince 6120</string>
+    <string name="text_s">FayBer Nursing Care Agency   Services médicaux de proximité</string>
 
     <string-array name="hours_list">
         <item>8h - 9h</item>

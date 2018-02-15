@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -30,6 +31,7 @@ public class HistoricActivity extends AppCompatActivity {
 
     ProgressBar progress;
     private SwipeRefreshLayout swiperefresh;
+    TextView tvError;
     // call the adapter,the listview and the model
     HistoricArrayAdapter serviceAdapter;
     ArrayList<Historic_demande> aServices;
@@ -47,6 +49,8 @@ public class HistoricActivity extends AppCompatActivity {
 
         progress = (ProgressBar) findViewById(R.id.progress);
         swiperefresh = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        tvError = findViewById(R.id.tvError);
+        tvError.setVisibility(View.GONE);
 
         // call the listview
         lvServices = (ListView) findViewById(R.id.lvServices);
@@ -88,17 +92,28 @@ public class HistoricActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response)
             {
+                //if(objectBon instanceof JSONArray) {
                 serviceJsonResults = null;
                 try{
                     serviceJsonResults = response.getJSONArray("response");
-                    aServices.addAll(Historic_demande.fromJSONArray(serviceJsonResults));
-                    serviceAdapter.notifyDataSetChanged();
-                    progress.setVisibility(View.GONE);
-                    Log.d("DEBUG", aServices.toString());
+                    if(serviceJsonResults != null){
+                        aServices.addAll(Historic_demande.fromJSONArray(serviceJsonResults));
+                        serviceAdapter.notifyDataSetChanged();
+                        progress.setVisibility(View.GONE);
+                        tvError.setVisibility(View.GONE);
+                        Log.d("DEBUG", aServices.toString());
+                    }else{
+                        tvError.setText("Aucun Historique");
+                        tvError.setVisibility(View.VISIBLE);
+                        progress.setVisibility(View.GONE);
+                    }
                 }
                 catch (JSONException e)
                 {
                     e.printStackTrace();
+                    tvError.setText("Impossible de rejoindre le serveur \n Tirer vers le bas pour rafraichir");
+                    tvError.setVisibility(View.VISIBLE);
+                    progress.setVisibility(View.GONE);
                 }
             }
 
@@ -106,7 +121,9 @@ public class HistoricActivity extends AppCompatActivity {
             public void onFailure(int statusCode, Header[] headers,String responseString,Throwable throwable)
             {
                 super.onFailure(statusCode, headers, responseString, throwable);
-                getListService();
+                tvError.setText("Erreur Connexion, Essayer à nouveau... \n Tirer vers le bas pour rafraichir");
+                tvError.setVisibility(View.VISIBLE);
+                progress.setVisibility(View.GONE);
             }
         });
     }

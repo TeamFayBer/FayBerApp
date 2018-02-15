@@ -355,19 +355,16 @@ public class FicheDemandeActivity extends AppCompatActivity implements OnItemSel
 //notifNewUser(sharedPreferences.getString("nom_client", null),adrClient,gsClient,serv.getTitle());
         NotificationCompat.Builder mBuilder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.notification_icon)
+                        .setSmallIcon(R.mipmap.ic_launcherlogo)
+                        .setBadgeIconType(R.mipmap.ic_launcherlogo)
                         .setContentTitle("Fiche demande : "+nom)
                         .setSubText("Service demander :"+servi)
                         .setContentText("Vos Informations :\nAdresse : "+adrClient+"\n Groupe Sanguin : "+gsClient);
 
         // Gets an instance of the NotificationManager service//
-
-        NotificationManager mNotificationManager =
-
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
 //When you issue multiple notifications about the same type of event, it’s best practice for your app to try to update an existing notification with this new information, rather than immediately creating a new notification. If you want to update this notification at a later date, you need to assign it an ID. You can then use this ID whenever you issue a subsequent notification. If the previous notification is still visible, the system will update this existing notification, rather than create a new one. In this example, the notification’s ID is 001//
-
         //NotificationManager.notify().
 
         mNotificationManager.notify(001, mBuilder.build());

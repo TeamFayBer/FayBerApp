@@ -109,28 +109,30 @@ public class FayActivity extends AppCompatActivity
 
         progress.setVisibility(View.VISIBLE);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         View header=navigationView.getHeaderView(0);
-        tvName=(TextView)header.findViewById(R.id.tvName);
-        tvPhone=(TextView)header.findViewById(R.id.tvPhone);
+        tvName= header.findViewById(R.id.tvName);
+        tvPhone= header.findViewById(R.id.tvPhone);
 
         if(sharedPreferences.getString("id_client", null)!=null){
             tvName.setVisibility(View.VISIBLE);
             tvPhone.setVisibility(View.VISIBLE);
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(true);
             tvName.setText(sharedPreferences.getString("username_client", null));
             tvPhone.setText(sharedPreferences.getString("telephone_client", null));
         }else{
             tvName.setVisibility(View.GONE);
             tvPhone.setVisibility(View.GONE);
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_historic).setVisible(false);
         }
     }
     private void getListService() {
@@ -257,6 +259,7 @@ public class FayActivity extends AppCompatActivity
             startActivity(new Intent(getApplicationContext(), FayActivity.class));
             finish();
         } else if (id == R.id.nav_share) {
+            shareInfo();
         }else if (id == R.id.nav_historic) {
             Intent i = new Intent(FayActivity.this, HistoricActivity.class);
             startActivity(i);
@@ -273,6 +276,20 @@ public class FayActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    // To share via another apps
+    public void shareInfo(){
+        //add the message for sharing
+        //String messageToShare="Pour plus de detail et de contenu, visitez notre siteWeb- http://fayberagency.com/";
+        //"https://play.google.com/store/apps/details?id="+getApplicationContext().getPackageName()
+        //messageToShare = "visitez notre site Web:- http://fayberagency.com/";
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Fayber Agency App");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Pour plus de detail et de contenu vous pouvez télécharger l'application : https://play.google.com/store/apps/details?id=codepath.fayberapp ou \n visitez notre site Web : http://fayberagency.com/");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 }
 

@@ -128,8 +128,10 @@ public class DetailsActivity extends AppCompatActivity {
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, titre.getText().toString() + " " + messageToShare);
-        sendIntent.setType("text/plain");
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Fayber Agency App");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Pour plus de detail et de contenu vous pouvez télécharger l'application : https://play.google.com/store/apps/details?id=codepath.fayberapp ou \n visitez notre site Web : http://fayberagency.com/");
+        /*sendIntent.putExtra(Intent.EXTRA_TEXT, titre.getText().toString() + " " + messageToShare);
+        sendIntent.setType("text/plain");*/
         startActivity(sendIntent);
     }
 }

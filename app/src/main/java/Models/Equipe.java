@@ -1,8 +1,5 @@
 package Models;
 
-import android.text.TextUtils;
-import android.util.Log;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -51,7 +48,7 @@ public class Equipe implements Serializable {
         Equipe.setImage(R.drawable.berimage);
         Equipe.setTitle("Bertrand SALOMON");
         Equipe.setDetails("Fondateur, directeur administratif et marketing de Fay&Ber\n" +
-                " Gestionnaire public et privé, Gestionnaire d'opérations clientèles à ECONOSURANCE Inc. de Boston, Haïti étant.");
+                " Gestionnaire public et privé.");
         //
         Equipe Equipe3 = new Equipe();
         Equipe3.setImage(R.drawable.fayimage);
